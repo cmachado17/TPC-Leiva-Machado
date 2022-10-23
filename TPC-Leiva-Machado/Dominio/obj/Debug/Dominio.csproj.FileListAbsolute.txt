@@ -1,0 +1,6 @@
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\bin\Debug\Dominio.dll
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\bin\Debug\Dominio.pdb
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\obj\Debug\Dominio.dll
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\obj\Debug\Dominio.pdb

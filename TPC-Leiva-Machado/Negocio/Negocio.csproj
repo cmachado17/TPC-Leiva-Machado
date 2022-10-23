@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4542BF96-97DA-43B6-B26A-B6E57F8CB084}</ProjectGuid>
+    <ProjectGuid>{DAA1DD26-2AAB-47F7-8F2C-E3C233DFCB5E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dominio</RootNamespace>
-    <AssemblyName>Dominio</AssemblyName>
+    <RootNamespace>Negocio</RootNamespace>
+    <AssemblyName>Negocio</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,14 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cliente.cs" />
-    <Compile Include="Estado.cs" />
-    <Compile Include="Incidente.cs" />
-    <Compile Include="Prioridad.cs" />
+    <Compile Include="AccesoDatos.cs" />
+    <Compile Include="ClienteNegocio.cs" />
+    <Compile Include="EstadoNegocio.cs" />
+    <Compile Include="IncidenteNegocio.cs" />
+    <Compile Include="PrioridadNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Telefonista.cs" />
-    <Compile Include="TipoIncidencia.cs" />
-    <Compile Include="Usuario.cs" />
+    <Compile Include="TelefonistaNegocio.cs" />
+    <Compile Include="TipoNegocio.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{4542bf96-97da-43b6-b26a-b6e57f8cb084}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
