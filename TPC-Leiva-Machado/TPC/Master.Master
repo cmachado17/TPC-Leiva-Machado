@@ -20,6 +20,9 @@
                 <div class="container">
                     <div id="navbarNav" class="d-flex">
                         <a class="nav-link text-light" href="Home.aspx" >Home</a>
+                        <a class="nav-link text-light" href="Login.aspx" >Login</a>
+                        <a class="nav-link text-light" href="PreguntasFrecuentes.aspx" >Preguntas Frecuentes</a>
+                        <a class="nav-link text-light" href="Contacto.aspx">Contacto</a>
                     </div>
                     <div>
                         <asp:Label ID="lbCarrito" runat="server" Text="Articulos en el carrito: " Visible="false"></asp:Label>

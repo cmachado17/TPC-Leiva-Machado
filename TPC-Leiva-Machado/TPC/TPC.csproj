@@ -67,11 +67,51 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Contacto.aspx" />
+    <Content Include="Clientes.aspx" />
+    <Content Include="Incidentes.aspx" />
+    <Content Include="PreguntasFrecuentes.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contacto.aspx.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contacto.aspx.designer.cs">
+      <DependentUpon>Contacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Incidentes.aspx.cs">
+      <DependentUpon>Incidentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Incidentes.aspx.designer.cs">
+      <DependentUpon>Incidentes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PreguntasFrecuentes.aspx.cs">
+      <DependentUpon>PreguntasFrecuentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PreguntasFrecuentes.aspx.designer.cs">
+      <DependentUpon>PreguntasFrecuentes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

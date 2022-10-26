@@ -7,3 +7,12 @@ E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machad
 E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Negocio\obj\Debug\Negocio.csproj.CopyComplete
 E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Negocio\obj\Debug\Negocio.dll
 E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Negocio\bin\Debug\Negocio.dll
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Negocio\bin\Debug\Dominio.dll
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Negocio\bin\Debug\Dominio.pdb
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Negocio\obj\Debug\Negocio.csproj.AssemblyReference.cache
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Negocio\obj\Debug\Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Negocio\obj\Debug\Negocio.csproj.CopyComplete
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Negocio\obj\Debug\Negocio.dll
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Negocio\obj\Debug\Negocio.pdb
