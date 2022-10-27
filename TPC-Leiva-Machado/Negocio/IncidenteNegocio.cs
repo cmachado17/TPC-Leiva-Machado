@@ -37,7 +37,7 @@ namespace Negocio
                     aux.Cliente.Id = (int)datos.Lector["IdCliente"];
                     aux.Cliente.Nombre = (string)datos.Lector["NombreCliente"];
                     aux.Cliente.Apellido = (string)datos.Lector["ApellidoCliente"];
-                    aux.Cliente.email = (string)datos.Lector["EmailCliente"];
+                    aux.Cliente.Email = (string)datos.Lector["EmailCliente"];
                     aux.Resolucion = (string)datos.Lector["Resolucion"];
                     aux.Telefonista = new Telefonista();
                     aux.Telefonista.Id = (int)datos.Lector["IdTelefonista"];

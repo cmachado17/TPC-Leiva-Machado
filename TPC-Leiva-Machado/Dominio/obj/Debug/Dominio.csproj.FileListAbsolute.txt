@@ -4,3 +4,9 @@ E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machad
 E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
 E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\obj\Debug\Dominio.dll
 E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\obj\Debug\Dominio.pdb
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\bin\Debug\Dominio.dll
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\obj\Debug\Dominio.csproj.AssemblyReference.cache
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\obj\Debug\Dominio.dll
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Dominio\obj\Debug\Dominio.pdb

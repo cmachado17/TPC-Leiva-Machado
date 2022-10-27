@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Negocio;
 
 namespace TPC
 {
@@ -11,7 +12,9 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ClienteNegocio negocio = new ClienteNegocio();
+            dgvClientes.DataSource = negocio.listarCliente();
+            dgvClientes.DataBind();
         }
     }
 }
