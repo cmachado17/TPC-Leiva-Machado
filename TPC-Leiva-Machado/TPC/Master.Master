@@ -25,13 +25,14 @@
                         <a class="nav-link text-light" href="PreguntasFrecuentes.aspx" >Preguntas Frecuentes</a>
                         <a class="nav-link text-light" href="Contacto.aspx">Contacto</a>
                         <a class="nav-link text-light" href="Clientes.aspx">Clientes</a>
+                        <a class="nav-link text-light" href="Incidentes.aspx">Incidencias</a>
                     </div>
                     <div>
                         <asp:Label ID="lbCarrito" runat="server" Text="Articulos en el carrito: " Visible="false"></asp:Label>
                     </div>
                 </div>
             </nav>
-            <div class="container">
+            <div class="container py-5">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
                 </div>
