@@ -1,11 +1,13 @@
+USE CALLCENTER
+GO
 
-insert into CALLCENTER.dbo.Cliente (Nombre, Apellido, Email) 
+insert into CALLCENTER.dbo.Clientes(Nombres, Apellidos, DNI, Email, Telefono, FechaDeAlta,Activo) 
 VALUES 
-('Juan', 'Perez', 'juanperez@gmail.com'),
-('Carlos', 'Gomez', 'carlosgomez@gmail.com'),
-('Pedro', 'Martinez', 'pedromartinez@gmail.com')
+('Juan', 'Perez', '123','juanperez@gmail.com', '011445566',getdate(),1),
+('Carlos', 'Gomez', '345','carlosgomez@gmail.com', '011557788', getdate(),1),
+('Pedro', 'Martinez', '678','pedromartinez@gmail.com', '011778899', getdate(),1)
 
-insert into CALLCENTER.dbo.EstadoIncidencia(Descripcion) 
+insert into CALLCENTER.dbo.EstadoIncidencias(Descripcion) 
 VALUES 
 ('Abierto'),
 ('En analisis'),
@@ -14,27 +16,33 @@ VALUES
 ('Asignado'),
 ('Resuelto')
 
-insert into CALLCENTER.dbo.Perfil(Descripcion) 
+insert into CALLCENTER.dbo.Perfiles(Descripcion) 
 VALUES 
 ('Administrador'),
 ('Telefonista'),
 ('Supervisor')
 
-insert into CALLCENTER.dbo.PrioridadIncidencia(Descripcion) 
+insert into CALLCENTER.dbo.PrioridadIncidencias(Descripcion, Estado) 
 VALUES 
-('Alta'),
-('Media'),
-('Baja')
+('Alta',1),
+('Media',1),
+('Baja',1)
 
-insert into CALLCENTER.dbo.TipoIncidencia(Descripcion) 
+insert into CALLCENTER.dbo.TipoIncidencias(Descripcion, Estado) 
 VALUES 
-('Error'),
-('Consulta'),
-('Reclamo'),
-('Sugerencia')
+('Error',1),
+('Consulta',1),
+('Reclamo',1),
+('Sugerencia',1)
 
-insert into CALLCENTER.dbo.Usuario (Nombre, Apellido, DNI, Email, IdPerfil) 
+insert into CALLCENTER.dbo.Usuarios(Nombres, Apellidos, DNI, Email, IdPerfil, FechaDeAlta, Activo) 
 VALUES 
-('Antonio', 'Ramirez', '11222333','antonioramirez@gmail.com', 1),
-('Manuel', 'Giordano', '22445550', 'manuelgiordano@gmail.com',2),
-('Cecilia', 'Ledesma', '20304050', 'cecilialedesma@gmail.com',3)
+('Antonio', 'Ramirez', '11222333','antonioramirez@gmail.com', 1, getdate(), 1),
+('Manuel', 'Giordano', '22445550', 'manuelgiordano@gmail.com',2, getdate(), 1),
+('Cecilia', 'Ledesma', '20304050', 'cecilialedesma@gmail.com',3, getdate(), 1)
+
+insert into CALLCENTER.dbo.Motivos(Descripcion, Estado) 
+VALUES 
+('Cancelado',1),
+('Vencido',1),
+('Otros',1)
