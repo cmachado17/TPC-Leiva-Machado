@@ -26,8 +26,8 @@ CREATE TABLE Clientes(
 	DNI VARCHAR(25) NOT NULL,
 	Email VARCHAR(50) NOT NULL,
 	Telefono VARCHAR(50) NOT NULL,
-	FechaDeAlta date NOT NULL,
-	FechaDeBaja date,
+	FechaDeAlta datetime NOT NULL,
+	FechaDeBaja datetime,
 	Activo bit NOT NULL
 )
 GO
@@ -43,8 +43,8 @@ CREATE TABLE Usuarios(
 	DNI VARCHAR(50) NOT NULL,
 	Email VARCHAR(50) NOT NULL,
 	IdPerfil INT NOT NULL FOREIGN KEY REFERENCES Perfiles (ID),
-	FechaDeAlta date NOT NULL,
-	FechaDeBaja date,
+	FechaDeAlta datetime NOT NULL,
+	FechaDeBaja datetime NULL,
 	Activo bit NOT NULL
 )
 GO
