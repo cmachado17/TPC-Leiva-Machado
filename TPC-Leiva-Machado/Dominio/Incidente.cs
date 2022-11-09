@@ -13,7 +13,7 @@ namespace Dominio
         public Prioridad Prioridad { get; set; }
         public string Problematica { get; set; }
         public Estado Estado { get; set; }
-        public Cliente Cliente { get; set; }
+        public Clientes Cliente { get; set; }
         public string Resolucion { get; set; }
         public Telefonista Telefonista { get; set; }
         public string Motivo { get; set; }

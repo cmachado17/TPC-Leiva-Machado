@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cliente.cs" />
+    <Compile Include="Clientes.cs" />
     <Compile Include="Estado.cs" />
     <Compile Include="Incidente.cs" />
     <Compile Include="Prioridad.cs" />

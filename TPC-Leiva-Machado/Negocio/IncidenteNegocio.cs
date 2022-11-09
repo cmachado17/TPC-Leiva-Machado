@@ -33,7 +33,7 @@ namespace Negocio
                     aux.Estado = new Estado();
                     aux.Estado.Id = (int)datos.Lector["IdEstado"];
                     aux.Estado.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Cliente = new Cliente();
+                    aux.Cliente = new Clientes();
                     aux.Cliente.Id = (int)datos.Lector["IdCliente"];
                     aux.Cliente.Nombre = (string)datos.Lector["NombreCliente"];
                     aux.Cliente.Apellido = (string)datos.Lector["ApellidoCliente"];
