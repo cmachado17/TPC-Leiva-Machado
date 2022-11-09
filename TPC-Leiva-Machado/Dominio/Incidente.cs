@@ -13,9 +13,12 @@ namespace Dominio
         public Prioridad Prioridad { get; set; }
         public string Problematica { get; set; }
         public Estado Estado { get; set; }
-        public Clientes Cliente { get; set; }
-        public string Resolucion { get; set; }
-        public Telefonista Telefonista { get; set; }
-        public string Motivo { get; set; }
+        public Cliente Cliente { get; set; }
+        public Usuario UsuarioAsignado { get; set; }
+        public string Comentario { get; set; }
+        public Motivo Motivo { get; set; }
+        public DateTime FechaDeAlta { get; set; }
+        public DateTime FechaDeBaja { get; set; }
+        public Boolean Activo { get; set; }
     }
 }

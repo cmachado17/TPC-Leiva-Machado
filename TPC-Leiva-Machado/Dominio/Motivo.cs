@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Prioridad
+    internal class Motivo
     {
         public int Id { get; set; }
-
         public string Descripcion { get; set; }
         public Boolean Estado { get; set; }
 

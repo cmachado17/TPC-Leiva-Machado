@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dominio
 {
-    public class Telefonista : Usuario
+    internal class Perfil
     {
-        public int Legajo { get; set; }
+        public int Id { get; set; }
+
+        public string Descripcion { get; set; }
     }
 }
