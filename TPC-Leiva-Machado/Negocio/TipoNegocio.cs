@@ -16,7 +16,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("select Id, Descripcion from TipoIncidencia");
+                datos.setearConsulta("sp_listar_TiposInc");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -24,6 +24,7 @@ namespace Negocio
                     TipoIncidencia aux = new TipoIncidencia();
                     aux.Id = (int)datos.Lector["Id"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Estado = (Boolean)datos.Lector["Estado"];
 
                     lista.Add(aux);
                 }

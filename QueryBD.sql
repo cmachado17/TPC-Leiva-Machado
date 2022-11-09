@@ -63,7 +63,7 @@ CREATE TABLE Incidentes(
 	IdCliente INT NOT NULL FOREIGN KEY REFERENCES Clientes (ID),
 	IdUsuario INT NOT NULL FOREIGN KEY REFERENCES Usuarios (ID),
 	Comentario VARCHAR(100),
-	IdMotivo INT NOT NULL FOREIGN KEY REFERENCES Motivos (ID),
+	IdMotivo INT NULL FOREIGN KEY REFERENCES Motivos (ID),
 	FechaDeAlta datetime NOT NULL,
 	FechaDeBaja datetime,
 	Activo bit NOT NULL

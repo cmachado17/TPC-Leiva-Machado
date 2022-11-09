@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("select Id, Descripcion from PrioridadIncidencia");
+                datos.setearConsulta("sp_listar_Prioridad");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())

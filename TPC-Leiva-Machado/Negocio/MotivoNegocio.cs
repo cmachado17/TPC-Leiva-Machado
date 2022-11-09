@@ -1,30 +1,30 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dominio;
 
 namespace Negocio
 {
-    public class EstadoNegocio
+    public class MotivoNegocio
     {
         private AccesoDatos datos = new AccesoDatos();
-
-        public List<Estado> listarEstado()
+        public List<Motivo> listarMotivos()
         {
-            List<Estado> lista = new List<Estado>();
+            List<Motivo> lista = new List<Motivo>();
 
             try
             {
-                datos.setearConsulta("sp_listar_Estados");
+                datos.setearConsulta("sp_listar_Motivos");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
-                    Estado aux = new Estado();
+                    Motivo aux = new Motivo();
                     aux.Id = (int)datos.Lector["Id"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Estado = (Boolean)datos.Lector["Estado"];
 
                     lista.Add(aux);
                 }
@@ -42,3 +42,4 @@ namespace Negocio
         }
     }
 }
+

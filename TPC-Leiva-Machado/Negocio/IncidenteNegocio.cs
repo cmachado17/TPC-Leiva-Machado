@@ -16,7 +16,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("select INC.Id, INC.IdTipoIncidencia, TI.Descripcion 'Tipo', INC.IdPrioridad, PRI.descripcion 'Prioridad', INC.Problematica,INC.IdEstado, EI.Descripcion 'Estado', INC.IdCliente, CL.Nombre 'NombreCliente', CL.Apellido 'ApellidoCliente', CL.Email 'EmailCliente', INC.Resolucion, INC.IdTelefonista, TEL.Nombre 'NombreTel', TEL.Apellido 'ApellidoTel', TEL.Email 'EmailTel', TEL.Legajo, INC.Motivo from Incidente INC INNER JOIN TipoIncidencia TI ON TI.ID = INC.IdTipoIncidencia INNER JOIN PrioridadIncidencia PRI ON PRI.Id = INC.IdPrioridadIncidencia INNER JOIN EstadoIncidencia EI ON EI.ID = INC.IdEstadoIncidencia INNER JOIN Cliente CL ON CL.id = INC.idCliente INNER JOIN Telefonista TEL ON TEL.id = INC.idTelefonista");
+                datos.setearConsulta("sp_listar_Incidentes");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -33,19 +33,23 @@ namespace Negocio
                     aux.Estado = new Estado();
                     aux.Estado.Id = (int)datos.Lector["IdEstado"];
                     aux.Estado.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Cliente = new Clientes();
+                    aux.Cliente = new Cliente();
                     aux.Cliente.Id = (int)datos.Lector["IdCliente"];
-                    aux.Cliente.Nombre = (string)datos.Lector["NombreCliente"];
-                    aux.Cliente.Apellido = (string)datos.Lector["ApellidoCliente"];
+                    aux.Cliente.Nombres = (string)datos.Lector["NombreCliente"];
+                    aux.Cliente.Apellidos = (string)datos.Lector["ApellidoCliente"];
+                    aux.Cliente.DNI = (string)datos.Lector["DNICliente"];
                     aux.Cliente.Email = (string)datos.Lector["EmailCliente"];
-                    aux.Resolucion = (string)datos.Lector["Resolucion"];
-                    aux.Telefonista = new Telefonista();
-                    aux.Telefonista.Id = (int)datos.Lector["IdTelefonista"];
-                    aux.Telefonista.Nombre = (string)datos.Lector["NombreTel"];
-                    aux.Telefonista.Apellido = (string)datos.Lector["ApellidoTel"];
-                    aux.Telefonista.Email = (string)datos.Lector["EmailTel"];
-                    aux.Telefonista.Legajo = (int)datos.Lector["Legajo"];
-                    aux.Motivo = (string)datos.Lector["Motivo"];
+                    aux.Cliente.Telefono = (string)datos.Lector["TelefonoCliente"];
+                    aux.UsuarioAsignado = new Usuario();
+                    //aux.UsuarioAsignado.Id = (int)datos.Lector["IdTelefonista"];
+                    aux.UsuarioAsignado.Nombres = (string)datos.Lector["UsuarioAsignado"];
+                    //aux.UsuarioAsignado.Apellidos = (string)datos.Lector["ApellidoTel"];
+                    aux.Comentario = (string)datos.Lector["Comentario"];
+                    aux.Motivo = new Motivo();
+                    aux.Motivo.Descripcion = (string)datos.Lector["Motivo"];
+                    aux.FechaDeAlta = (DateTime)datos.Lector["FechaDeAlta"];
+                    aux.FechaDeBaja = (DateTime)datos.Lector["FechaDeBaja"];
+                    aux.Activo = (Boolean)datos.Lector["Activo"];
 
                     lista.Add(aux);
                 }
