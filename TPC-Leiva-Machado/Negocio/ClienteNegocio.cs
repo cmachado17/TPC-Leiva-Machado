@@ -46,5 +46,35 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+
+        public void agregarCliente(Cliente nuevo)
+        {
+            try
+            {
+                datos.setearConsulta("sp_Agregar_Cliente");
+                datos.setearParametro("@Nombres", nuevo.Nombres);
+                datos.setearParametro("@Apellidos", nuevo.Apellidos);
+                datos.setearParametro("@DNI", nuevo.DNI);
+                datos.setearParametro("@Email", nuevo.Email);
+                datos.setearParametro("@Telefono", nuevo.Telefono);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+
+
+
+
     }
 }
