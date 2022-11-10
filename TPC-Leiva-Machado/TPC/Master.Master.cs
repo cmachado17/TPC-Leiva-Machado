@@ -11,7 +11,8 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Submenu.Visible = false;
+             Submenu.Visible = true;
         }
     }
 }

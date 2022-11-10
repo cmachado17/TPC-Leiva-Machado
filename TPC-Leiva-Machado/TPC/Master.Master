@@ -17,21 +17,63 @@
 <body>
     <form id="form1" runat="server">
         <div>
-              <nav class="navbar navbar-expand-lg bg-dark text-light sticky-top">
+             <!-- <nav class="navbar navbar-expand-lg bg-dark text-light sticky-top">
                 <div class="container">
                     <div id="navbarNav" class="d-flex">
                         <a class="nav-link text-light" href="Home.aspx" >Home</a>
                         <a class="nav-link text-light" href="Login.aspx" >Login</a>
                         <a class="nav-link text-light" href="PreguntasFrecuentes.aspx" >Preguntas Frecuentes</a>
                         <a class="nav-link text-light" href="Contacto.aspx">Contacto</a>
-                        <a class="nav-link text-light" href="Clientes.aspx">Clientes</a>
-                        <a class="nav-link text-light" href="Incidentes.aspx">Incidencias</a>
-                    </div>
-                    <div>
-                        <asp:Label ID="lbCarrito" runat="server" Text="Articulos en el carrito: " Visible="false"></asp:Label>
+                        <a ID="linkClientes" class="nav-link text-light" href="Clientes.aspx" Visible="false">Clientes </a>
+                        <a ID="linkIncidentes" class="nav-link text-light" href="Incidentes.aspx" Visible="false">Incidencias</a>
+                   
                     </div>
                 </div>
-            </nav>
+            </nav> !-->
+
+      
+       <div id="navbarNav" class="d-flex">
+
+               <asp:Menu runat="server" ID="Submenu" cssclass="navbar navbar-expand-lg bg-dark text-light sticky-top"  orientation="Horizontal">
+              <staticmenuitemstyle 
+                          horizontalpadding="15"
+                          verticalpadding="5"
+                          cssclass="nav-link text-light"/>
+                        <items>
+                            <asp:menuitem  navigateurl="Clientes.aspx" text="Clientes" tooltip="Clientes"></asp:menuitem>
+                            <asp:menuitem  navigateurl="Incidentes.aspx" text="Incidentes" tooltip="Incidentes"></asp:menuitem>
+                        </items>
+                </asp:Menu>
+           
+           <asp:Menu runat="server" ID="Menu" cssclass="navbar navbar-expand-lg bg-dark text-light sticky-top"  orientation="Horizontal" staticdisplaylevels="2">
+              <staticmenuitemstyle 
+                          horizontalpadding="80"
+                          verticalpadding="5"
+                          cssclass="nav-link text-light"/>
+                   
+                        <items>
+                               <asp:menuitem>  </asp:menuitem>                     
+                        </items>
+            </asp:Menu>
+
+             <asp:Menu runat="server" ID="Menu1" cssclass="navbar navbar-expand-lg bg-dark text-light sticky-top"  orientation="Horizontal" staticdisplaylevels="2">
+              <staticmenuitemstyle 
+                          horizontalpadding="15"
+                          verticalpadding="5"
+                          cssclass="nav-link text-light"/>
+                        <items>
+                            <asp:menuitem navigateurl="Home.aspx" text="Home" tooltip="Home"></asp:menuitem>
+                            <asp:menuitem navigateurl="Login.aspx" text="Login" tooltip="Login"></asp:menuitem>
+                            <asp:menuitem navigateurl="PreguntasFrecuentes.aspx" text="Preguntas Frecuentes" tooltip="PreguntasFrecuentes"></asp:menuitem>
+                            <asp:menuitem navigateurl="Contacto.aspx" text="Contacto" tooltip="Contacto"></asp:menuitem>   
+                        </items>
+            </asp:Menu>
+            
+         
+       </div>
+
+
+
             <div class="container py-5">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
@@ -43,3 +85,4 @@
     </form>
 </body>
 </html>
+
