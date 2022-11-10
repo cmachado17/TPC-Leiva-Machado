@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
     <div class="row mb-3">
-        <asp:Button Text="Agregar Cliente" runat="server" cssclass="btn btn-primary"/>
+        <a class="btn btn-primary" href="FormularioClientes.aspx">Agregar Cliente</a>
     </div>
 
           <asp:GridView cssclass="table table-striped w-100" ID="dgvClientes" runat="server"></asp:GridView>

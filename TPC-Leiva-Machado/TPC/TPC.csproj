@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Contacto.aspx" />
     <Content Include="Clientes.aspx" />
+    <Content Include="FormularioClientes.aspx" />
     <Content Include="FormularioIncidencia.aspx" />
     <Content Include="Incidentes.aspx" />
     <Content Include="PreguntasFrecuentes.aspx" />
@@ -91,6 +92,13 @@
     </Compile>
     <Compile Include="Clientes.aspx.designer.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioClientes.aspx.cs">
+      <DependentUpon>FormularioClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioClientes.aspx.designer.cs">
+      <DependentUpon>FormularioClientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormularioIncidencia.aspx.cs">
       <DependentUpon>FormularioIncidencia.aspx</DependentUpon>
