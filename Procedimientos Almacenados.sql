@@ -62,3 +62,11 @@ FechaDeAlta, FechaDeBaja, Activo
 from Usuarios as U
 inner join Perfiles as P on U.IdPerfil = P.Id
 end
+
+
+go
+CREATE PROCEDURE sp_Agregar_Cliente (@Nombres varchar(50), @Apellidos varchar(50),
+@DNI varchar(25), @Email varchar(50), @Telefono varchar(50))
+as begin
+insert into Clientes values (@Nombres, @Apellidos,@DNI, @Email, @Telefono, getdate(), null, 1)
+end
