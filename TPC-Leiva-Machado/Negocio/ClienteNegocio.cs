@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("sp_listar_Clientes");
+                datos.setearSP("sp_listar_Clientes");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -52,7 +52,7 @@ namespace Negocio
         {
             try
             {
-                datos.setearConsulta("sp_Agregar_Cliente");
+                datos.setearSP("sp_Agregar_Cliente");
                 datos.setearParametro("@Nombres", nuevo.Nombres);
                 datos.setearParametro("@Apellidos", nuevo.Apellidos);
                 datos.setearParametro("@DNI", nuevo.DNI);
