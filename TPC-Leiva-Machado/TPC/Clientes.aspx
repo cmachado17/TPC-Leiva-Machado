@@ -19,7 +19,8 @@
                     <asp:BoundField HeaderText="DNI" DataField="DNI"/>
                     <asp:BoundField HeaderText="Email" DataField="Email"/>
                     <asp:BoundField HeaderText="Telefono" DataField="Telefono"/>
-                    <asp:CommandField HeaderText="Accion" ShowSelectButton="true" SelectText=""/>
+                    <asp:CommandField HeaderText="Modificar" ShowSelectButton="true" SelectText="Modificar"/>
+                    <asp:CommandField HeaderText="Detalle" ShowSelectButton="true" SelectText="Detalle"/>
               </Columns>
 
 

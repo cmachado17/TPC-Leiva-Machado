@@ -71,6 +71,39 @@ namespace Negocio
             }
         }
 
+        public Cliente listarClientePorId(int id)
+        {
+            Cliente cliente = new Cliente();
+
+            try
+            {
+                datos.setearConsulta("Select Nombres, Apellidos,DNI, Email, Telefono " +
+                "from Clientes where Id =" + id);
+                datos.ejecutarLectura();
+
+                 if(datos.Lector.Read())
+                 {
+                    Cliente aux = new Cliente();
+                    aux.Nombres = (string)datos.Lector["Nombres"];
+                    aux.Apellidos = (string)datos.Lector["Apellidos"];
+                    aux.DNI = (string)datos.Lector["DNI"];
+                    aux.Email = (string)datos.Lector["Email"];
+                    aux.Telefono = (string)datos.Lector["Telefono"];
+         
+                    cliente = aux;
+                }
+                return cliente;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
 
 
 

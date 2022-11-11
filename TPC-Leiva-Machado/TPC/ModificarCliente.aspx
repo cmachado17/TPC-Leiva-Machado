@@ -23,6 +23,6 @@
       <asp:Label ID="lbModificarTelefono" runat="server" Text="MTelefono" cssclass="form-label">Telefono</asp:Label>
       <asp:TextBox ID="txtModificarTelefono" runat="server" cssclass="form-control"></asp:TextBox>
    </div>
-    <asp:Button AutoPostBack="false" OnClick="btnConfirmarM_Click"  ID="btnConfirmarM" runat="server" Text="Confirmar"  CssClass="btn btn-primary" />
+    <asp:Button OnClick="btnConfirmarM_Click"  ID="btnConfirmarM" runat="server" Text="Confirmar"  CssClass="btn btn-primary" />
     <asp:Button ID="btnCancelarM" runat="server" Text="Cancelar" type="submit" CssClass="btn btn-danger" />
 </asp:Content>
