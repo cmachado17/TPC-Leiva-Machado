@@ -42,6 +42,7 @@
                         <items>
                             <asp:menuitem  navigateurl="Clientes.aspx" text="Clientes" tooltip="Clientes"></asp:menuitem>
                             <asp:menuitem  navigateurl="Incidentes.aspx" text="Incidentes" tooltip="Incidentes"></asp:menuitem>
+                            <asp:menuitem  navigateurl="Usuarios.aspx" text="Usuarios" tooltip="Usuarios"></asp:menuitem>
                         </items>
                 </asp:Menu>
            

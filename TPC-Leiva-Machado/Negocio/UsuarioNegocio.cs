@@ -29,8 +29,8 @@ namespace Negocio
                     aux.DNI = (string)datos.Lector["DNI"];
                     aux.Email = (string)datos.Lector["Email"];
                     aux.Perfil = new Perfil();
-                    aux.Perfil.Id = (int)datos.Lector["Id"];
-                    aux.Perfil.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Perfil.Id = (int)datos.Lector["IdPerfil"];
+                    aux.Perfil.Descripcion = (string)datos.Lector["Perfil"];
                     aux.FechaDeAlta = (DateTime)datos.Lector["FechaDeAlta"];
                     aux.FechaDeBaja = (DateTime)datos.Lector["FechaDeBaja"];
                     aux.Activo = (Boolean)datos.Lector["Activo"];

@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Contacto.aspx" />
     <Content Include="Clientes.aspx" />
+    <Content Include="FomularioUsuarios.aspx" />
     <Content Include="FormularioClientes.aspx" />
     <Content Include="FormularioIncidencia.aspx" />
     <Content Include="Incidentes.aspx" />
@@ -76,6 +77,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Home.aspx" />
+    <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +94,13 @@
     </Compile>
     <Compile Include="Clientes.aspx.designer.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FomularioUsuarios.aspx.cs">
+      <DependentUpon>FomularioUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FomularioUsuarios.aspx.designer.cs">
+      <DependentUpon>FomularioUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormularioClientes.aspx.cs">
       <DependentUpon>FormularioClientes.aspx</DependentUpon>
@@ -146,6 +155,13 @@
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />
