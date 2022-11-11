@@ -70,3 +70,16 @@ CREATE PROCEDURE sp_Agregar_Cliente (@Nombres varchar(50), @Apellidos varchar(50
 as begin
 insert into Clientes values (@Nombres, @Apellidos,@DNI, @Email, @Telefono, getdate(), null, 1)
 end
+
+CREATE PROCEDURE sp_modificar_cliente 
+(@id int, @nombre VARCHAR(50), @apellido VARCHAR(50), @dni VARCHAR(50), @email VARCHAR(50),
+@telefono varchar(50))
+AS
+BEGIN
+	UPDATE Clientes set Nombres = @nombre,
+	Apellidos = @apellido,
+	DNI = @dni,
+	email = @email,
+	Telefono = @telefono
+	WHERE ID = @id
+END

@@ -26,5 +26,5 @@
         <asp:TextBox ID="txbTelefono" runat="server" cssclass="form-control"></asp:TextBox>
     </div>
     <asp:Button AutoPostBack="false" OnClick="BtnConfirmar_Click"  ID="btnConfirmar" runat="server" Text="Confirmar"  CssClass="btn btn-primary" />
-    <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" type="submit" CssClass="btn btn-danger" />
+     <a href="Clientes.aspx" class="btn btn-danger">Cancelar</a>
 </asp:Content>

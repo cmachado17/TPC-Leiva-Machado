@@ -105,7 +105,29 @@ namespace Negocio
         }
 
 
+        public void modificarConSp(Cliente cliente)
+        {
+            try
+            {
+                datos.setearSP("sp_modificar_cliente");
+                datos.setearParametro("@id", cliente.Id);
+                datos.setearParametro("@Nombre", cliente.Nombres);
+                datos.setearParametro("@Apellido", cliente.Apellidos);
+                datos.setearParametro("@dni", cliente.DNI);
+                datos.setearParametro("@email", cliente.Email);
+                datos.setearParametro("@telefono", cliente.Telefono);
 
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
 
 

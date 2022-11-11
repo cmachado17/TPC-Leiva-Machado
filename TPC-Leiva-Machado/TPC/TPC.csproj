@@ -72,7 +72,6 @@
     <Content Include="FormularioClientes.aspx" />
     <Content Include="FormularioIncidencia.aspx" />
     <Content Include="Incidentes.aspx" />
-    <Content Include="ModificarCliente.aspx" />
     <Content Include="PreguntasFrecuentes.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Global.asax" />
@@ -114,13 +113,6 @@
     </Compile>
     <Compile Include="Incidentes.aspx.designer.cs">
       <DependentUpon>Incidentes.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ModificarCliente.aspx.cs">
-      <DependentUpon>ModificarCliente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ModificarCliente.aspx.designer.cs">
-      <DependentUpon>ModificarCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="PreguntasFrecuentes.aspx.cs">
       <DependentUpon>PreguntasFrecuentes.aspx</DependentUpon>

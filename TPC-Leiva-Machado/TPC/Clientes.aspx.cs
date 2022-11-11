@@ -20,7 +20,7 @@ namespace TPC
         protected void dgvClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             String id = dgvClientes.SelectedDataKey.Value.ToString();
-            Response.Redirect("ModificarCliente.aspx?id=" + id);
+            Response.Redirect("FormularioClientes.aspx?id=" + id);
 
         }
 
