@@ -5,6 +5,10 @@
     <div class="row mb-3">
         <a class="btn btn-primary" href="FormularioClientes.aspx">Agregar Cliente</a>
     </div>
+
+     <div class="row mb-3">
+         <asp:TextBox runat="server" ID="FiltroClientes" AutoPostBack="true" OnTextChanged="FiltroClientes_TextChanged" />
+    </div>
           <asp:GridView AutoGenerateColumns="false"
           cssclass="table table-striped w-100"
           ID="dgvClientes" runat="server"
