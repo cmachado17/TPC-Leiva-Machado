@@ -16,5 +16,18 @@ namespace TPC
             dgvClientes.DataSource = negocio.listarCliente();
             dgvClientes.DataBind();
         }
+
+        protected void dgvClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String id = dgvClientes.SelectedDataKey.Value.ToString();
+            Response.Redirect("FormularioClientes.aspx?id=" + id);
+
+        }
+
+        protected void dgvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvClientes.PageIndex = e.NewPageIndex;
+            dgvClientes.DataBind();
+        }
     }
 }
