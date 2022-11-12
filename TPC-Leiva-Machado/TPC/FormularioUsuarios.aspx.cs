@@ -25,6 +25,24 @@ namespace TPC
                     ddlPerfil.DataTextField = "Descripcion";
                     ddlPerfil.DataBind();
                 }
+
+                if (Request.QueryString["id"] != null && !IsPostBack)
+                {
+                    txbNombre.Enabled = false;
+                    txbApellido.Enabled = false;
+                    txbDNI.Enabled = false;
+
+                    UsuarioNegocio negocio = new UsuarioNegocio();
+                    Usuario seleccionado = negocio.listarUsuarioPorId(Int32.Parse(Request.QueryString["id"]));
+
+                    //cargamos los campos del formulario
+                    txbNombre.Text = seleccionado.Nombres;
+                    txbApellido.Text = seleccionado.Apellidos;
+                    txbDNI.Text = seleccionado.DNI;
+                    txbEmail.Text = seleccionado.Email;
+                    ddlPerfil.SelectedValue = seleccionado.Perfil.Id.ToString();
+                }
+        
             }
             catch (Exception ex)
             {
@@ -47,7 +65,16 @@ namespace TPC
                 nuevo.Perfil = new Perfil();
                 nuevo.Perfil.Id = int.Parse(ddlPerfil.SelectedValue);
 
-                negocio.AgregarUsuario(nuevo);
+                string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+
+                if (Request.QueryString["id"] != null)
+                {
+                    nuevo.Id = int.Parse(id);
+                    negocio.ModificarUsuario(nuevo);
+                }
+                else
+                    negocio.AgregarUsuario(nuevo);
+
 
                 Response.Redirect("Usuarios.aspx", false);
             }

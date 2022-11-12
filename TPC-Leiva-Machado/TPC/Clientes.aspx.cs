@@ -23,7 +23,6 @@ namespace TPC
         {
             String id = dgvClientes.SelectedDataKey.Value.ToString();
             Response.Redirect("FormularioClientes.aspx?id=" + id);
-
         }
 
         protected void dgvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)

@@ -50,6 +50,41 @@ namespace Negocio
             }
         }
 
+        public Usuario listarUsuarioPorId(int id)
+        {
+            Usuario usuario = new Usuario();
+
+            try
+            {
+                datos.setearConsulta("Select Nombres, Apellidos,DNI, Email, IdPerfil, FechaDeAlta, FechaDeBaja, Activo, Descripcion from Usuarios U " +
+                    "INNER JOIN Perfiles P ON P.ID = U.IdPerfil where U.Id =" + id);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    usuario.Nombres = (string)datos.Lector["Nombres"];
+                    usuario.Apellidos = (string)datos.Lector["Apellidos"];
+                    usuario.DNI = (string)datos.Lector["DNI"];
+                    usuario.Email = (string)datos.Lector["Email"];
+                    usuario.Perfil = new Perfil();
+                    usuario.Perfil.Id = (int)datos.Lector["IdPerfil"];
+                    usuario.Perfil.Descripcion = (string)datos.Lector["Descripcion"];
+                    usuario.FechaDeAlta = (DateTime)datos.Lector["FechaDeAlta"];
+                    usuario.FechaDeBaja = datos.Lector["FechaDeBaja"] != DBNull.Value ? (DateTime)datos.Lector["FechaDeBaja"] : default;
+                    usuario.Activo = (Boolean)datos.Lector["Activo"];
+                }
+                return usuario;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public void AgregarUsuario(Usuario nuevo)
         {
             try
@@ -61,6 +96,29 @@ namespace Negocio
                 datos.setearParametro("@Email", nuevo.Email);
                 datos.setearParametro("@Perfil", nuevo.Perfil.Id);
 
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void ModificarUsuario(Usuario usuario)
+        {
+            try
+            {
+                datos.setearSP("SP_Modificar_Usuario");
+                datos.setearParametro("@Id", usuario.Id);
+                datos.setearParametro("@Nombres", usuario.Nombres);
+                datos.setearParametro("@Apellidos", usuario.Apellidos);
+                datos.setearParametro("@DNI", usuario.DNI);
+                datos.setearParametro("@Email", usuario.Email);
+                datos.setearParametro("@Perfil", usuario.Perfil.Id);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

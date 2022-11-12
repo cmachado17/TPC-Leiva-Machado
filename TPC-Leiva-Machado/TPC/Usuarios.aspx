@@ -15,7 +15,7 @@
         ID="dgvUsuarios" runat="server"
         DataKeyNames="Id" OnSelectedIndexChanged="dgvUsuarios_SelectedIndexChanged"
         OnPageIndexChanging="dgvUsuarios_PageIndexChanging"
-        AllowPaging="true" PageSize="4">
+        AllowPaging="true" PageSize="10">
         <Columns>
             <asp:BoundField HeaderText="Nombres" DataField="Nombres" />
             <asp:BoundField HeaderText="Apellidos" DataField="Apellidos" />

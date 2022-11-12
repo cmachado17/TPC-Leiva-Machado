@@ -26,7 +26,8 @@ namespace TPC
 
         protected void dgvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            String id = dgvUsuarios.SelectedDataKey.Value.ToString();
+            Response.Redirect("FormularioUsuarios.aspx?id=" + id);
         }
 
         protected void dgvUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)

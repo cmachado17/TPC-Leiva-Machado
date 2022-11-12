@@ -93,3 +93,17 @@ BEGIN
 	insert into Usuarios values (@Nombres, @Apellidos,@DNI, @Email, @Perfil, getdate(), null, 1)
 END
 GO
+
+CREATE PROCEDURE SP_Modificar_Usuario
+(@id int, @Nombres VARCHAR(50), @Apellidos varchar(50),
+@DNI varchar(25), @Email varchar(50), @Perfil INT)
+AS
+BEGIN
+	UPDATE Usuarios set Nombres = @Nombres,
+	Apellidos = @Apellidos,
+	DNI = @DNI,
+	email = @Email,
+	IdPerfil = @Perfil
+	WHERE ID = @id
+END
+GO
