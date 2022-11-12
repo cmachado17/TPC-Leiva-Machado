@@ -35,7 +35,27 @@ namespace TPC
 
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Usuario nuevo = new Usuario();
+                UsuarioNegocio negocio = new UsuarioNegocio();
 
+                nuevo.Nombres = txbNombre.Text;
+                nuevo.Apellidos = txbApellido.Text;
+                nuevo.Email = txbEmail.Text;
+                nuevo.DNI = txbDNI.Text;
+                nuevo.Perfil = new Perfil();
+                nuevo.Perfil.Id = int.Parse(ddlPerfil.SelectedValue);
+
+                negocio.AgregarUsuario(nuevo);
+
+                Response.Redirect("Usuarios.aspx", false);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

@@ -31,7 +31,8 @@ namespace TPC
 
         protected void dgvUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            dgvUsuarios.PageIndex = e.NewPageIndex;
+            dgvUsuarios.DataBind();
         }
     }
 }

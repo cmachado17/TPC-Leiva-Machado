@@ -32,12 +32,36 @@ namespace Negocio
                     aux.Perfil.Id = (int)datos.Lector["IdPerfil"];
                     aux.Perfil.Descripcion = (string)datos.Lector["Perfil"];
                     aux.FechaDeAlta = (DateTime)datos.Lector["FechaDeAlta"];
-                    aux.FechaDeBaja = (DateTime)datos.Lector["FechaDeBaja"];
+                    aux.FechaDeBaja = datos.Lector["FechaDeBaja"] != DBNull.Value ? (DateTime)datos.Lector["FechaDeBaja"] : default;
+                    //aux.FechaDeBaja = (DateTime)datos.Lector["FechaDeBaja"]
                     aux.Activo = (Boolean)datos.Lector["Activo"];
 
                     lista.Add(aux);
                 }
                 return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void AgregarUsuario(Usuario nuevo)
+        {
+            try
+            {
+                datos.setearSP("sp_Agregar_Usuario");
+                datos.setearParametro("@Nombres", nuevo.Nombres);
+                datos.setearParametro("@Apellidos", nuevo.Apellidos);
+                datos.setearParametro("@DNI", nuevo.DNI);
+                datos.setearParametro("@Email", nuevo.Email);
+                datos.setearParametro("@Perfil", nuevo.Perfil.Id);
+
+                datos.ejecutarAccion();
             }
             catch (Exception ex)
             {

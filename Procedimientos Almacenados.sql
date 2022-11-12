@@ -83,3 +83,13 @@ BEGIN
 	Telefono = @telefono
 	WHERE ID = @id
 END
+GO
+
+CREATE PROCEDURE sp_Agregar_Usuario
+(@Nombres varchar(50), @Apellidos varchar(50),
+@DNI varchar(25), @Email varchar(50), @Perfil INT)
+AS
+BEGIN
+	insert into Usuarios values (@Nombres, @Apellidos,@DNI, @Email, @Perfil, getdate(), null, 1)
+END
+GO
