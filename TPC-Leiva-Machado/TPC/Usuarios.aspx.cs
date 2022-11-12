@@ -21,7 +21,10 @@ namespace TPC
 
         protected void FiltroUsuarios_TextChanged(object sender, EventArgs e)
         {
-
+            List<Usuario> lista = (List<Usuario>)Session["listaUsuarios"];
+            List<Usuario> listaFiltrada = lista.FindAll(x => x.Nombres.ToUpper().Contains(FiltroUsuarios.Text.ToUpper()));
+            dgvUsuarios.DataSource = listaFiltrada;
+            dgvUsuarios.DataBind();
         }
 
         protected void dgvUsuarios_SelectedIndexChanged(object sender, EventArgs e)
