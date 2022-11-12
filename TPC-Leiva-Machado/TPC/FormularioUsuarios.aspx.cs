@@ -15,6 +15,7 @@ namespace TPC
         protected void Page_Load(object sender, EventArgs e)
         {
             ConfirmarEliminacion = false;
+            txtId.Visible = false;
             try
             {
                 if (!IsPostBack)
@@ -37,12 +38,20 @@ namespace TPC
                     UsuarioNegocio negocio = new UsuarioNegocio();
                     Usuario seleccionado = negocio.listarUsuarioPorId(Int32.Parse(Request.QueryString["id"]));
 
+                    //lo guardamos en session
+                    Session.Add("UsuarioSeleccionado", seleccionado);
+
                     //cargamos los campos del formulario
+
+                    //txtId.Text = seleccionado.Id.ToString();
                     txbNombre.Text = seleccionado.Nombres;
                     txbApellido.Text = seleccionado.Apellidos;
                     txbDNI.Text = seleccionado.DNI;
                     txbEmail.Text = seleccionado.Email;
                     ddlPerfil.SelectedValue = seleccionado.Perfil.Id.ToString();
+
+                    if (!seleccionado.Activo)
+                        btnDesactivar.Text = "Reactivar";
                 }
         
             }
@@ -116,6 +125,24 @@ namespace TPC
                 throw ex;
             }
          
+        }
+
+        protected void btnDesactivar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                    Usuario seleccionado = (Usuario)Session["UsuarioSeleccionado"];
+
+                    UsuarioNegocio negocio = new UsuarioNegocio();
+                    negocio.BajaLogicaUsuario(seleccionado.Id, !seleccionado.Activo);
+
+                    Response.Redirect("Usuarios.aspx", false);
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

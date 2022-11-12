@@ -56,12 +56,13 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("Select Nombres, Apellidos,DNI, Email, IdPerfil, FechaDeAlta, FechaDeBaja, Activo, Descripcion from Usuarios U " +
+                datos.setearConsulta("Select U.Id, Nombres, Apellidos,DNI, Email, IdPerfil, FechaDeAlta, FechaDeBaja, Activo, Descripcion from Usuarios U " +
                     "INNER JOIN Perfiles P ON P.ID = U.IdPerfil where U.Id =" + id);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
+                    usuario.Id = (int)datos.Lector["Id"];
                     usuario.Nombres = (string)datos.Lector["Nombres"];
                     usuario.Apellidos = (string)datos.Lector["Apellidos"];
                     usuario.DNI = (string)datos.Lector["DNI"];
@@ -136,6 +137,26 @@ namespace Negocio
             try
             {
                 datos.setearConsulta("DELETE FROM USUARIOS WHERE Id =" + id);
+                datos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void BajaLogicaUsuario(int id, bool activo = false)
+        {
+            try
+            {
+
+                datos.setearConsulta("UPDATE Usuarios SET Activo = @activo, FechaDeBaja = GETDATE() WHERE Id = @id" );
+                datos.setearParametro("@id", id);
+                datos.setearParametro("@activo", activo);
                 datos.ejecutarLectura();
             }
             catch (Exception ex)

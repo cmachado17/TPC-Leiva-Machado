@@ -5,6 +5,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>FormularioUsuarios</h2>
 
+     <div class="mb-3">
+                <asp:TextBox runat="server" ID="txtId" CssClass="form-control" />
+            </div>
     <div class="mb-3">
         <asp:Label ID="lbNombre" runat="server" Text="Nombre" CssClass="form-label">Nombre</asp:Label>
         <asp:TextBox ID="txbNombre" runat="server" CssClass="form-control"></asp:TextBox>
@@ -31,6 +34,7 @@
        { %>
         <div class="mb-3">
             <asp:Button Text="Eliminar" ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-danger" runat="server" />
+            <asp:Button Text="Desactivar" ID="btnDesactivar" OnClick="btnDesactivar_Click" CssClass="btn btn-warning" runat="server" />
         </div>
         <% if (ConfirmarEliminacion)
             { %>

@@ -22,7 +22,7 @@
             <asp:BoundField HeaderText="DNI" DataField="DNI" />
             <asp:BoundField HeaderText="Email" DataField="Email" />
             <asp:BoundField HeaderText="Perfil" DataField="Perfil.Descripcion" />
-            <asp:BoundField HeaderText="Activo" DataField="Activo" />
+            <asp:CheckBoxField HeaderText="Activo" DataField="Activo" />
             <asp:BoundField HeaderText="Fecha alta" DataField="FechaDeAlta" />
             <asp:BoundField HeaderText="Fecha baja" DataField="FechaDeBaja" />
             <asp:CommandField HeaderText="Modificar" ShowSelectButton="true" SelectText="Modificar" />
