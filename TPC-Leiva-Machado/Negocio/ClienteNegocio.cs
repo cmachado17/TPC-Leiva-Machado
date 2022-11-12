@@ -77,19 +77,21 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("Select Nombres, Apellidos,DNI, Email, Telefono " +
+                datos.setearConsulta("Select Id, Nombres, Apellidos,DNI, Email, Telefono, Activo " +
                 "from Clientes where Id =" + id);
                 datos.ejecutarLectura();
 
-                 if(datos.Lector.Read())
-                 {
+                if (datos.Lector.Read())
+                {
                     Cliente aux = new Cliente();
+                    aux.Id = (int)datos.Lector["Id"];
                     aux.Nombres = (string)datos.Lector["Nombres"];
                     aux.Apellidos = (string)datos.Lector["Apellidos"];
                     aux.DNI = (string)datos.Lector["DNI"];
                     aux.Email = (string)datos.Lector["Email"];
                     aux.Telefono = (string)datos.Lector["Telefono"];
-         
+                    aux.Activo = (bool)datos.Lector["Activo"];
+
                     cliente = aux;
                 }
                 return cliente;
@@ -129,12 +131,36 @@ namespace Negocio
             }
         }
 
-        public void EliminarCliente (string id)
+        public void EliminarCliente(string id)
         {
-
             try
             {
                 datos.setearConsulta("DELETE FROM Clientes WHERE Id =" + id);
+                datos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void BajaLogicaCliente(int id, bool activo = false)
+        {
+            try
+            {
+                string consulta;
+                if (!activo)
+                    consulta = "UPDATE Clientes SET Activo = @activo, FechaDeBaja = GETDATE() WHERE Id = @id";
+                else
+                    consulta = "UPDATE Clientes SET Activo = @activo, FechaDeBaja = NULL WHERE Id = @id";
+
+                datos.setearConsulta(consulta);
+                datos.setearParametro("@id", id);
+                datos.setearParametro("@activo", activo);
                 datos.ejecutarLectura();
             }
             catch (Exception ex)

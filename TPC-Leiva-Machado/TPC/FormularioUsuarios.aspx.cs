@@ -53,7 +53,7 @@ namespace TPC
                     if (!seleccionado.Activo)
                         btnDesactivar.Text = "Reactivar";
                 }
-        
+
             }
             catch (Exception ex)
             {
@@ -124,20 +124,20 @@ namespace TPC
 
                 throw ex;
             }
-         
+
         }
 
         protected void btnDesactivar_Click(object sender, EventArgs e)
         {
             try
             {
-                    Usuario seleccionado = (Usuario)Session["UsuarioSeleccionado"];
+                Usuario seleccionado = (Usuario)Session["UsuarioSeleccionado"];
 
-                    UsuarioNegocio negocio = new UsuarioNegocio();
-                    negocio.BajaLogicaUsuario(seleccionado.Id, !seleccionado.Activo);
+                UsuarioNegocio negocio = new UsuarioNegocio();
+                negocio.BajaLogicaUsuario(seleccionado.Id, !seleccionado.Activo);
 
-                    Response.Redirect("Usuarios.aspx", false);
-                
+                Response.Redirect("Usuarios.aspx", false);
+
             }
             catch (Exception ex)
             {

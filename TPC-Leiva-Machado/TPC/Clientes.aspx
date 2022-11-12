@@ -21,6 +21,7 @@
                     <asp:BoundField HeaderText="DNI" DataField="DNI"/>
                     <asp:BoundField HeaderText="Email" DataField="Email"/>
                     <asp:BoundField HeaderText="Telefono" DataField="Telefono"/>
+                    <asp:CheckBoxField HeaderText="Activo" DataField="Activo" />
                     <asp:CommandField HeaderText="Modificar" ShowSelectButton="true" SelectText="Modificar"/>
                     <asp:CommandField HeaderText="Detalle" ShowSelectButton="true" SelectText="Detalle"/>
               </Columns>

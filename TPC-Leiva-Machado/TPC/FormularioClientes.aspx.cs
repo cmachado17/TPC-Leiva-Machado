@@ -14,6 +14,9 @@ namespace TPC
         public bool ConfirmarEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            ConfirmarEliminacion = false;
+            txtId.Visible = false;
+
             if (Request.QueryString["id"] != null && !IsPostBack)
             {
                 txbNombre.Enabled = false;
@@ -23,12 +26,18 @@ namespace TPC
                 ClienteNegocio negocio = new ClienteNegocio();
                 Cliente seleccionado = negocio.listarClientePorId(Int32.Parse(Request.QueryString["id"]));
 
+                //lo guardamos en session
+                Session.Add("ClienteSeleccionado", seleccionado);
+
                 //cargamos los campos del formulario
                 txbNombre.Text = seleccionado.Nombres;
                 txbApellido.Text = seleccionado.Apellidos;
                 txbDNI.Text = seleccionado.DNI;
                 txbEmail.Text = seleccionado.Email;
                 txbTelefono.Text = seleccionado.Telefono;
+
+                if (!seleccionado.Activo)
+                    btnDesactivar.Text = "Reactivar";
             }
         }
 
@@ -90,6 +99,24 @@ namespace TPC
             catch (Exception ex)
             {
 
+                throw ex;
+            }
+        }
+
+        protected void btnDesactivar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cliente seleccionado = (Cliente)Session["ClienteSeleccionado"];
+
+                ClienteNegocio negocio = new ClienteNegocio();
+                negocio.BajaLogicaCliente(seleccionado.Id, !seleccionado.Activo);
+
+                Response.Redirect("Clientes.aspx", false);
+
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

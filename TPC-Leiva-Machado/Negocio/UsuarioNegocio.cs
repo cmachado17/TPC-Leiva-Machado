@@ -153,8 +153,13 @@ namespace Negocio
         {
             try
             {
+                string consulta;
+                if (!activo)
+                    consulta = "UPDATE Usuarios SET Activo = @activo, FechaDeBaja = GETDATE() WHERE Id = @id";
+                else
+                    consulta = "UPDATE Usuarios SET Activo = @activo, FechaDeBaja = NULL WHERE Id = @id";
 
-                datos.setearConsulta("UPDATE Usuarios SET Activo = @activo, FechaDeBaja = GETDATE() WHERE Id = @id" );
+                datos.setearConsulta(consulta);
                 datos.setearParametro("@id", id);
                 datos.setearParametro("@activo", activo);
                 datos.ejecutarLectura();
