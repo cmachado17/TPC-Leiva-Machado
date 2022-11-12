@@ -11,6 +11,7 @@ namespace TPC
 {
     public partial class FormularioClientes : System.Web.UI.Page
     {
+        public bool ConfirmarEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["id"] != null && !IsPostBack)
@@ -63,5 +64,34 @@ namespace TPC
             }
         }
 
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ConfirmarEliminacion = true;
+        }
+
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkConfirmarEliminacion.Checked)
+                {
+                    string id = Request.QueryString["id"].ToString();
+                    ClienteNegocio negocio = new ClienteNegocio();
+                    negocio.EliminarCliente(id);
+
+                    Response.Redirect("Clientes.aspx", false);
+                }
+                else
+                {
+                    string msg = "Favor de confirmar la eliminación.";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

@@ -129,7 +129,7 @@ namespace Negocio
             }
         }
 
-        public void EliminarCliente (int id)
+        public void EliminarCliente (string id)
         {
 
             try
