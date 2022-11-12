@@ -124,3 +124,5 @@ C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC\
 C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC\obj\Debug\TPC.csproj.CopyComplete
 C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC\obj\Debug\TPC.dll
 C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC\obj\Debug\TPC.pdb
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC\bin\Helpers.dll
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC\bin\Helpers.pdb

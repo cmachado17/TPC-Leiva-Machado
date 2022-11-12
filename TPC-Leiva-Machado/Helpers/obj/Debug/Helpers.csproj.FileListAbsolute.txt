@@ -1,0 +1,6 @@
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\bin\Debug\Helpers.dll
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\bin\Debug\Helpers.pdb
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\obj\Debug\Helpers.csproj.AssemblyReference.cache
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\obj\Debug\Helpers.csproj.CoreCompileInputs.cache
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\obj\Debug\Helpers.dll
+E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\obj\Debug\Helpers.pdb

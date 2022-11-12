@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Helpers
 {
-    public class Helpers
+    public class MetodosCompartidos
     {
         public bool soloLetras(string cadena)
         {
             foreach (char caracter in cadena)
             {
-                if (char.IsNumber(caracter)) return false;
+                if (!(char.IsLetter(caracter))) return false;
             }
             return true;
         }

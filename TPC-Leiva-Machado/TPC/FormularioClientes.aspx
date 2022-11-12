@@ -28,6 +28,10 @@
         <asp:Label ID="lbTelefono" runat="server" Text="Telefono" CssClass="form-label">Telefono</asp:Label>
         <asp:TextBox ID="txbTelefono" runat="server" cssclass="form-control"></asp:TextBox>
     </div>
+     <div class="mb-3">
+        <asp:Label ID="lbError" runat="server" Text="Revisar los campos marcados" CssClass="form-label">Revisar los campos marcados</asp:Label>
+    </div>
+
     <asp:Button AutoPostBack="false" OnClick="BtnConfirmar_Click"  ID="btnConfirmar" runat="server" Text="Confirmar"  CssClass="btn btn-primary" />
      <a href="Clientes.aspx" class="btn btn-danger">Cancelar</a>
 

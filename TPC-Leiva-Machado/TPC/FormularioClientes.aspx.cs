@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Helpers;
 
 namespace TPC
 {
@@ -16,6 +17,7 @@ namespace TPC
         {
             ConfirmarEliminacion = false;
             txtId.Visible = false;
+            lbError.Visible = false;
 
             if (Request.QueryString["id"] != null && !IsPostBack)
             {
@@ -48,23 +50,32 @@ namespace TPC
                 Cliente nuevo = new Cliente();
                 ClienteNegocio negocio = new ClienteNegocio();
 
-                nuevo.Nombres = txbNombre.Text;
-                nuevo.Apellidos = txbApellido.Text;
-                nuevo.DNI = txbDNI.Text;
-                nuevo.Email = txbEmail.Text;
-                nuevo.Telefono = txbTelefono.Text;
-
-                string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
-
-                if (Request.QueryString["id"] != null)
+                if (validarCargaCliente())
                 {
-                    nuevo.Id = int.Parse(id);
-                    negocio.modificarConSp(nuevo);
+                    nuevo.Nombres = txbNombre.Text;
+                    nuevo.Apellidos = txbApellido.Text;
+                    nuevo.DNI = txbDNI.Text;
+                    nuevo.Email = txbEmail.Text;
+                    nuevo.Telefono = txbTelefono.Text;
+
+                    string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+
+                    if (Request.QueryString["id"] != null)
+                    {
+                        nuevo.Id = int.Parse(id);
+                        negocio.modificarConSp(nuevo);
+                    }
+                    else
+                        negocio.agregarCliente(nuevo);
+
+                    Response.Redirect("Clientes.aspx", false);
                 }
                 else
-                    negocio.agregarCliente(nuevo);
+                {
+                    lbError.Visible = true;
+                }
 
-                Response.Redirect("Clientes.aspx", false);
+               
             }
             catch (Exception ex)
             {
@@ -119,6 +130,51 @@ namespace TPC
             {
                 throw ex;
             }
+        }
+
+        private bool validarCargaCliente()
+        {
+            reiniciarFormato();
+            bool bandera = true;
+            MetodosCompartidos helper = new MetodosCompartidos();
+
+            //los helpers devuelven FALSE si no validan
+            if (!helper.soloLetras(txbNombre.Text))    
+            {
+                txbNombre.BorderColor = System.Drawing.Color.Red;
+                bandera = false;
+            }
+            if (!helper.soloLetras(txbApellido.Text))
+            {
+                txbApellido.BorderColor = System.Drawing.Color.Red;
+                bandera = false;
+            }
+            if (!helper.soloNumeros(txbDNI.Text))
+            {
+                txbDNI.BorderColor = System.Drawing.Color.Red;
+                bandera = false;
+            }
+            if (!helper.soloNumeros(txbTelefono.Text))
+            {
+                txbTelefono.BorderColor = System.Drawing.Color.Red;
+                bandera = false;
+            }
+            if (!helper.formatoEmail(txbEmail.Text))
+            {
+                txbEmail.BorderColor = System.Drawing.Color.Red;
+                bandera = false;
+            }
+
+            return bandera;
+        }
+
+        private void reiniciarFormato()
+        {
+            txbNombre.BorderColor = System.Drawing.Color.Black;
+            txbApellido.BorderColor = System.Drawing.Color.Black;
+            txbDNI.BorderColor = System.Drawing.Color.Black;
+            txbTelefono.BorderColor = System.Drawing.Color.Black;
+            txbEmail.BorderColor = System.Drawing.Color.Black;
         }
     }
 }
