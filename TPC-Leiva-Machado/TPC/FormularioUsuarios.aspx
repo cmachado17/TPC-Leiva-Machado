@@ -27,4 +27,17 @@
     </div>
     <asp:Button AutoPostBack="false" OnClick="btnConfirmar_Click" ID="btnConfirmar" runat="server" Text="Confirmar" CssClass="btn btn-primary" />
     <a href="Usuarios.aspx" class="btn btn-danger">Cancelar</a>
+    <% if (Request.QueryString["id"] != null)
+       { %>
+        <div class="mb-3">
+            <asp:Button Text="Eliminar" ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-danger" runat="server" />
+        </div>
+        <% if (ConfirmarEliminacion)
+            { %>
+        <div class="mb-3">
+            <asp:CheckBox Text="Confirmar eliminacion" runat="server" ID="chkConfirmarEliminacion" />
+            <asp:Button Text="Eliminar" runat="server" CssClass="btn btn-danger" ID="btnConfirmarEliminar" Onclick="btnConfirmarEliminar_Click"/>
+        </div>
+        <%} %>
+    <%} %>
 </asp:Content>

@@ -11,8 +11,10 @@ namespace TPC
 {
     public partial class FomularioUsuarios : System.Web.UI.Page
     {
+        public bool ConfirmarEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            ConfirmarEliminacion = false;
             try
             {
                 if (!IsPostBack)
@@ -83,6 +85,37 @@ namespace TPC
 
                 throw ex;
             }
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            ConfirmarEliminacion = true;
+        }
+
+        protected void btnConfirmarEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkConfirmarEliminacion.Checked)
+                {
+                    string id = Request.QueryString["id"].ToString();
+                    UsuarioNegocio negocio = new UsuarioNegocio();
+                    negocio.EliminarUsuario(id);
+
+                    Response.Redirect("Usuarios.aspx", false);
+                }
+                else
+                {
+                    string msg = "Favor de confirmar la eliminación.";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+         
         }
     }
 }

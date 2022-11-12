@@ -130,5 +130,22 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void EliminarUsuario(string id)
+        {
+            try
+            {
+                datos.setearConsulta("DELETE FROM USUARIOS WHERE Id =" + id);
+                datos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

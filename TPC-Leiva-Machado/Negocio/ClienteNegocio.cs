@@ -129,6 +129,24 @@ namespace Negocio
             }
         }
 
+        public void EliminarCliente (int id)
+        {
+
+            try
+            {
+                datos.setearConsulta("DELETE FROM Clientes WHERE Id =" + id);
+                datos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
 
 
     }
