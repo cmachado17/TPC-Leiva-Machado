@@ -6,16 +6,19 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
 using Negocio;
+using Helpers;
 
 namespace TPC
 {
     public partial class FomularioUsuarios : System.Web.UI.Page
     {
         public bool ConfirmarEliminacion { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             ConfirmarEliminacion = false;
             txtId.Visible = false;
+            lbError.Visible = false;
             try
             {
                 if (!IsPostBack)
@@ -69,25 +72,43 @@ namespace TPC
                 Usuario nuevo = new Usuario();
                 UsuarioNegocio negocio = new UsuarioNegocio();
 
-                nuevo.Nombres = txbNombre.Text;
-                nuevo.Apellidos = txbApellido.Text;
-                nuevo.Email = txbEmail.Text;
-                nuevo.DNI = txbDNI.Text;
-                nuevo.Perfil = new Perfil();
-                nuevo.Perfil.Id = int.Parse(ddlPerfil.SelectedValue);
-
-                string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
-
-                if (Request.QueryString["id"] != null)
+                if (validarCargaUsuario())
                 {
-                    nuevo.Id = int.Parse(id);
-                    negocio.ModificarUsuario(nuevo);
+                    nuevo.Nombres = txbNombre.Text;
+                    nuevo.Apellidos = txbApellido.Text;
+                    nuevo.Email = txbEmail.Text;
+                    nuevo.DNI = txbDNI.Text;
+                    nuevo.Perfil = new Perfil();
+                    nuevo.Perfil.Id = int.Parse(ddlPerfil.SelectedValue);
+
+                    string id = Request.QueryString["id"] != null ? Request.QueryString["id"].ToString() : "";
+
+                    if (Request.QueryString["id"] != null)
+                    {
+                        nuevo.Id = int.Parse(id);
+                        negocio.ModificarUsuario(nuevo);
+                    }
+                    else
+                    {
+                        //Si estoy agregando, tengo que validar que no agreguen el mismo DNI
+                        if (!negocio.listarUsuarioPorDNI(nuevo.DNI))
+                        {
+                            negocio.AgregarUsuario(nuevo);
+                            Response.Redirect("Usuarios.aspx", false);
+                        }
+                        else
+                        {
+                            string msg = "Ya existe un usuario con ese DNI.";
+                            Response.Write("<script>alert('" + msg + "')</script>");
+                        }
+                    }
                 }
                 else
-                    negocio.AgregarUsuario(nuevo);
+                {
+                    lbError.Visible = true;
+                }
 
-
-                Response.Redirect("Usuarios.aspx", false);
+            
             }
             catch (Exception ex)
             {
@@ -143,6 +164,45 @@ namespace TPC
             {
                 throw ex;
             }
+        }
+
+        private bool validarCargaUsuario()
+        {
+            reiniciarFormato();
+            bool bandera = true;
+            MetodosCompartidos helper = new MetodosCompartidos();
+
+            //los helpers devuelven FALSE si no validan
+            if (!helper.soloLetras(txbNombre.Text) || string.IsNullOrEmpty(txbNombre.Text))
+            {
+                txbNombre.BorderColor = System.Drawing.Color.Red;
+                bandera = false;
+            }
+            if (!helper.soloLetras(txbApellido.Text) || string.IsNullOrEmpty(txbApellido.Text))
+            {
+                txbApellido.BorderColor = System.Drawing.Color.Red;
+                bandera = false;
+            }
+            if (!helper.soloNumeros(txbDNI.Text) || string.IsNullOrEmpty(txbDNI.Text))
+            {
+                txbDNI.BorderColor = System.Drawing.Color.Red;
+                bandera = false;
+            }
+            if (!helper.formatoEmail(txbEmail.Text) || string.IsNullOrEmpty(txbEmail.Text))
+            {
+                txbEmail.BorderColor = System.Drawing.Color.Red;
+                bandera = false;
+            }
+
+            return bandera;
+        }
+
+        private void reiniciarFormato()
+        {
+            txbNombre.BorderColor = System.Drawing.Color.Black;
+            txbApellido.BorderColor = System.Drawing.Color.Black;
+            txbDNI.BorderColor = System.Drawing.Color.Black;
+            txbEmail.BorderColor = System.Drawing.Color.Black;
         }
     }
 }

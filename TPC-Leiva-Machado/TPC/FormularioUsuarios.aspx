@@ -28,6 +28,9 @@
         <asp:Label ID="lbPerfil" runat="server" Text="Perfil" CssClass="form-label">Perfil</asp:Label>
         <asp:DropDownList ID="ddlPerfil" CssClass="form-select" runat="server"></asp:DropDownList>
     </div>
+     <div class="mb-3">
+        <asp:Label ID="lbError" runat="server" Text="Revisar los campos marcados" CssClass="form-label">Revisar los campos marcados</asp:Label>
+    </div>
     <asp:Button AutoPostBack="false" OnClick="btnConfirmar_Click" ID="btnConfirmar" runat="server" Text="Confirmar" CssClass="btn btn-primary" />
     <a href="Usuarios.aspx" class="btn btn-danger">Cancelar</a>
     <% if (Request.QueryString["id"] != null)
