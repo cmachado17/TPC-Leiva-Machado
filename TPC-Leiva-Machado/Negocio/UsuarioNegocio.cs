@@ -97,7 +97,6 @@ namespace Negocio
                 datos.setearParametro("@DNI", nuevo.DNI);
                 datos.setearParametro("@Email", nuevo.Email);
                 datos.setearParametro("@Perfil", nuevo.Perfil.Id);
-
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

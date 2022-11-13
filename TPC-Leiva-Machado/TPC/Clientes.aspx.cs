@@ -19,11 +19,11 @@ namespace TPC
             dgvClientes.DataBind();
         }
 
-        protected void dgvClientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String id = dgvClientes.SelectedDataKey.Value.ToString();
-            Response.Redirect("FormularioClientes.aspx?id=" + id);
-        }
+        //protected void dgvClientes_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    String id = dgvClientes.SelectedDataKey.Value.ToString();
+        //    Response.Redirect("FormularioClientes.aspx?id=" + id);
+        //}
 
         protected void dgvClientes_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -37,6 +37,37 @@ namespace TPC
             List<Cliente> listaFiltrada = lista.FindAll(x => x.Nombres.ToUpper().Contains(FiltroClientes.Text.ToUpper()));
             dgvClientes.DataSource = listaFiltrada;
             dgvClientes.DataBind();
-        } 
+        }
+
+        protected void BtnIncidencia_Click(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            GridViewRow row = (GridViewRow)b.NamingContainer;
+            if (row != null)
+            {
+                //Obtenemos el indice de la fila
+                int rowIndex = row.RowIndex;
+                //obtenemos el Datakey de la row, que es el ID Cliente
+                string key = dgvClientes.DataKeys[rowIndex].Value.ToString();
+                Response.Redirect("FormularioIncidencia.aspx?id=" + key);
+            }
+
+        }
+
+        protected void BtnModificar_Click(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            GridViewRow row = (GridViewRow)b.NamingContainer;
+            if (row != null)
+            {
+                //Obtenemos el indice de la fila
+                int rowIndex = row.RowIndex;
+                //obtenemos el Datakey de la row, que es el ID Cliente
+                string key = dgvClientes.DataKeys[rowIndex].Value.ToString();
+
+                Response.Redirect("FormularioClientes.aspx?id=" + key);
+
+            }
+        }
     }
 }
