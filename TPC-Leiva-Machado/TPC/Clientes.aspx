@@ -3,12 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row mb-3">
-        <a class="btn btn-primary" href="FormularioClientes.aspx">Agregar Cliente</a>
-    </div>
 
-    <div class="row mb-3">
-        <asp:TextBox runat="server" ID="FiltroClientes" AutoPostBack="true" OnTextChanged="FiltroClientes_TextChanged" />
+    <div class="text-center">
+        <h1>Clientes</h1>
+    </div>
+    <div class="form-group mb-3">
+        <asp:Label Text="Busqueda:" runat="server" />
+        <asp:TextBox runat="server" ID="FiltroClientes" AutoPostBack="true" OnTextChanged="FiltroClientes_TextChanged" CssClass="form-control" placeholder="Ingrese el nombre del cliente.." />
     </div>
     <%-- OnSelectedIndexChanged="dgvClientes_SelectedIndexChanged" --%>
     <asp:GridView AutoGenerateColumns="false"
@@ -45,6 +46,11 @@
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
+    <div class="row mb-3 d-flex align-items-center">
+        <div class="col-12">
+            <a class="btn btn-primary btn-block" href="FormularioClientes.aspx">Agregar Cliente</a>
+        </div>
 
+    </div>
 
 </asp:Content>

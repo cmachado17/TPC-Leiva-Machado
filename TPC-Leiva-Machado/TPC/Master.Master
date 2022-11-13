@@ -17,7 +17,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-             <!-- <nav class="navbar navbar-expand-lg bg-dark text-light sticky-top">
+            <!-- <nav class="navbar navbar-expand-lg bg-dark text-light sticky-top">
                 <div class="container">
                     <div id="navbarNav" class="d-flex">
                         <a class="nav-link text-light" href="Home.aspx" >Home</a>
@@ -31,56 +31,55 @@
                 </div>
             </nav> !-->
 
-      
-       <div id="navbarNav" class="d-flex">
 
-               <asp:Menu runat="server" ID="Submenu" cssclass="navbar navbar-expand-lg bg-dark text-light sticky-top"  orientation="Horizontal">
-              <staticmenuitemstyle 
-                          horizontalpadding="15"
-                          verticalpadding="5"
-                          cssclass="nav-link text-light"/>
-                        <items>
-                            <asp:menuitem  navigateurl="Clientes.aspx" text="Clientes" tooltip="Clientes"></asp:menuitem>
-                            <asp:menuitem  navigateurl="Incidentes.aspx" text="Incidentes" tooltip="Incidentes"></asp:menuitem>
-                            <asp:menuitem  navigateurl="Usuarios.aspx" text="Usuarios" tooltip="Usuarios"></asp:menuitem>
-                        </items>
+            <div id="navbarNav" class="navbar bg-dark">
+
+                <asp:Menu runat="server" ID="Submenu" CssClass="navbar navbar-expand-lg bg-dark text-light sticky-top" Orientation="Horizontal">
+                    <StaticMenuItemStyle
+                        HorizontalPadding="15"
+                        VerticalPadding="5"
+                        CssClass="nav-link text-light" />
+                    <Items>
+                        <asp:MenuItem NavigateUrl="Clientes.aspx" Text="Clientes" ToolTip="Clientes"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Incidentes.aspx" Text="Incidentes" ToolTip="Incidentes"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Usuarios.aspx" Text="Usuarios" ToolTip="Usuarios"></asp:MenuItem>
+                    </Items>
                 </asp:Menu>
-           
-           <asp:Menu runat="server" ID="Menu" cssclass="navbar navbar-expand-lg bg-dark text-light sticky-top"  orientation="Horizontal" staticdisplaylevels="2">
-              <staticmenuitemstyle 
-                          horizontalpadding="80"
-                          verticalpadding="5"
-                          cssclass="nav-link text-light"/>
-                   
-                        <items>
-                               <asp:menuitem>  </asp:menuitem>                     
-                        </items>
-            </asp:Menu>
 
-             <asp:Menu runat="server" ID="Menu1" cssclass="navbar navbar-expand-lg bg-dark text-light sticky-top"  orientation="Horizontal" staticdisplaylevels="2">
-              <staticmenuitemstyle 
-                          horizontalpadding="15"
-                          verticalpadding="5"
-                          cssclass="nav-link text-light"/>
-                        <items>
-                            <asp:menuitem navigateurl="Home.aspx" text="Home" tooltip="Home"></asp:menuitem>
-                            <asp:menuitem navigateurl="Login.aspx" text="Login" tooltip="Login"></asp:menuitem>
-                            <asp:menuitem navigateurl="PreguntasFrecuentes.aspx" text="Preguntas Frecuentes" tooltip="PreguntasFrecuentes"></asp:menuitem>
-                            <asp:menuitem navigateurl="Contacto.aspx" text="Contacto" tooltip="Contacto"></asp:menuitem>   
-                        </items>
-            </asp:Menu>
-            
-         
-       </div>
+                <asp:Menu runat="server" ID="Menu" CssClass="navbar navbar-expand-lg bg-dark text-light sticky-top" Orientation="Horizontal" StaticDisplayLevels="2">
+                    <StaticMenuItemStyle
+                        HorizontalPadding="80"
+                        VerticalPadding="5"
+                        CssClass="nav-link text-light" />
+                    <Items>
+                        <asp:MenuItem></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+
+                <asp:Menu runat="server" ID="Menu1" CssClass="navbar navbar-expand-lg bg-dark text-light sticky-top" Orientation="Horizontal" StaticDisplayLevels="2">
+                    <StaticMenuItemStyle
+                        HorizontalPadding="15"
+                        VerticalPadding="5"
+                        CssClass="nav-link text-light" />
+                    <Items>
+                        <asp:MenuItem NavigateUrl="Home.aspx" Text="Home" ToolTip="Home"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Login.aspx" Text="Login" ToolTip="Login"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="PreguntasFrecuentes.aspx" Text="Preguntas Frecuentes" ToolTip="PreguntasFrecuentes"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Contacto.aspx" Text="Contacto" ToolTip="Contacto"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+
+
+            </div>
 
 
 
             <div class="container py-5">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-                </div>
-               <footer class="bg-dark text-light py-2 navbar fixed-bottom d-flex justify-content-center">
-                    <p>Desarrollado por <a href="https://github.com/SanUtn" target="_blank">Sandra Leiva</a> y <a href="https://github.com/cmachado17" target="_blank">Cristian Machado</a></p>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <footer class="bg-dark text-light py-2 navbar fixed-bottom d-flex justify-content-center">
+                <p>Desarrollado por <a href="https://github.com/SanUtn" target="_blank">Sandra Leiva</a> y <a href="https://github.com/cmachado17" target="_blank">Cristian Machado</a></p>
             </footer>
         </div>
     </form>
