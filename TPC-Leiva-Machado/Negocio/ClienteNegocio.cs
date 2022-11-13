@@ -52,6 +52,7 @@ namespace Negocio
         {
             try
             {
+                datos.limpiarParametros();
                 datos.setearSP("sp_Agregar_Cliente");
                 datos.setearParametro("@Nombres", nuevo.Nombres);
                 datos.setearParametro("@Apellidos", nuevo.Apellidos);
@@ -106,6 +107,35 @@ namespace Negocio
             }
         }
 
+        public bool listarClientePorDNI(string dni)
+        {
+            bool bandera = false;
+
+            try
+            {
+                datos.setearConsulta("SELECT * FROM Clientes WHERE DNI = @dni");
+                datos.setearParametro("@dni", dni);
+
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    bandera = true;
+                    return bandera;
+                }
+
+                return bandera;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
         public void modificarConSp(Cliente cliente)
         {

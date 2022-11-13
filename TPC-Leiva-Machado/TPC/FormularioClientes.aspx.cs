@@ -64,18 +64,31 @@ namespace TPC
                     {
                         nuevo.Id = int.Parse(id);
                         negocio.modificarConSp(nuevo);
+                        Response.Redirect("Clientes.aspx", false);
                     }
                     else
-                        negocio.agregarCliente(nuevo);
+                    {
+                        //Si estoy agregando, tengo que validar que no agreguen el mismo DNI
+                        if (!negocio.listarClientePorDNI(nuevo.DNI))
+                        {
+                            negocio.agregarCliente(nuevo);
+                            Response.Redirect("Clientes.aspx", false);
+                        }
+                        else
+                        {
+                            string msg = "Ya existe un cliente con ese DNI.";
+                            Response.Write("<script>alert('" + msg + "')</script>");
+                        }
 
-                    Response.Redirect("Clientes.aspx", false);
+                    }
+
                 }
                 else
                 {
                     lbError.Visible = true;
                 }
 
-               
+
             }
             catch (Exception ex)
             {
@@ -139,27 +152,27 @@ namespace TPC
             MetodosCompartidos helper = new MetodosCompartidos();
 
             //los helpers devuelven FALSE si no validan
-            if (!helper.soloLetras(txbNombre.Text))    
+            if (!helper.soloLetras(txbNombre.Text) || string.IsNullOrEmpty(txbNombre.Text))
             {
                 txbNombre.BorderColor = System.Drawing.Color.Red;
                 bandera = false;
             }
-            if (!helper.soloLetras(txbApellido.Text))
+            if (!helper.soloLetras(txbApellido.Text) || string.IsNullOrEmpty(txbApellido.Text))
             {
                 txbApellido.BorderColor = System.Drawing.Color.Red;
                 bandera = false;
             }
-            if (!helper.soloNumeros(txbDNI.Text))
+            if (!helper.soloNumeros(txbDNI.Text) || string.IsNullOrEmpty(txbDNI.Text))
             {
                 txbDNI.BorderColor = System.Drawing.Color.Red;
                 bandera = false;
             }
-            if (!helper.soloNumeros(txbTelefono.Text))
+            if (!helper.soloNumeros(txbTelefono.Text) || string.IsNullOrEmpty(txbTelefono.Text))
             {
                 txbTelefono.BorderColor = System.Drawing.Color.Red;
                 bandera = false;
             }
-            if (!helper.formatoEmail(txbEmail.Text))
+            if (!helper.formatoEmail(txbEmail.Text) || string.IsNullOrEmpty(txbEmail.Text))
             {
                 txbEmail.BorderColor = System.Drawing.Color.Red;
                 bandera = false;
