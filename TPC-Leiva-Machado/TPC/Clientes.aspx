@@ -26,7 +26,7 @@
             <asp:CheckBoxField HeaderText="Activo" DataField="Activo" />
             <%-- <asp:CommandField HeaderText="Modificar" ShowSelectButton="true" SelectText="Modificar"/>
                     <asp:CommandField HeaderText="Detalle" ShowSelectButton="true" SelectText="Detalle"/>--%>
-            <asp:TemplateField HeaderText="Author Name">
+            <asp:TemplateField HeaderText="Incidencias">
                 <ItemTemplate>
                     <asp:Button ID="BtnIncidencia"
                         Text="Incidencia"
@@ -35,7 +35,7 @@
                 </ItemTemplate>
 
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="Author Name">
+            <asp:TemplateField HeaderText="Modificacion">
                 <ItemTemplate>
                     <asp:Button ID="BtnModificar"
                         Text="Modificar"
