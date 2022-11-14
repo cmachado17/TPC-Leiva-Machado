@@ -29,10 +29,8 @@ namespace Negocio
                     aux.DNI = (string)datos.Lector["DNI"];
                     aux.Email = (string)datos.Lector["Email"];
                     aux.Telefono = (string)datos.Lector["Telefono"];
-                    aux.FechaDeAlta = new DateTime();
-                    aux.FechaDeAlta = (DateTime)datos.Lector["FechaDeAlta"];
-                    aux.FechaDeBaja = new DateTime();
-                    aux.FechaDeBaja = (DateTime)datos.Lector["FechaDeBaja"];
+                    aux.FechaDeAlta = DateTime.Parse(datos.Lector["FechaDeAlta"].ToString());
+                    aux.FechaDeBaja = DateTime.Parse(datos.Lector["FechaDeBaja"].ToString());
                     aux.Activo = (Boolean)datos.Lector["Activo"];
 
                     lista.Add(aux);
