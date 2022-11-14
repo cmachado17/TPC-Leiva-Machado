@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace Dominio
         public string Telefono { get; set; }
         public DateTime FechaDeAlta { get; set; }
         public DateTime FechaDeBaja { get; set; }
-        public Boolean Activo { get; set; }
+        public bool Activo { get; set; }
 
     }
 }

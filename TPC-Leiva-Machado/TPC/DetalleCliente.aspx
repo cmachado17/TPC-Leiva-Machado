@@ -10,9 +10,8 @@
         CssClass="table table-striped w-100"
         ID="dgvDetalleCliente" runat="server"
         DataKeyNames="Id"
-        OnPageIndexChanging="dgvClientes_PageIndexChanging"
         AllowPaging="true" PageSize="10"
-        style= "text-align:center">
+        style= "text-align:center; padding-top:50px">
         <Columns>
             <asp:BoundField HeaderText="Id" DataField="Id" />
             <asp:BoundField HeaderText="Nombres" DataField="Nombres" />
@@ -27,7 +26,7 @@
     </asp:GridView>
     <div class="row mb-3 d-flex align-items-center">
         <div class="col-12">
-            <a class="btn btn-primary btn-block" href="FormularioClientes.aspx">Volver</a>
+            <a class="btn btn-primary btn-block" href="Clientes.aspx">Volver</a>
         </div>
 
     </div>

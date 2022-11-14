@@ -31,9 +31,8 @@ namespace Negocio
                     aux.Perfil = new Perfil();
                     aux.Perfil.Id = (int)datos.Lector["IdPerfil"];
                     aux.Perfil.Descripcion = (string)datos.Lector["Perfil"];
-                    aux.FechaDeAlta = (DateTime)datos.Lector["FechaDeAlta"];
+                    aux.FechaDeAlta = datos.Lector["FechaDeAlta"] != DBNull.Value ? (DateTime)datos.Lector["FechaDeAlta"] : default;
                     aux.FechaDeBaja = datos.Lector["FechaDeBaja"] != DBNull.Value ? (DateTime)datos.Lector["FechaDeBaja"] : default;
-                    //aux.FechaDeBaja = (DateTime)datos.Lector["FechaDeBaja"]
                     aux.Activo = (Boolean)datos.Lector["Activo"];
 
                     lista.Add(aux);

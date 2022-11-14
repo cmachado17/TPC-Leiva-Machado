@@ -13,10 +13,20 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ClienteNegocio negocio = new ClienteNegocio();
-            Session.Add("listaClientes", negocio.listarCliente());
-            dgvDetalleCliente.DataSource = Session["listaClientes"];
-            dgvDetalleCliente.DataBind();
+           
+
+            if (Request.QueryString["id"] != null && !IsPostBack)
+            {
+            
+                ClienteNegocio negocio = new ClienteNegocio();
+                List<Cliente> seleccionado = new List<Cliente>(); 
+                seleccionado.Add(negocio.listarClientePorId(Int32.Parse(Request.QueryString["id"])));
+
+                //lo guardamos en session
+                Session.Add("ClienteSeleccionado", seleccionado);
+                dgvDetalleCliente.DataSource =Session["ClienteSeleccionado"];
+                dgvDetalleCliente.DataBind();
+            }
         }
     }
 }
