@@ -20,5 +20,12 @@
       <asp:Label ID="lbCliente" runat="server" Text="Cliente" cssclass="form-label">Cliente</asp:Label>
          <asp:TextBox ID="txbCliente" runat="server"></asp:TextBox> 
    </div>
-    <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" type="submit" cssclass="btn btn-primary"/>
+<div class="row">
+ <div class="col-12 text-center mb-2 d-flex">
+    <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" type="submit" cssclass="btn btn-primary btn-block my-1 mx-5"/>
+
+    <a href="Clientes.aspx" class="btn btn-danger btn-block my-1 mx-5">Cancelar</a>
+</div>
+    </div>
+     
 </asp:Content>
