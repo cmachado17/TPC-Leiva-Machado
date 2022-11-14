@@ -56,7 +56,7 @@ namespace TPC
 
         protected void BtnModificar_Click(object sender, EventArgs e)
         {
-            Button b = (Button)sender;
+           ImageButton b = (ImageButton)sender;
             GridViewRow row = (GridViewRow)b.NamingContainer;
             if (row != null)
             {

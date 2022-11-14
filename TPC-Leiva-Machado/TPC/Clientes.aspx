@@ -38,10 +38,11 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Modificacion">
                 <ItemTemplate>
-                    <asp:Button ID="BtnModificar"
+                    <asp:ImageButton ID="BtnModificar"
                         Text="Modificar"
                         OnClick="BtnModificar_Click"
-                        runat="server" />
+                        runat="server" 
+                        ImageUrl="lapiz.png" width="20" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
