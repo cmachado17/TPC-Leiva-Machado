@@ -3,8 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   <div style="padding-bottom:30px; text-align:center">
     <h1>Bienvenidos al Call Center CriSan</h1>
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+   </div>
+    <div style="padding-top:30px" id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
         <div class="carousel-inner text-center">
             <div class="carousel-item active">
                 <img src="https://www.freeiconspng.com/thumbs/help-desk-icon/help-desk-icon-8.png" class="img" alt="...">

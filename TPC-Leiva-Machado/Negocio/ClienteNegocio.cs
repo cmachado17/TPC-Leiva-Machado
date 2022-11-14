@@ -78,7 +78,7 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("Select Id, Nombres, Apellidos,DNI, Email, Telefono, Activo " +
+                datos.setearConsulta("Select Id, Nombres, Apellidos,DNI, Email, Telefono, FechaDeAlta, FechaDeBaja, Activo " +
                 "from Clientes where Id =" + id);
                 datos.ejecutarLectura();
 
