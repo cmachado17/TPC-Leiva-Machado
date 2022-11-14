@@ -24,25 +24,35 @@
             <asp:BoundField HeaderText="DNI" DataField="DNI" />
             <asp:BoundField HeaderText="Email" DataField="Email" />
             <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
-            <asp:CheckBoxField HeaderText="Activo" DataField="Activo" />
+           
             <%-- <asp:CommandField HeaderText="Modificar" ShowSelectButton="true" SelectText="Modificar"/>
                     <asp:CommandField HeaderText="Detalle" ShowSelectButton="true" SelectText="Detalle"/>--%>
-            <asp:TemplateField HeaderText="Incidencias">
+            <asp:TemplateField HeaderText="">
                 <ItemTemplate>
                     <asp:Button ID="BtnIncidencia"
-                        Text="Incidencia"
+                        Text=" Agregar Incidencia"
                         OnClick="BtnIncidencia_Click"
-                        runat="server" />
+                        runat="server" 
+                        cssclass="btn btn-primary"/>
                 </ItemTemplate>
 
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="Modificacion">
+            <asp:TemplateField HeaderText="">
                 <ItemTemplate>
                     <asp:ImageButton ID="BtnModificar"
                         Text="Modificar"
                         OnClick="BtnModificar_Click"
                         runat="server" 
                         ImageUrl="lapiz.png" width="20" />
+                </ItemTemplate>
+            </asp:TemplateField>
+                      <asp:TemplateField HeaderText="">
+                <ItemTemplate>
+                    <asp:ImageButton ID="BtnDetalle"
+                        Text="Detalle"
+                        OnClick="BtnDetalle_Click"
+                        runat="server" 
+                        ImageUrl="lupa.png" width="20" />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
