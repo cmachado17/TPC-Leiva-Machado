@@ -7,8 +7,10 @@
     <div class="text-center">
         <h1>Clientes</h1>
     </div>
-    <div class="form-group mb-3">
-        <asp:Label Text="Busqueda:" runat="server" />
+    <div class="mb-3 form-label" style= "padding-top:30px; font-size:20px; font-weight:bold">
+        <asp:Label Text="Busqueda:" runat="server" cssclass="form-label" />
+     </div>
+    <div class="mb-3" style= "padding-bottom:3px">    
         <asp:TextBox runat="server" ID="FiltroClientes" AutoPostBack="true" OnTextChanged="FiltroClientes_TextChanged" CssClass="form-control" placeholder="Ingrese el nombre del cliente.." />
     </div>
     <%-- OnSelectedIndexChanged="dgvClientes_SelectedIndexChanged" --%>
@@ -17,7 +19,8 @@
         ID="dgvClientes" runat="server"
         DataKeyNames="Id"
         OnPageIndexChanging="dgvClientes_PageIndexChanging"
-        AllowPaging="true" PageSize="10">
+        AllowPaging="true" PageSize="10"
+        style= "text-align:center">
         <Columns>
             <asp:BoundField HeaderText="Nombres" DataField="Nombres" />
             <asp:BoundField HeaderText="Apellidos" DataField="Apellidos" />
@@ -30,10 +33,11 @@
             <asp:TemplateField HeaderText="">
                 <ItemTemplate>
                     <asp:Button ID="BtnIncidencia"
-                        Text=" Agregar Incidencia"
+                        Text="Cargar Incidencia"
                         OnClick="BtnIncidencia_Click"
                         runat="server" 
-                        cssclass="btn btn-primary"/>
+                        cssclass="btn btn-link"
+                     />
                 </ItemTemplate>
 
             </asp:TemplateField>

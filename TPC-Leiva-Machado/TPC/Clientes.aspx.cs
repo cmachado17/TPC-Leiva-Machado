@@ -81,7 +81,7 @@ namespace TPC
                 //obtenemos el Datakey de la row, que es el ID Cliente
                 string key = dgvClientes.DataKeys[rowIndex].Value.ToString();
 
-                Response.Redirect("FormularioClientes.aspx?id=" + key);
+                Response.Redirect("DetalleCliente.aspx?id=" + key);
 
             }
         }
