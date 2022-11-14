@@ -26,12 +26,9 @@
             <asp:BoundField HeaderText="DNI" DataField="DNI" />
             <asp:BoundField HeaderText="Email" DataField="Email" />
             <asp:BoundField HeaderText="Perfil" DataField="Perfil.Descripcion" />
-            <asp:CheckBoxField HeaderText="Activo" DataField="Activo" />
-            <asp:BoundField HeaderText="Fecha alta" DataField="FechaDeAlta" />
-            <asp:BoundField HeaderText="Fecha baja" DataField="FechaDeBaja" />
-           
+                      
        
-          </asp:TemplateField>
+        
             <asp:TemplateField HeaderText="">
                 <ItemTemplate>
                     <asp:ImageButton ID="BtnModificarU"
@@ -41,7 +38,7 @@
                         ImageUrl="lapiz.png" width="20" />
                 </ItemTemplate>
             </asp:TemplateField>
-                      <asp:TemplateField HeaderText="">
+            <asp:TemplateField HeaderText="">
                 <ItemTemplate>
                     <asp:ImageButton ID="BtnDetalleU"
                         Text="Detalle"
