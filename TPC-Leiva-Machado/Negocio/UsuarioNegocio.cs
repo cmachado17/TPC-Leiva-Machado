@@ -31,8 +31,8 @@ namespace Negocio
                     aux.Perfil = new Perfil();
                     aux.Perfil.Id = (int)datos.Lector["IdPerfil"];
                     aux.Perfil.Descripcion = (string)datos.Lector["Perfil"];
-                    aux.FechaDeAlta = datos.Lector["FechaDeAlta"] != DBNull.Value ? (DateTime)datos.Lector["FechaDeAlta"] : default;
-                    aux.FechaDeBaja = datos.Lector["FechaDeBaja"] != DBNull.Value ? (DateTime)datos.Lector["FechaDeBaja"] : default;
+                    aux.FechaDeAlta = datos.Lector["FechaDeAlta"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeAlta"]).ToShortDateString() : "";
+                    aux.FechaDeBaja = datos.Lector["FechaDeBaja"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeBaja"]).ToShortDateString() : "";
                     aux.Activo = (Boolean)datos.Lector["Activo"];
 
                     lista.Add(aux);
@@ -69,8 +69,8 @@ namespace Negocio
                     usuario.Perfil = new Perfil();
                     usuario.Perfil.Id = (int)datos.Lector["IdPerfil"];
                     usuario.Perfil.Descripcion = (string)datos.Lector["Descripcion"];
-                    usuario.FechaDeAlta = (DateTime)datos.Lector["FechaDeAlta"];
-                    usuario.FechaDeBaja = datos.Lector["FechaDeBaja"] != DBNull.Value ? (DateTime)datos.Lector["FechaDeBaja"] : default;
+                    usuario.FechaDeAlta = datos.Lector["FechaDeAlta"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeAlta"]).ToShortDateString() : "";
+                    usuario.FechaDeBaja = datos.Lector["FechaDeBaja"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeBaja"]).ToShortDateString() : "";
                     usuario.Activo = (Boolean)datos.Lector["Activo"];
                 }
                 return usuario;

@@ -32,7 +32,7 @@
             </nav> !-->
 
 
-            <div id="navbarNav" class="navbar bg-dark">
+            <div id="navbarNav" class="bg-dark text-light py-2 navbar">
 
                 <asp:Menu runat="server" ID="Submenu" CssClass="navbar navbar-expand-lg bg-dark text-light sticky-top" Orientation="Horizontal">
                     <StaticMenuItemStyle
@@ -46,7 +46,7 @@
                     </Items>
                 </asp:Menu>
 
-                <asp:Menu runat="server" ID="Menu" CssClass="navbar navbar-expand-lg bg-dark text-light sticky-top" Orientation="Horizontal" StaticDisplayLevels="2">
+                <asp:Menu runat="server" ID="Menu" CssClass="bg-dark text-light py-2 navbar" Orientation="Horizontal" StaticDisplayLevels="2">
                     <StaticMenuItemStyle
                         HorizontalPadding="80"
                         VerticalPadding="5"
@@ -56,7 +56,7 @@
                     </Items>
                 </asp:Menu>
 
-                <asp:Menu runat="server" ID="Menu1" CssClass="navbar navbar-expand-lg bg-dark text-light sticky-top" Orientation="Horizontal" StaticDisplayLevels="2">
+                <asp:Menu runat="server" ID="Menu1" CssClass="bg-dark text-light py-2 navbar" Orientation="Horizontal" StaticDisplayLevels="2">
                     <StaticMenuItemStyle
                         HorizontalPadding="15"
                         VerticalPadding="5"
