@@ -67,10 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administracion.aspx" />
     <Content Include="Contacto.aspx" />
     <Content Include="Clientes.aspx" />
     <Content Include="DetalleCliente.aspx" />
     <Content Include="DetalleUsuarios.aspx" />
+    <Content Include="FormularioAdministracion.aspx" />
     <Content Include="FormularioUsuarios.aspx" />
     <Content Include="FormularioClientes.aspx" />
     <Content Include="FormularioIncidencia.aspx" />
@@ -83,6 +85,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administracion.aspx.cs">
+      <DependentUpon>Administracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion.aspx.designer.cs">
+      <DependentUpon>Administracion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contacto.aspx.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -110,6 +119,13 @@
     </Compile>
     <Compile Include="DetalleUsuarios.aspx.designer.cs">
       <DependentUpon>DetalleUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioAdministracion.aspx.cs">
+      <DependentUpon>FormularioAdministracion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioAdministracion.aspx.designer.cs">
+      <DependentUpon>FormularioAdministracion.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormularioUsuarios.aspx.cs">
       <DependentUpon>FormularioUsuarios.aspx</DependentUpon>

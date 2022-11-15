@@ -43,6 +43,7 @@
                         <asp:MenuItem NavigateUrl="Clientes.aspx" Text="Clientes" ToolTip="Clientes"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="Incidentes.aspx" Text="Incidentes" ToolTip="Incidentes"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="Usuarios.aspx" Text="Usuarios" ToolTip="Usuarios"></asp:MenuItem>
+                         <asp:MenuItem NavigateUrl="Administracion.aspx" Text="Administracion" ToolTip="Administracion"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
 

@@ -40,5 +40,24 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void agregarTipo(TipoIncidencia nuevo)
+        {
+            try
+            {
+                datos.setearConsulta("INSERT INTO TipoIncidencias VALUES (@Descripcion,1)");
+                datos.setearParametro("@Descripcion", nuevo.Descripcion);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

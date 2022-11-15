@@ -40,5 +40,24 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void agregarPrioridad(Prioridad nuevo)
+        {
+            try
+            {
+                datos.setearConsulta("INSERT INTO PrioridadIncidencias VALUES (@Descripcion,1)");
+                datos.setearParametro("@Descripcion", nuevo.Descripcion);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
