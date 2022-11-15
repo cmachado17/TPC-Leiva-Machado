@@ -59,5 +59,25 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void borrarTipo(string id)
+        {
+            try
+            {
+                datos.setearConsulta("DELETE FROM TipoIncidencias WHERE Id = @Id");
+                datos.setearParametro("@Id", id);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
     }
 }

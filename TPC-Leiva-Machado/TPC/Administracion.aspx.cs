@@ -27,12 +27,42 @@ namespace TPC
 
         protected void BtnPrioridad_Click(object sender, EventArgs e)
         {
+            PrioridadNegocio negocioPrioridad = new PrioridadNegocio();
+            Button b = (Button)sender;
+            GridViewRow row = (GridViewRow)b.NamingContainer;
 
+            if (row != null)
+            {
+                //Obtenemos el indice de la fila
+                int rowIndex = row.RowIndex;
+                //obtenemos el Datakey de la row, que es el ID Cliente
+                string key = dgvPrioridades.DataKeys[rowIndex].Value.ToString();
+
+                negocioPrioridad.borrarPrioridad(key);
+
+                Response.Redirect("Administracion.aspx");
+
+            }
         }
 
         protected void BtnTipoIncidencias_Click(object sender, EventArgs e)
         {
+            TipoNegocio negocioTipo = new TipoNegocio();
+            Button b = (Button)sender;
+            GridViewRow row = (GridViewRow)b.NamingContainer;
 
+            if (row != null)
+            {
+                //Obtenemos el indice de la fila
+                int rowIndex = row.RowIndex;
+                //obtenemos el Datakey de la row, que es el ID Cliente
+                string key = dgvTipoIncidencias.DataKeys[rowIndex].Value.ToString();
+
+                negocioTipo.borrarTipo(key);
+
+                Response.Redirect("Administracion.aspx");
+
+            }
         }
 
         protected void Tipo_Click(object sender, EventArgs e)
@@ -44,5 +74,6 @@ namespace TPC
         {
             Response.Redirect("FormularioAdministracion.aspx?categoria=prioridad");
         }
+
     }
 }

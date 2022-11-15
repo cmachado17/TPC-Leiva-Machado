@@ -2,7 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>Formulario administracion</h2>
+     <div class="text-center">
+        <% if (Request.QueryString["categoria"] == "prioridad")
+            { %>
+       <h2>Agregar prioridad</h2>
+        <%}
+            else
+            {%>
+      <h2>Agregar tipo</h2>
+        <%}%>
+    </div>
 
      <div class="mb-3">
         <asp:Label ID="lbDescripcion" runat="server" Text="Nombre" CssClass="form-label">Descripcion</asp:Label>

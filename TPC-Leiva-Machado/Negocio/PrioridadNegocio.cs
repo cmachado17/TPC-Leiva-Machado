@@ -59,5 +59,26 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+
+        public void borrarPrioridad(string id)
+        {
+            try
+            {
+                datos.setearConsulta("DELETE FROM PrioridadIncidencias WHERE Id = @Id");
+                datos.setearParametro("@Id", id);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
     }
 }
