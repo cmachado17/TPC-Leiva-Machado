@@ -4,11 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="text-center">
-        <h2>Administracion</h2>
+        <h1>Administracion</h1>
     </div>
     <div class="row">
         <div class="col-6">
-              <asp:Button Text="Agregar prioridad" ID="Prioridad" runat="server" class="btn btn-primary btn-block" OnClick="Prioridad_Click"/>
+             <div class="text-center my-3">
+              <asp:Button Text="Agregar prioridad" ID="Prioridad" runat="server" class="btn btn-primary" OnClick="Prioridad_Click"/>
+                 </div>
           <%--  <a class="btn btn-primary btn-block" href="FormularioAdministracion?categoria=prioridad.aspx">Agregar prioridad</a>--%>
             <asp:GridView AutoGenerateColumns="false"
                 CssClass="table table-striped w-100"
@@ -32,7 +34,10 @@
             </asp:GridView>
         </div>
         <div class="col-6">
-            <asp:Button Text="Agregar tipo" ID="Tipo" runat="server" class="btn btn-primary btn-block" OnClick="Tipo_Click"/>
+            <div class="text-center my-3">
+                   <asp:Button Text="Agregar tipo" ID="Tipo" runat="server" class="btn btn-primary" OnClick="Tipo_Click"/>
+            </div>
+         
            <%-- <a class="btn btn-primary btn-block" href="FormularioAdministracion?categoria=tipo.aspx">Agregar tipo</a>--%>
               <asp:GridView AutoGenerateColumns="false"
                 CssClass="table table-striped w-100"

@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administracion.aspx" />
+    <Content Include="AreaPersonal.aspx" />
     <Content Include="Contacto.aspx" />
     <Content Include="Clientes.aspx" />
     <Content Include="DetalleCliente.aspx" />
@@ -91,6 +92,13 @@
     </Compile>
     <Compile Include="Administracion.aspx.designer.cs">
       <DependentUpon>Administracion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AreaPersonal.aspx.cs">
+      <DependentUpon>AreaPersonal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AreaPersonal.aspx.designer.cs">
+      <DependentUpon>AreaPersonal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contacto.aspx.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>

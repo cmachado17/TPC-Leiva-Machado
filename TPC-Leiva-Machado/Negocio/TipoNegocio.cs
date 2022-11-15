@@ -45,6 +45,7 @@ namespace Negocio
         {
             try
             {
+                datos.limpiarParametros();
                 datos.setearConsulta("INSERT INTO TipoIncidencias VALUES (@Descripcion,1)");
                 datos.setearParametro("@Descripcion", nuevo.Descripcion);
 
@@ -71,6 +72,32 @@ namespace Negocio
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public bool buscarTipo (string tipo)
+        {
+            try
+            {
+                datos.setearConsulta("SELECT * FROM TipoIncidencias WHERE Descripcion = @Descripcion");
+                datos.setearParametro("@Descripcion", tipo);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
             finally

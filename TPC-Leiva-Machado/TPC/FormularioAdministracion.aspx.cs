@@ -36,8 +36,14 @@ namespace TPC
                     Prioridad nuevo = new Prioridad();
                     PrioridadNegocio negocio = new PrioridadNegocio();
 
-                    nuevo.Descripcion = txbDescripcion.Text;
+                    nuevo.Descripcion = txbDescripcion.Text.ToUpper();
 
+                    if (negocio.buscarPrioridad(nuevo.Descripcion))
+                    {
+                        txbDescripcion.BorderColor = System.Drawing.Color.Red;
+                        return;
+                    }
+                      
                     negocio.agregarPrioridad(nuevo);
                     Response.Redirect("Administracion.aspx", false);
                 }
@@ -46,7 +52,13 @@ namespace TPC
                     TipoIncidencia nuevo = new TipoIncidencia();
                     TipoNegocio negocio = new TipoNegocio();
 
-                    nuevo.Descripcion = txbDescripcion.Text;
+                    nuevo.Descripcion = txbDescripcion.Text.ToUpper();
+
+                    if (negocio.buscarTipo(nuevo.Descripcion))
+                    {
+                        txbDescripcion.BorderColor = System.Drawing.Color.Red;
+                        return;
+                    }
 
                     negocio.agregarTipo(nuevo);
                     Response.Redirect("Administracion.aspx", false);

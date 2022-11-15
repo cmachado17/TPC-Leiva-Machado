@@ -7,11 +7,11 @@
       <div class="text-center">
         <% if (Request.QueryString["id"] != null)
             { %>
-       <h2>Modificar cliente</h2>
+       <h1>Modificar cliente</h1>
         <%}
             else
             {%>
-      <h2>Agregar cliente</h2>
+      <h1>Agregar cliente</h1>
         <%}%>
     </div>
     <div class="mb-3">

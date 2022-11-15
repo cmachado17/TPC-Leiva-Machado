@@ -45,6 +45,7 @@ namespace Negocio
         {
             try
             {
+                datos.limpiarParametros();
                 datos.setearConsulta("INSERT INTO PrioridadIncidencias VALUES (@Descripcion,1)");
                 datos.setearParametro("@Descripcion", nuevo.Descripcion);
 
@@ -72,6 +73,32 @@ namespace Negocio
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public bool buscarPrioridad(string prioridad)
+        {
+            try
+            {
+                datos.setearConsulta("SELECT * FROM PrioridadIncidencias WHERE Descripcion = @Descripcion");
+                datos.setearParametro("@Descripcion", prioridad);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
             finally
