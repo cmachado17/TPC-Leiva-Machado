@@ -29,8 +29,8 @@ namespace Negocio
                     aux.DNI = (string)datos.Lector["DNI"];
                     aux.Email = (string)datos.Lector["Email"];
                     aux.Telefono = (string)datos.Lector["Telefono"];
-                    aux.FechaDeAlta = datos.Lector["FechaDeAlta"] != DBNull.Value ? (DateTime)datos.Lector["FechaDeAlta"] : default;
-                    aux.FechaDeBaja = datos.Lector["FechaDeBaja"] != DBNull.Value ? (DateTime)datos.Lector["FechaDeBaja"] : default;
+                    aux.FechaDeAlta = datos.Lector["FechaDeAlta"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeAlta"]).ToShortDateString() : "";
+                    aux.FechaDeBaja = datos.Lector["FechaDeBaja"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeBaja"]).ToShortDateString() : "";
                     aux.Activo = (bool)datos.Lector["Activo"];
 
                     lista.Add(aux);
@@ -91,8 +91,8 @@ namespace Negocio
                     aux.DNI = (string)datos.Lector["DNI"];
                     aux.Email = (string)datos.Lector["Email"];
                     aux.Telefono = (string)datos.Lector["Telefono"];
-                    aux.FechaDeAlta = (DateTime)datos.Lector["FechaDeAlta"];
-                    aux.FechaDeBaja = datos.Lector["FechaDeBaja"] != DBNull.Value ? (DateTime)datos.Lector["FechaDeBaja"] : default;
+                    aux.FechaDeAlta = datos.Lector["FechaDeAlta"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeAlta"]).ToShortDateString() : "";
+                    aux.FechaDeBaja = datos.Lector["FechaDeBaja"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeBaja"]).ToShortDateString() : "";
                     aux.Activo = (bool)datos.Lector["Activo"];
 
                     cliente = aux;
