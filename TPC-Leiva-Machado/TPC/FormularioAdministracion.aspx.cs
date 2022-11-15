@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
 using Negocio;
+using Helpers;
 
 namespace TPC
 {
@@ -20,6 +21,16 @@ namespace TPC
         {
             try
             {
+                txbDescripcion.BorderColor = System.Drawing.Color.Black;
+                MetodosCompartidos helper = new MetodosCompartidos();
+
+                //los helpers devuelven FALSE si no validan
+                if (!helper.soloLetras(txbDescripcion.Text) || string.IsNullOrEmpty(txbDescripcion.Text))
+                {
+                    txbDescripcion.BorderColor = System.Drawing.Color.Red;
+                    return;
+                }
+
                 if (Request.QueryString["categoria"] == "prioridad")
                 {
                     Prioridad nuevo = new Prioridad();
