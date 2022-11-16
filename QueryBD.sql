@@ -70,7 +70,7 @@ CREATE TABLE Incidentes(
 )
 
 GO
-create table Login (
+create table UsuarioLogin (
 IdUsuario int primary key foreign key references Usuarios (ID) not null,
 Usuario varchar(10) not null, 
 Clave varchar(10) not null

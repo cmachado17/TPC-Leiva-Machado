@@ -46,3 +46,9 @@ VALUES
 ('Cancelado',1),
 ('Vencido',1),
 ('Otros',1)
+
+insert into CALLCENTER.dbo.UsuarioLogin(IdUsuario, Usuario, Clave) 
+VALUES 
+(1, 'admin', 'admin'),
+(2, 'tel', 'tel'),
+(3, 'sup', 'sup')
