@@ -68,3 +68,10 @@ CREATE TABLE Incidentes(
 	FechaDeBaja datetime,
 	Activo bit NOT NULL
 )
+
+GO
+create table Login (
+IdUsuario int primary key foreign key references Usuarios (ID) not null,
+Usuario varchar(10) not null, 
+Clave varchar(10) not null
+)
