@@ -106,4 +106,8 @@ BEGIN
 	IdPerfil = @Perfil
 	WHERE ID = @id
 END
+
 GO
+CREATE PROCEDURE sp_UsuarioLogin (@user varchar(10), @pass varchar(10)) as
+Select IdUsuario, Usuario, Clave from UsuarioLogin
+where usuario = @user and Clave = @pass
