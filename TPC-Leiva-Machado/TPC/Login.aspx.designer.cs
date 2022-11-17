@@ -15,22 +15,22 @@ namespace TPC
     {
 
         /// <summary>
-        /// Control lbCorreo.
+        /// Control lbUser.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbCorreo;
+        protected global::System.Web.UI.WebControls.Label lbUser;
 
         /// <summary>
-        /// Control txtCorreo.
+        /// Control txtUser.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCorreo;
+        protected global::System.Web.UI.WebControls.TextBox txtUser;
 
         /// <summary>
         /// Control lbClave.
