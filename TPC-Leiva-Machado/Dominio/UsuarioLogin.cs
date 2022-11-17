@@ -13,11 +13,22 @@ namespace Dominio
         public string Clave { get; set; }
 
 
-        public UsuarioLogin (string user, string pass, int id)
+        public UsuarioLogin (string user, string pass)
         {
             Usuario = user;
             Clave = pass;
-            IdUsuario.Id = id;
+            /*IdUsuario = new Usuario();
+            IdUsuario.Id= id;
+            IdUsuario.Nombres = "0";
+            IdUsuario.Apellidos = "0";
+            IdUsuario.DNI = "0";
+            IdUsuario.Email = "0";
+            IdUsuario.Perfil = new Perfil();
+            IdUsuario.Perfil.Id = 0;
+            IdUsuario.Perfil.Descripcion = "0";
+            IdUsuario.FechaDeAlta = "0/0/0";
+            IdUsuario.FechaDeBaja = "";
+            IdUsuario.Activo = false;*/
         }
     }
 }

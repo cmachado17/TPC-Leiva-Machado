@@ -13,7 +13,14 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                lbUser.Visible = true;
+                txtUser.Visible = true;
+                lbClave.Visible = true;
+                txtClave.Visible = true;
+                btnIngresar.Visible = true;
+            }
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
@@ -23,7 +30,7 @@ namespace TPC
 
             try
             {
-                usuario = new UsuarioLogin(txtUser.Text, txtClave.Text, 0);
+                usuario = new UsuarioLogin(txtUser.Text, txtClave.Text);
 
                 int perfil = negocio.Loguear(usuario);
                 if ( perfil != 0) 
