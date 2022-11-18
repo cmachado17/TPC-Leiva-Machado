@@ -73,6 +73,7 @@
     <Content Include="Clientes.aspx" />
     <Content Include="DetalleCliente.aspx" />
     <Content Include="DetalleUsuarios.aspx" />
+    <Content Include="Errores.aspx" />
     <Content Include="FormularioAdministracion.aspx" />
     <Content Include="FormularioUsuarios.aspx" />
     <Content Include="FormularioClientes.aspx" />
@@ -127,6 +128,13 @@
     </Compile>
     <Compile Include="DetalleUsuarios.aspx.designer.cs">
       <DependentUpon>DetalleUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errores.aspx.cs">
+      <DependentUpon>Errores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errores.aspx.designer.cs">
+      <DependentUpon>Errores.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormularioAdministracion.aspx.cs">
       <DependentUpon>FormularioAdministracion.aspx</DependentUpon>

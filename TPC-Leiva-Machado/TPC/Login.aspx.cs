@@ -13,14 +13,7 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (!IsPostBack)
-            {
-                lbUser.Visible = true;
-                txtUser.Visible = true;
-                lbClave.Visible = true;
-                txtClave.Visible = true;
-                btnIngresar.Visible = true;
-            }*/
+
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
@@ -46,14 +39,13 @@ namespace TPC
 
                  } else
                 {
-                    Session.Add("error", "user o pass incorecto");
-                    //Response.Redirect("Error.aspx", false);
+                    Session.Add("error", "User o pass incorecto");
+                    Response.Redirect("Errores.aspx", false);
                 }
             } catch (Exception ex)
             {
-                throw ex;;
-               // Session.Add("error", ex.ToString());
-                //Response.Redirect("Error.aspx", false);
+                Session.Add("error", "Error al intentar loguearse");
+                Response.Redirect("Errores.aspx", false);
             }
         }
     }
