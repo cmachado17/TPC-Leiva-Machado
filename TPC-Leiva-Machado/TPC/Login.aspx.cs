@@ -25,15 +25,17 @@ namespace TPC
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            UsuarioLogin usuario;
+            UsuarioLogin datosLogin;
             UsuarioLoginNegocio negocio = new UsuarioLoginNegocio();
+            Usuario usuario= new Usuario();
 
             try
             {
-                usuario = new UsuarioLogin(txtUser.Text, txtClave.Text);
+               datosLogin  = new UsuarioLogin(txtUser.Text, txtClave.Text);
 
-               bool respuesta = negocio.Loguear(usuario);
-                if ( respuesta != false)
+               usuario = negocio.Loguear(datosLogin);
+
+                if ( usuario != null)
                 { 
                 
                     Session.Add("usuarioLogueado", usuario);
