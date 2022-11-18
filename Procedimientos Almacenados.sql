@@ -96,7 +96,7 @@ END
 GO
 
 CREATE PROCEDURE SP_Modificar_Empleados
-(@Id INT,@Email varchar(50), @Telefono int, @Perfil INT)
+(@Id INT,@Email varchar(50), @Telefono varchar(50), @Perfil INT)
 AS
 BEGIN
 	UPDATE Empleados set 
@@ -106,3 +106,8 @@ BEGIN
 	WHERE ID = @id
 END
 
+
+go
+CREATE PROCEDURE SP_ListarEmpleado_PorId (@Id int) as
+Select E.Id, Nombres, Apellidos,DNI, Email,Telefono, IdPerfil, FechaDeAlta, FechaDeBaja, Activo, Descripcion from Empleados E
+INNER JOIN Perfiles P ON P.ID = E.IdPerfil where E.Id = @Id

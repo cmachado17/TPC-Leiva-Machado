@@ -68,8 +68,8 @@
             </div>
             <asp:Button Text="Eliminar" runat="server" CssClass="btn btn-danger" ID="btnConfirmarEliminar" OnClick="btnConfirmarEliminar_Click" />
         </div>
-        <%} %>
-        <% }  %>
+        <%} 
+         }  %>
     </div> 
 </asp:Content>
 

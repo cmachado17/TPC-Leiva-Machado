@@ -56,8 +56,8 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("Select E.Id, Nombres, Apellidos,DNI, Email,Telefono, IdPerfil, FechaDeAlta, FechaDeBaja, Activo, Descripcion from Empleados E" +
-                    "INNER JOIN Perfiles P ON P.ID = E.IdPerfil where E.Id =" + id);
+                datos.setearSP("SP_ListarEmpleado_PorId");
+                datos.setearParametro("@Id", id);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -116,12 +116,10 @@ namespace Negocio
         {
             try
             {
-                datos.setearSP("SP_Modificar_Empleado");
+                datos.setearSP("SP_Modificar_Empleados");
                 datos.setearParametro("@Id", empleado.Id);
-                datos.setearParametro("@Nombres", empleado.Nombres);
-                datos.setearParametro("@Apellidos", empleado.Apellidos);
-                datos.setearParametro("@DNI", empleado.DNI);
                 datos.setearParametro("@Email", empleado.Email);
+                datos.setearParametro("@Telefono", empleado.Telefono);
                 datos.setearParametro("@Perfil", empleado.Perfil.Id);
                 datos.ejecutarAccion();
             }

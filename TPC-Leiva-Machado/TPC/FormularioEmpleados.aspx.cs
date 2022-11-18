@@ -19,9 +19,15 @@ namespace TPC
         {
             ConfirmarEliminacion = false;
             txtId.Visible = false;
+            lbClave.Visible = false;
+            txbClave.Visible = false;
 
-            if (Request.QueryString["id"] != null)
-                txbClave.Visible = false;
+            if (Request.QueryString["id"] == null)
+            {
+                lbClave.Visible = true;
+                txbClave.Visible = true;
+            }
+                
 
             lbError.Visible = false;
             try
@@ -85,7 +91,11 @@ namespace TPC
                     nuevo.DNI = txbDNI.Text;
                     nuevo.Email = txbEmail.Text;
                     nuevo.Telefono = txbTelefono.Text;
-                    nuevo.Clave = int.Parse(txbClave.Text);
+                    if (Request.QueryString["id"] == null)
+                    {
+                        nuevo.Clave = int.Parse(txbClave.Text);
+                    }
+                       
                     nuevo.Perfil = new Perfil();
                     nuevo.Perfil.Id = int.Parse(ddlPerfil.SelectedValue);
 
@@ -95,6 +105,7 @@ namespace TPC
                     {
                         nuevo.Id = int.Parse(id);
                         negocio.ModificarEmpleado(nuevo);
+                        Response.Redirect("Empleados.aspx", false);
                     }
                     else
                     {
