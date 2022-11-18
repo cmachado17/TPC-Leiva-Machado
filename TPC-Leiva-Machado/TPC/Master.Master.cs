@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
+using Negocio;
 
 namespace TPC
 {
@@ -16,15 +17,20 @@ namespace TPC
             MenuTel.Visible = false;
             MenuSup.Visible = false;
 
-            Empleado empleado = new Empleado();
+            if(!(Page is Login || Page is Home))
+            {
+                if (!Seguridad.sesionActiva(Session["empleadoLogueado"]))
+                    Response.Redirect("Login.aspx");
+            }
 
             if (Session["empleadoLogueado"] != null)
             {
-                empleado = (Empleado)Session["empleadoLogueado"];
+                Empleado empleado = (Empleado)Session["empleadoLogueado"];
 
                 switch (empleado.Perfil.Id)
                 {
-                    case 1: MenuAdmin.Visible = true;
+                    case 1:
+                        MenuAdmin.Visible = true;
                         break;
                     case 2:
                         MenuTel.Visible = true;
@@ -36,8 +42,8 @@ namespace TPC
                         break;
                 }
             }
-           
-         
+
+
         }
     }
 }

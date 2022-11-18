@@ -11,7 +11,7 @@ namespace TPC
 {
 
 
-    public partial class Formulario_web1
+    public partial class Login
     {
 
         /// <summary>
