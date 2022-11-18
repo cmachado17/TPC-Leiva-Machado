@@ -4,8 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
   <div class="mb-3">
-      <asp:Label ID="lbUser" runat="server" Text="User" for="exampleInputUser" cssclass="form-label">Usuario</asp:Label>
-      <asp:TextBox placeholder="Ingrese su usuario" ID="txtUser" runat="server" type="user" cssclass="form-control"></asp:TextBox>
+      <asp:Label ID="lbUser" runat="server" Text="User" for="exampleInputUser" cssclass="form-label">Dirección de correo electrónico</asp:Label>
+      <asp:TextBox placeholder="Ingrese su email" ID="txtUser" runat="server" type="Email" cssclass="form-control"></asp:TextBox>
    </div>
     <div class="mb-3">
       <asp:Label ID="lbClave" runat="server" Text="Clave" for="exampleInputPassword1" cssclass="form-label">Clave</asp:Label>

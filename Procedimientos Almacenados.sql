@@ -111,3 +111,8 @@ go
 CREATE PROCEDURE SP_ListarEmpleado_PorId (@Id int) as
 Select E.Id, Nombres, Apellidos,DNI, Email,Telefono, IdPerfil, FechaDeAlta, FechaDeBaja, Activo, Descripcion from Empleados E
 INNER JOIN Perfiles P ON P.ID = E.IdPerfil where E.Id = @Id
+
+GO
+CREATE PROCEDURE sp_Login (@user varchar(50), @pass int) as
+Select Id, Email, Clave from Empleados
+where email = @user and Clave = @pass

@@ -18,20 +18,20 @@ namespace TPC
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-           /* UsuarioLogin datosLogin;
-            UsuarioLoginNegocio negocio = new UsuarioLoginNegocio();
-            Empleado usuario= new Empleado();
+            Empleado datosLogin;
+            EmpleadoNegocio negocio = new EmpleadoNegocio();
+            Empleado empleado = new Empleado();
 
             try
             {
-               datosLogin  = new UsuarioLogin(txtUser.Text, txtClave.Text);
+               datosLogin  = new Empleado(txtUser.Text, int.Parse(txtClave.Text));
 
-               usuario = negocio.Loguear(datosLogin);
+               empleado = negocio.Loguear(datosLogin);
 
-                if ( usuario != null)
+                if ( empleado.Id != 0)
                 { 
                 
-                    Session.Add("usuarioLogueado", usuario);
+                    Session.Add("empleadoLogueado", empleado);
                     Response.Redirect("Home.aspx", false);
                 //te envia a home, despues en en load de cada pagina
                 //va a mostrar o no dependiendo del perfil que se
@@ -46,7 +46,7 @@ namespace TPC
             {
                 Session.Add("error", "Error al intentar loguearse");
                 Response.Redirect("Errores.aspx", false);
-            }*/
+            }
         }
     }
 }

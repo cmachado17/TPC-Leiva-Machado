@@ -205,33 +205,32 @@ namespace Negocio
         }
 
 
-        /*
+        
         //va a devolver los datos del empleado logueado o null
-        public Empleado Loguear(Empleado EmpleadoLogueado)
+        public Empleado Loguear(Empleado empleado)
         {
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearSP("sp_EmpleadoLogin");
-                datos.setearParametro("@user", EmpleadoLogueado.Email);
-                datos.setearParametro("@pass", EmpleadoLogueado.Clave);
+                datos.setearSP("sp_Login");
+                datos.setearParametro("@user", empleado.Email);
+                datos.setearParametro("@pass", empleado.Clave);
                 datos.ejecutarLectura();
 
 
                 while (datos.Lector.Read())
                 {
-                    EmpleadoLogueado.IdEmpleado = new Empleado();
-                    EmpleadoLogueado.IdEmpleado.Id = (int)datos.Lector["IdUsuario"];
-
+                    
+                    empleado.Id = (int)datos.Lector["Id"];
+              
                 }
 
                 //una vez que se el id del usuario lo busco para devolverlo
                 EmpleadoNegocio negocio = new EmpleadoNegocio();
-                Empleado usuario = new Empleado();
-                usuario = negocio.listarUsuarioPorId(usuarioLogueado.IdUsuario.Id);
+                empleado = negocio.listarEmpleadoPorId(empleado.Id);
 
-                return usuario;
+                return empleado;
 
             }
             catch (Exception ex)
@@ -243,6 +242,6 @@ namespace Negocio
             {
                 datos.cerrarConexion();
             }
-        }*/
+        }
     }
 }
