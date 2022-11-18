@@ -13,14 +13,14 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            /*if (!IsPostBack)
             {
                 lbUser.Visible = true;
                 txtUser.Visible = true;
                 lbClave.Visible = true;
                 txtClave.Visible = true;
                 btnIngresar.Visible = true;
-            }
+            }*/
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
@@ -32,10 +32,10 @@ namespace TPC
             {
                 usuario = new UsuarioLogin(txtUser.Text, txtClave.Text);
 
-                int perfil = negocio.Loguear(usuario);
-                if ( perfil != 0) 
-                 {
-                    Session.Add("perfil", perfil);
+               bool respuesta = negocio.Loguear(usuario);
+                if ( respuesta != false)
+                { 
+                
                     Session.Add("usuarioLogueado", usuario);
                     Response.Redirect("Home.aspx", false);
                 //te envia a home, despues en en load de cada pagina
@@ -49,7 +49,8 @@ namespace TPC
                 }
             } catch (Exception ex)
             {
-                Session.Add("error", ex.ToString());
+                throw ex;;
+               // Session.Add("error", ex.ToString());
                 //Response.Redirect("Error.aspx", false);
             }
         }

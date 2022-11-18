@@ -10,8 +10,8 @@ namespace Negocio
 {
     public class UsuarioLoginNegocio
     {
-        //va a devolver el perfil del usuario logueado
-        public int Loguear(UsuarioLogin usuarioLogueado)
+        //va a devolver los datos del usuario logueado o null
+        public bool Loguear(UsuarioLogin usuarioLogueado)
         {
             AccesoDatos datos = new AccesoDatos();
 
@@ -22,22 +22,36 @@ namespace Negocio
                 datos.setearParametro("@pass", usuarioLogueado.Clave);
                 datos.ejecutarLectura();
 
-                int perfil = 0;
+                Usuario usuario = new Usuario();
 
                 while (datos.Lector.Read())
                 {
-                    //una vez que encontramos al usuario logueado
-                    //buscamos en la tabla de usuarios su perfil
                     usuarioLogueado.IdUsuario = new Usuario();
-                    usuarioLogueado.IdUsuario.Id = (int)datos.Lector["Id"];
-                    usuarioLogueado.IdUsuario.Perfil = new Perfil();
-                    perfil = usuarioLogueado.IdUsuario.Perfil.Id = (int)datos.Lector["IdPerfil"];
-                    return perfil;
+                    usuarioLogueado.IdUsuario.Id =(int)datos.Lector["IdUsuario"];
+                    return true;
+                }
+
+
+                  /*  while (datos.Lector.Read())
+                {
+                    usua
+                    //una vez que encontramos al usuario logueado lo guardamos
+                    usuario.Id = (int)datos.Lector["Id"];
+                    usuario.Nombres = (string)datos.Lector["Nombres"];
+                    usuario.Apellidos = (string)datos.Lector["Apellidos"];
+                    usuario.DNI = (string)datos.Lector["DNI"];
+                    usuario.Email = (string)datos.Lector["Email"];
+                    usuario.Perfil = new Perfil();
+                    usuario.Perfil.Id = (int)datos.Lector["IdPerfil"];
+                    usuario.Perfil.Descripcion = (string)datos.Lector["Descripcion"];
+                    usuario.FechaDeAlta = datos.Lector["FechaDeAlta"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeAlta"]).ToShortDateString() : "";
+                    usuario.FechaDeBaja = datos.Lector["FechaDeBaja"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeBaja"]).ToShortDateString() : "";
+                    usuario.Activo = (Boolean)datos.Lector["Activo"];
                 }
 
                 //si encuentra el usuario, en el while devuelve su id perfil
-                //sino va a devolver 0.
-                return perfil;
+                //sino va a devolver 0.*/
+                return false;
 
             }
             catch (Exception ex)
