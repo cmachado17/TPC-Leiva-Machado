@@ -19,6 +19,7 @@ namespace TPC
             if (Session["error"] != null)
             {
                 txtError.Text = (String) Session["error"];
+                txtError.Enabled = false;
             }
         }
     }

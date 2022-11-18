@@ -33,6 +33,15 @@ namespace TPC
         protected global::System.Web.UI.WebControls.TextBox txtUser;
 
         /// <summary>
+        /// Control txtErrorEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtErrorEmail;
+
+        /// <summary>
         /// Control lbClave.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace TPC
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtClave;
+
+        /// <summary>
+        /// Control txtErrorClave.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtErrorClave;
 
         /// <summary>
         /// Control btnIngresar.
