@@ -34,7 +34,7 @@
 
             <div id="navbarNav" class="bg-dark text-light py-2 navbar">
 
-                <asp:Menu runat="server" ID="Submenu" CssClass="navbar navbar-expand-lg bg-dark text-light sticky-top" Orientation="Horizontal">
+                <asp:Menu runat="server" ID="MenuAdmin" CssClass="navbar navbar-expand-lg bg-dark text-light sticky-top" Orientation="Horizontal">
                     <StaticMenuItemStyle
                         HorizontalPadding="15"
                         VerticalPadding="5"
@@ -45,6 +45,29 @@
                         <asp:MenuItem NavigateUrl="Usuarios.aspx" Text="Usuarios" ToolTip="Usuarios"></asp:MenuItem>
                          <asp:MenuItem NavigateUrl="Administracion.aspx" Text="Administracion" ToolTip="Administracion"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="AreaPersonal.aspx" Text="Area personal" ToolTip="Area personal"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+
+                <asp:Menu runat="server" ID="MenuTel" CssClass="navbar navbar-expand-lg bg-dark text-light sticky-top" Orientation="Horizontal">
+                    <StaticMenuItemStyle
+                        HorizontalPadding="15"
+                        VerticalPadding="5"
+                        CssClass="nav-link text-light" />
+                    <Items>
+                        <asp:MenuItem NavigateUrl="Clientes.aspx" Text="Clientes" ToolTip="Clientes"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="AreaPersonal.aspx" Text="Area personal" ToolTip="Area personal"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+
+                 <asp:Menu runat="server" ID="MenuSup" CssClass="navbar navbar-expand-lg bg-dark text-light sticky-top" Orientation="Horizontal">
+                    <StaticMenuItemStyle
+                        HorizontalPadding="15"
+                        VerticalPadding="5"
+                        CssClass="nav-link text-light" />
+                    <Items>
+                        <asp:MenuItem NavigateUrl="Clientes.aspx" Text="Clientes" ToolTip="Clientes"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Incidentes.aspx" Text="Incidentes" ToolTip="Incidentes"></asp:MenuItem>
+                        
                     </Items>
                 </asp:Menu>
 
