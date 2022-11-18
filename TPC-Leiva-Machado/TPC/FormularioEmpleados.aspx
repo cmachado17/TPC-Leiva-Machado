@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="FormularioUsuarios.aspx.cs" Inherits="TPC.FomularioUsuarios" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="FormularioEmpleados.aspx.cs" Inherits="TPC.FomularioEmpleados" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -6,11 +6,11 @@
     <div class="text-center">
         <% if (Request.QueryString["id"] != null)
             { %>
-        <h2>Modificar usuario</h2>
+        <h2>Modificar empleado</h2>
         <%}
             else
             {%>
-        <h2>Agregar usuario</h2>
+        <h2>Agregar empleado</h2>
         <%}%>
     </div>
     <div class="mb-3">
@@ -33,6 +33,14 @@
         <asp:TextBox ID="txbEmail" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
     <div class="mb-3">
+        <asp:Label ID="lbTelefono" runat="server" Text="Telefono" CssClass="form-label">Telefono</asp:Label>
+        <asp:TextBox ID="txbTelefono" runat="server" CssClass="form-control"></asp:TextBox>
+    </div>
+        <div class="mb-3">
+        <asp:Label ID="lbClave" runat="server" Text="Clave" CssClass="form-label">Clave</asp:Label>
+        <asp:TextBox ID="txbClave" runat="server" CssClass="form-control"></asp:TextBox>
+    </div>
+    <div class="mb-3">
         <asp:Label ID="lbPerfil" runat="server" Text="Perfil" CssClass="form-label">Perfil</asp:Label>
         <asp:DropDownList ID="ddlPerfil" CssClass="form-control" runat="server"></asp:DropDownList>
     </div>
@@ -42,15 +50,16 @@
     <div class="row">
         <div class="col-12 text-center mb-2 d-flex">
             <asp:Button AutoPostBack="false" OnClick="btnConfirmar_Click" ID="btnConfirmar" runat="server" Text="Confirmar" CssClass="btn btn-primary btn-block my-1 mx-5" />
-            <a href="Usuarios.aspx" class="btn btn-danger btn-block my-1 mx-5">Cancelar</a>
+            <a href="Empleados.aspx" class="btn btn-danger btn-block my-1 mx-5">Cancelar</a>
         </div>
-        <% if (Request.QueryString["id"] != null)
+    
+            <%if (Request.QueryString["id"] != null)
         { %>
         <div class="col-12 text-center d-flex">
             <asp:Button Text="Eliminar" ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-danger btn-block my-1 mx-5" runat="server" />
             <asp:Button Text="Desactivar" ID="btnDesactivar" OnClick="btnDesactivar_Click" CssClass="btn btn-warning btn-block my-1 mx-5" runat="server" />
         </div>
-        <% if (ConfirmarEliminacion)
+          <%if (ConfirmarEliminacion)
         { %>
         <div class="col-12 mt-3 d-flex align-items-center justify-content-center">
             <div class="form-check">
@@ -60,6 +69,8 @@
             <asp:Button Text="Eliminar" runat="server" CssClass="btn btn-danger" ID="btnConfirmarEliminar" OnClick="btnConfirmarEliminar_Click" />
         </div>
         <%} %>
-        <%} %>
-    </div>
+        <% }  %>
+    </div> 
 </asp:Content>
+
+

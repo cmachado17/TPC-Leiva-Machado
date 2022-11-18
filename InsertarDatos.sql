@@ -35,20 +35,14 @@ VALUES
 ('Reclamo',1),
 ('Sugerencia',1)
 
-insert into CALLCENTER.dbo.Usuarios(Nombres, Apellidos, DNI, Email, IdPerfil, FechaDeAlta, Activo) 
+insert into CALLCENTER.dbo.Empleados(Nombres, Apellidos, DNI, Email, Telefono, IdPerfil, FechaDeAlta,Clave,  Activo) 
 VALUES 
-('Antonio', 'Ramirez', '11222333','antonioramirez@gmail.com', 1, getdate(), 1),
-('Manuel', 'Giordano', '22445550', 'manuelgiordano@gmail.com',2, getdate(), 1),
-('Cecilia', 'Ledesma', '20304050', 'cecilialedesma@gmail.com',3, getdate(), 1)
+('Antonio', 'Ramirez', '11222333','antonioramirez@gmail.com','1120204040', 1, getdate(), 123,1),
+('Manuel', 'Giordano', '22445550', 'manuelgiordano@gmail.com','1130303030',2, getdate(), 123,1),
+('Cecilia', 'Ledesma', '20304050', 'cecilialedesma@gmail.com','1150502020',3, getdate(), 123,1)
 
 insert into CALLCENTER.dbo.Motivos(Descripcion, Estado) 
 VALUES 
 ('Cancelado',1),
 ('Vencido',1),
 ('Otros',1)
-
-insert into CALLCENTER.dbo.UsuarioLogin(IdUsuario, Usuario, Clave) 
-VALUES 
-(1, 'admin', 'admin'),
-(2, 'tel', 'tel'),
-(3, 'sup', 'sup')

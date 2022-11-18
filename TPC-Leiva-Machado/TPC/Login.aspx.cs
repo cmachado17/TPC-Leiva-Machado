@@ -18,9 +18,9 @@ namespace TPC
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            UsuarioLogin datosLogin;
+           /* UsuarioLogin datosLogin;
             UsuarioLoginNegocio negocio = new UsuarioLoginNegocio();
-            Usuario usuario= new Usuario();
+            Empleado usuario= new Empleado();
 
             try
             {
@@ -46,7 +46,7 @@ namespace TPC
             {
                 Session.Add("error", "Error al intentar loguearse");
                 Response.Redirect("Errores.aspx", false);
-            }
+            }*/
         }
     }
 }

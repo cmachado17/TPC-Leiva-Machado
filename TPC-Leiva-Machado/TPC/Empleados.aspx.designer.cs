@@ -11,16 +11,25 @@ namespace TPC
 {
 
 
-    public partial class DetalleUsuarios
+    public partial class Empleados
     {
 
         /// <summary>
-        /// Control dgvDetalleUsuarios.
+        /// Control FiltroEmpleados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvDetalleUsuarios;
+        protected global::System.Web.UI.WebControls.TextBox FiltroEmpleados;
+
+        /// <summary>
+        /// Control dgvEmpleados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvEmpleados;
     }
 }

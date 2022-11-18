@@ -10,14 +10,19 @@ using Helpers;
 
 namespace TPC
 {
-    public partial class FomularioUsuarios : System.Web.UI.Page
+    public partial class FomularioEmpleados : System.Web.UI.Page
     {
+
         public bool ConfirmarEliminacion { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             ConfirmarEliminacion = false;
             txtId.Visible = false;
+
+            if (Request.QueryString["id"] != null)
+                txbClave.Visible = false;
+
             lbError.Visible = false;
             try
             {
@@ -38,11 +43,11 @@ namespace TPC
                     txbApellido.Enabled = false;
                     txbDNI.Enabled = false;
 
-                    UsuarioNegocio negocio = new UsuarioNegocio();
-                    Usuario seleccionado = negocio.listarUsuarioPorId(Int32.Parse(Request.QueryString["id"]));
+                    EmpleadoNegocio negocio = new EmpleadoNegocio();
+                    Empleado seleccionado = negocio.listarEmpleadoPorId(Int32.Parse(Request.QueryString["id"]));
 
                     //lo guardamos en session
-                    Session.Add("UsuarioSeleccionado", seleccionado);
+                    Session.Add("EmpleadoSeleccionado", seleccionado);
 
                     //cargamos los campos del formulario
 
@@ -51,6 +56,7 @@ namespace TPC
                     txbApellido.Text = seleccionado.Apellidos;
                     txbDNI.Text = seleccionado.DNI;
                     txbEmail.Text = seleccionado.Email;
+                    txbTelefono.Text = seleccionado.Telefono;
                     ddlPerfil.SelectedValue = seleccionado.Perfil.Id.ToString();
 
                     if (!seleccionado.Activo)
@@ -69,15 +75,17 @@ namespace TPC
         {
             try
             {
-                Usuario nuevo = new Usuario();
-                UsuarioNegocio negocio = new UsuarioNegocio();
+                Empleado nuevo = new Empleado();
+                EmpleadoNegocio negocio = new EmpleadoNegocio();
 
-                if (validarCargaUsuario())
+                if (validarCargaEmpleado())
                 {
                     nuevo.Nombres = txbNombre.Text;
                     nuevo.Apellidos = txbApellido.Text;
-                    nuevo.Email = txbEmail.Text;
                     nuevo.DNI = txbDNI.Text;
+                    nuevo.Email = txbEmail.Text;
+                    nuevo.Telefono = txbTelefono.Text;
+                    nuevo.Clave = int.Parse(txbClave.Text);
                     nuevo.Perfil = new Perfil();
                     nuevo.Perfil.Id = int.Parse(ddlPerfil.SelectedValue);
 
@@ -86,19 +94,19 @@ namespace TPC
                     if (Request.QueryString["id"] != null)
                     {
                         nuevo.Id = int.Parse(id);
-                        negocio.ModificarUsuario(nuevo);
+                        negocio.ModificarEmpleado(nuevo);
                     }
                     else
                     {
                         //Si estoy agregando, tengo que validar que no agreguen el mismo DNI
-                        if (!negocio.listarUsuarioPorDNI(nuevo.DNI))
+                        if (!negocio.listarEmpleadoPorDNI(nuevo.DNI))
                         {
-                            negocio.AgregarUsuario(nuevo);
-                            Response.Redirect("Usuarios.aspx", false);
+                            negocio.AgregarEmpleado(nuevo);
+                            Response.Redirect("Empleados.aspx", false);
                         }
                         else
                         {
-                            string msg = "Ya existe un usuario con ese DNI.";
+                            string msg = "Ya existe un empleado con ese DNI.";
                             Response.Write("<script>alert('" + msg + "')</script>");
                         }
                     }
@@ -129,10 +137,10 @@ namespace TPC
                 if (chkConfirmarEliminacion.Checked)
                 {
                     string id = Request.QueryString["id"].ToString();
-                    UsuarioNegocio negocio = new UsuarioNegocio();
-                    negocio.EliminarUsuario(id);
+                    EmpleadoNegocio negocio = new EmpleadoNegocio();
+                    negocio.EliminarEmpleado(id);
 
-                    Response.Redirect("Usuarios.aspx", false);
+                    Response.Redirect("Empleados.aspx", false);
                 }
                 else
                 {
@@ -152,12 +160,12 @@ namespace TPC
         {
             try
             {
-                Usuario seleccionado = (Usuario)Session["UsuarioSeleccionado"];
+                Empleado seleccionado = (Empleado)Session["EmpleadoSeleccionado"];
 
-                UsuarioNegocio negocio = new UsuarioNegocio();
-                negocio.BajaLogicaUsuario(seleccionado.Id, !seleccionado.Activo);
+                EmpleadoNegocio negocio = new EmpleadoNegocio();
+                negocio.BajaLogicaEmpleado(seleccionado.Id, !seleccionado.Activo);
 
-                Response.Redirect("Usuarios.aspx", false);
+                Response.Redirect("Empleados.aspx", false);
 
             }
             catch (Exception ex)
@@ -166,7 +174,7 @@ namespace TPC
             }
         }
 
-        private bool validarCargaUsuario()
+        private bool validarCargaEmpleado()
         {
             reiniciarFormato();
             bool bandera = true;
@@ -193,6 +201,11 @@ namespace TPC
                 txbEmail.BorderColor = System.Drawing.Color.Red;
                 bandera = false;
             }
+            if (!helper.soloNumeros(txbTelefono.Text) || string.IsNullOrEmpty(txbTelefono.Text))
+            {
+                txbDNI.BorderColor = System.Drawing.Color.Red;
+                bandera = false;
+            }
 
             return bandera;
         }
@@ -203,6 +216,8 @@ namespace TPC
             txbApellido.BorderColor = System.Drawing.Color.Black;
             txbDNI.BorderColor = System.Drawing.Color.Black;
             txbEmail.BorderColor = System.Drawing.Color.Black;
+            txbTelefono.BorderColor = System.Drawing.Color.Black;
+
         }
     }
 }

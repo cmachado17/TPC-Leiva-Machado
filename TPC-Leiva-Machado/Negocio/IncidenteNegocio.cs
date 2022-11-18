@@ -40,10 +40,10 @@ namespace Negocio
                     aux.Cliente.DNI = (string)datos.Lector["DNICliente"];
                     aux.Cliente.Email = (string)datos.Lector["EmailCliente"];
                     aux.Cliente.Telefono = (string)datos.Lector["TelefonoCliente"];
-                    aux.UsuarioAsignado = new Usuario();
-                    //aux.UsuarioAsignado.Id = (int)datos.Lector["IdTelefonista"];
-                    aux.UsuarioAsignado.Nombres = (string)datos.Lector["UsuarioAsignado"];
-                    //aux.UsuarioAsignado.Apellidos = (string)datos.Lector["ApellidoTel"];
+                    aux.EmpleadoAsignado = new Empleado();
+                    //aux.EmpleadoAsignado.Id = (int)datos.Lector["IdTelefonista"];
+                    aux.EmpleadoAsignado.Nombres = (string)datos.Lector["UsuarioAsignado"];
+                    //aux.EmpleadoAsignado.Apellidos = (string)datos.Lector["ApellidoTel"];
                     aux.Comentario = (string)datos.Lector["Comentario"];
                     aux.Motivo = new Motivo();
                     aux.Motivo.Descripcion = (string)datos.Lector["Motivo"];

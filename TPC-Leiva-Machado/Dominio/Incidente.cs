@@ -14,7 +14,7 @@ namespace Dominio
         public string Problematica { get; set; }
         public Estado Estado { get; set; }
         public Cliente Cliente { get; set; }
-        public Usuario UsuarioAsignado { get; set; }
+        public Empleado EmpleadoAsignado { get; set; }
         public string Comentario { get; set; }
         public Motivo Motivo { get; set; }
         public DateTime FechaDeAlta { get; set; }

@@ -36,15 +36,17 @@ CREATE TABLE Perfiles(
 	Descripcion VARCHAR(100) NOT NULL
 )
 GO
-CREATE TABLE Usuarios(
+CREATE TABLE Empleados(
 	ID INT PRIMARY KEY IDENTITY (1,1),
 	Nombres VARCHAR(50) NOT NULL,
 	Apellidos VARCHAR(50) NOT NULL,
 	DNI VARCHAR(50) NOT NULL,
 	Email VARCHAR(50) NOT NULL,
+	Telefono VARCHAR(50) NOT NULL,
 	IdPerfil INT NOT NULL FOREIGN KEY REFERENCES Perfiles (ID),
 	FechaDeAlta datetime NOT NULL,
 	FechaDeBaja datetime NULL,
+	Clave int NOT NULL,
 	Activo bit NOT NULL
 )
 GO
@@ -61,7 +63,7 @@ CREATE TABLE Incidentes(
 	Problematica TEXT NOT NULL,
 	IdEstado INT NOT NULL FOREIGN KEY REFERENCES EstadoIncidencias (ID),
 	IdCliente INT NOT NULL FOREIGN KEY REFERENCES Clientes (ID),
-	IdUsuario INT NOT NULL FOREIGN KEY REFERENCES Usuarios (ID),
+	IdEmpleado INT NOT NULL FOREIGN KEY REFERENCES Empleados (ID),
 	Comentario VARCHAR(100),
 	IdMotivo INT NULL FOREIGN KEY REFERENCES Motivos (ID),
 	FechaDeAlta datetime NOT NULL,
@@ -69,9 +71,3 @@ CREATE TABLE Incidentes(
 	Activo bit NOT NULL
 )
 
-GO
-create table UsuarioLogin (
-IdUsuario int primary key foreign key references Usuarios (ID) not null,
-Usuario varchar(10) not null, 
-Clave varchar(10) not null
-)

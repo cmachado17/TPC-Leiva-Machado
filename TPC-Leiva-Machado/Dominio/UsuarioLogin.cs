@@ -8,7 +8,7 @@ namespace Dominio
 {
     public class UsuarioLogin
     {
-        public Usuario IdUsuario { get; set;}
+        public Empleado IdUsuario { get; set;}
         public string Usuario { get; set; }
         public string Clave { get; set; }
 

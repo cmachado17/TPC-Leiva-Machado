@@ -19,14 +19,14 @@ as begin
 select INC.Id, INC.IdTipoIncidencia, TI.Descripcion 'Tipo', INC.IdPrioridad, PRI.descripcion 
 'Prioridad', INC.Problematica,INC.IdEstado, EI.Descripcion 'Estado', INC.IdCliente, CL.Nombres 
 'NombreCliente', CL.Apellidos 'ApellidoCliente',CL.DNI 'DNICliente', CL.Email 'EmailCliente', 
-CL.Telefono 'TelefonoCliente', concat(U.Apellidos, ',', U.Nombres) as 'UsuarioAsignado',
+CL.Telefono 'TelefonoCliente', concat(E.Apellidos, ',', E.Nombres) as 'EmpleadoAsignado',
 INC.Comentario, M.Descripcion as 'Motivo', INC.FechaDeAlta, INC.FechaDeBaja, INC.Activo
 from Incidentes INC 
 LEFT JOIN TipoIncidencias TI ON TI.ID = INC.IdTipoIncidencia 
 LEFT JOIN PrioridadIncidencias PRI ON PRI.Id = INC.IdPrioridad 
 LEFT JOIN EstadoIncidencias EI ON EI.ID = INC.IdEstado 
 LEFT JOIN Clientes CL ON CL.id = INC.idCliente 
-LEFT JOIN Usuarios as U ON U.ID = INC.IdUsuario
+LEFT JOIN Empleados as E ON E.ID = INC.IdEmpleado
 LEFT JOIN Motivos as M ON M.ID = INC.IdMotivo
 end
 
@@ -55,12 +55,12 @@ select Id, Descripcion from Perfiles
 end
 
 go
-CREATE PROCEDURE sp_listar_Usuarios
+CREATE PROCEDURE sp_listar_Empleados
 as begin
-select U.Id, Nombres, Apellidos, DNI, Email, P.ID as 'IdPerfil', P.Descripcion as 'Perfil',
+select E.Id, Nombres, Apellidos, DNI, Email,Telefono, P.ID as 'IdPerfil', P.Descripcion as 'Perfil',
 FechaDeAlta, FechaDeBaja, Activo
-from Usuarios as U
-inner join Perfiles as P on U.IdPerfil = P.Id
+from Empleados as E
+inner join Perfiles as P on E.IdPerfil = P.Id
 end
 
 
@@ -71,6 +71,7 @@ as begin
 insert into Clientes values (@Nombres, @Apellidos,@DNI, @Email, @Telefono, getdate(), null, 1)
 end
 
+go
 CREATE PROCEDURE sp_modificar_cliente 
 (@id int, @nombre VARCHAR(50), @apellido VARCHAR(50), @dni VARCHAR(50), @email VARCHAR(50),
 @telefono varchar(50))
@@ -85,29 +86,23 @@ BEGIN
 END
 GO
 
-CREATE PROCEDURE sp_Agregar_Usuario
+CREATE PROCEDURE sp_Agregar_Empleado
 (@Nombres varchar(50), @Apellidos varchar(50),
-@DNI varchar(25), @Email varchar(50), @Perfil INT)
+@DNI varchar(25), @Email varchar(50), @Telefono int, @Perfil INT, @Clave int)
 AS
 BEGIN
-	insert into Usuarios values (@Nombres, @Apellidos,@DNI, @Email, @Perfil, getdate(), null, 1)
+	insert into Empleados values (@Nombres, @Apellidos,@DNI, @Email, @Telefono, @Perfil, getdate(),null, @Clave, 1)
 END
 GO
 
-CREATE PROCEDURE SP_Modificar_Usuario
-(@id int, @Nombres VARCHAR(50), @Apellidos varchar(50),
-@DNI varchar(25), @Email varchar(50), @Perfil INT)
+CREATE PROCEDURE SP_Modificar_Empleados
+(@Id INT,@Email varchar(50), @Telefono int, @Perfil INT)
 AS
 BEGIN
-	UPDATE Usuarios set Nombres = @Nombres,
-	Apellidos = @Apellidos,
-	DNI = @DNI,
+	UPDATE Empleados set 
 	email = @Email,
+	Telefono = @Telefono,
 	IdPerfil = @Perfil
 	WHERE ID = @id
 END
 
-GO
-CREATE PROCEDURE sp_UsuarioLogin (@user varchar(10), @pass varchar(10)) as
-Select IdUsuario, Usuario, Clave from UsuarioLogin
-where usuario = @user and Clave = @pass

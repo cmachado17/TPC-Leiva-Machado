@@ -16,11 +16,11 @@ namespace TPC
             MenuTel.Visible = false;
             MenuSup.Visible = false;
 
-            Usuario usuario = new Usuario();
+            Empleado usuario = new Empleado();
 
-            if (Session["usuarioLogueado"] != null)
+            if (Session["empleadoLogueado"] != null)
             {
-                usuario = (Usuario)Session["usuarioLogueado"];
+                usuario = (Empleado)Session["empleadoLogueado"];
 
                 switch (usuario.Perfil.Id)
                 {
