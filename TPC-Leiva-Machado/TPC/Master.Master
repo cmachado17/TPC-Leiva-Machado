@@ -89,7 +89,6 @@
                     <Items>
                         <asp:MenuItem NavigateUrl="Home.aspx" Text="Home" ToolTip="Home"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="Login.aspx" Text="Login" ToolTip="Login"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="Home.aspx" Text="Logout" ToolTip="Logout"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="PreguntasFrecuentes.aspx" Text="Preguntas Frecuentes" ToolTip="PreguntasFrecuentes"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="Contacto.aspx" Text="Contacto" ToolTip="Contacto"></asp:MenuItem>
                     </Items>

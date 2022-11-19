@@ -13,6 +13,12 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Seguridad.esAdmin(Session["empleadoLogueado"]))
+            {
+                Session.Add("error", "Se necesita perfil de administrador para ingresar en esta seccion");
+                Response.Redirect("Errores.aspx");
+            }
+
             PrioridadNegocio negocioPrioridad = new PrioridadNegocio();
             TipoNegocio negocioTipo = new TipoNegocio();
 

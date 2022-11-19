@@ -13,6 +13,11 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Seguridad.esAdmin(Session["empleadoLogueado"]))
+            {
+                Session.Add("error", "Se necesita perfil de administrador para ingresar en esta seccion");
+                Response.Redirect("Errores.aspx");
+            }
             EmpleadoNegocio negocio = new EmpleadoNegocio();
             Session.Add("listaEmpleados", negocio.listarEmpleados());
             dgvEmpleados.DataSource = Session["listaEmpleados"];
