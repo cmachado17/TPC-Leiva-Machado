@@ -116,3 +116,24 @@ GO
 CREATE PROCEDURE sp_Login (@user varchar(50), @pass int) as
 Select Id, Email, Clave from Empleados
 where email = @user and Clave = @pass
+
+GO
+CREATE PROCEDURE sp_Agregar_Incidencia
+(@IdTipo INT,
+@Prioridad INT,
+@Problematica TEXT,
+@Cliente int, 
+@Empleado INT)
+AS
+BEGIN
+	INSERT INTO Incidentes (IdTipoIncidencia, 
+	IdPrioridad, 
+	Problematica, 
+	IdEstado, 
+	IdCliente, 
+	IdEmpleado, 
+	FechaDeAlta, 
+	Activo)
+	VALUES
+	(@IdTipo, @Prioridad,@Problematica, 1, @Cliente, @Empleado, getdate(), 1)
+END

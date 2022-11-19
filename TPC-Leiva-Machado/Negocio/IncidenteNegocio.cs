@@ -64,5 +64,29 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void agregarIncidencia(Incidente nuevo)
+        {
+            try
+            {
+                datos.limpiarParametros();
+                datos.setearSP("sp_Agregar_Incidencia");
+                datos.setearParametro("@IdTipo", nuevo.Tipo.Id);
+                datos.setearParametro("@Prioridad", nuevo.Prioridad.Id);
+                datos.setearParametro("@Problematica", nuevo.Problematica);
+                datos.setearParametro("@Cliente", nuevo.Cliente.Id);
+                datos.setearParametro("@Empleado", nuevo.EmpleadoAsignado.Id);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
