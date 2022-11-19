@@ -19,6 +19,11 @@ namespace TPC
                 Session.Add("error", "Se necesita perfil de administrador para ingresar en esta seccion");
                 Response.Redirect("Errores.aspx");
             }
+
+            IncidenteNegocio negocio = new IncidenteNegocio();
+            Session.Add("listaIncidentes", negocio.listarIncidente());
+            dgvIncidencias.DataSource = Session["listaIncidentes"];
+            dgvIncidencias.DataBind();
         }
     }
 }

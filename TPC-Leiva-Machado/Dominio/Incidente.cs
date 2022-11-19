@@ -17,8 +17,8 @@ namespace Dominio
         public Empleado EmpleadoAsignado { get; set; }
         public string Comentario { get; set; }
         public Motivo Motivo { get; set; }
-        public DateTime FechaDeAlta { get; set; }
-        public DateTime FechaDeBaja { get; set; }
+        public string FechaDeAlta { get; set; }
+        public string FechaDeBaja { get; set; }
         public Boolean Activo { get; set; }
     }
 }

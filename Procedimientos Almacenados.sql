@@ -14,23 +14,6 @@ select Id, Descripcion from EstadoIncidencia
 end
 
 go
-CREATE PROCEDURE sp_listar_Incidentes
-as begin
-select INC.Id, INC.IdTipoIncidencia, TI.Descripcion 'Tipo', INC.IdPrioridad, PRI.descripcion 
-'Prioridad', INC.Problematica,INC.IdEstado, EI.Descripcion 'Estado', INC.IdCliente, CL.Nombres 
-'NombreCliente', CL.Apellidos 'ApellidoCliente',CL.DNI 'DNICliente', CL.Email 'EmailCliente', 
-CL.Telefono 'TelefonoCliente', concat(E.Apellidos, ',', E.Nombres) as 'EmpleadoAsignado',
-INC.Comentario, M.Descripcion as 'Motivo', INC.FechaDeAlta, INC.FechaDeBaja, INC.Activo
-from Incidentes INC 
-LEFT JOIN TipoIncidencias TI ON TI.ID = INC.IdTipoIncidencia 
-LEFT JOIN PrioridadIncidencias PRI ON PRI.Id = INC.IdPrioridad 
-LEFT JOIN EstadoIncidencias EI ON EI.ID = INC.IdEstado 
-LEFT JOIN Clientes CL ON CL.id = INC.idCliente 
-LEFT JOIN Empleados as E ON E.ID = INC.IdEmpleado
-LEFT JOIN Motivos as M ON M.ID = INC.IdMotivo
-end
-
-go
 CREATE PROCEDURE sp_listar_Prioridad
 as begin
 select Id, Descripcion, Estado from PrioridadIncidencias
@@ -137,3 +120,35 @@ BEGIN
 	VALUES
 	(@IdTipo, @Prioridad,@Problematica, 1, @Cliente, @Empleado, getdate(), 1)
 END
+
+GO
+CREATE PROCEDURE sp_listar_Incidentes
+as begin
+select INC.Id,
+INC.IdTipoIncidencia,
+TI.Descripcion 'Tipo', 
+INC.IdPrioridad,
+PRI.descripcion 'Prioridad',
+INC.Problematica,
+INC.IdEstado, 
+EI.Descripcion 'Estado', 
+INC.IdCliente,
+concat(CL.Nombres, ', ', CL.Apellidos) as 'Cliente', 
+CL.DNI 'DNICliente',
+CL.Email 'EmailCliente', 
+CL.Telefono 'TelefonoCliente', 
+INC.IdEmpleado,
+concat(E.Apellidos, ', ', E.Nombres) as 'EmpleadoAsignado',
+INC.Comentario,
+M.Descripcion as 'Motivo',
+INC.FechaDeAlta,
+INC.FechaDeBaja,
+INC.Activo
+from Incidentes INC 
+LEFT JOIN TipoIncidencias TI ON TI.ID = INC.IdTipoIncidencia 
+LEFT JOIN PrioridadIncidencias PRI ON PRI.Id = INC.IdPrioridad 
+LEFT JOIN EstadoIncidencias EI ON EI.ID = INC.IdEstado 
+LEFT JOIN Clientes CL ON CL.id = INC.idCliente 
+LEFT JOIN Empleados as E ON E.ID = INC.IdEmpleado
+LEFT JOIN Motivos as M ON M.ID = INC.IdMotivo
+end
