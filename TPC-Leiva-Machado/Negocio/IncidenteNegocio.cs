@@ -95,13 +95,23 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("select Problematica FROM Incidentes Where IdEmpleado = @id");
+                datos.setearConsulta("select INC.ID, TI.ID 'IdTipo', TI.Descripcion 'Tipo', PRI.ID 'IdPrioridad', PRI.Descripcion 'Prioridad', CL.ID 'IdCliente', concat(CL.Nombres, ', ', CL.Apellidos) as 'Cliente', INC.Problematica, INC.FechaDeAlta FROM Incidentes INC LEFT JOIN TipoIncidencias TI ON TI.ID = INC.IdTipoIncidencia LEFT JOIN PrioridadIncidencias PRI ON PRI.Id = INC.IdPrioridad LEFT JOIN EstadoIncidencias EI ON EI.ID = INC.IdEstado LEFT JOIN Clientes CL ON CL.id = INC.idCliente LEFT JOIN Empleados as E ON E.ID = INC.IdEmpleado LEFT JOIN Motivos as M ON M.ID = INC.IdMotivo Where INC.IdEmpleado = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Incidente aux = new Incidente();
+                    aux.Tipo = new TipoIncidencia();
+                    aux.Tipo.Id = (int)datos.Lector["IdTipo"];
+                    aux.Tipo.Descripcion = (string)datos.Lector["Tipo"];
+                    aux.Prioridad = new Prioridad();
+                    aux.Prioridad.Id = (int)datos.Lector["IdPrioridad"];
+                    aux.Prioridad.Descripcion = (string)datos.Lector["Prioridad"];
+                    aux.Cliente = new Cliente();
+                    aux.Cliente.Id = (int)datos.Lector["IdCliente"];
+                    aux.Cliente.Nombres = (string)datos.Lector["Cliente"];
+                    aux.FechaDeAlta = datos.Lector["FechaDeAlta"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeAlta"]).ToShortDateString() : "";
                     aux.Problematica = (string)datos.Lector["Problematica"];
                     lista.Add(aux);
                 }

@@ -22,13 +22,39 @@
             CssClass="table table-striped w-100"
             ID="dgvIncidenciasAsignadas" runat="server"
             Style="text-align: center">
-      <Columns>
-            <asp:BoundField HeaderText="Cliente" DataField="Problematica" />
-          <%--  <asp:BoundField HeaderText="Telefonista" DataField="EmpleadoAsignado.Nombres" />
-            <asp:BoundField HeaderText="Tipo" DataField="Tipo.Descripcion" />
-            <asp:BoundField HeaderText="Prioridad" DataField="Prioridad.Descripcion" />
-            <asp:BoundField HeaderText="FechaDeAlta" DataField="FechaDeAlta" />--%>
-           </Columns>
+            <Columns>
+                <asp:BoundField HeaderText="Cliente" DataField="Cliente.Nombres" />
+                <asp:BoundField HeaderText="Tipo" DataField="Tipo.Descripcion" />
+                <asp:BoundField HeaderText="Prioridad" DataField="Prioridad.Descripcion" />
+                <asp:BoundField HeaderText="FechaDeAlta" DataField="FechaDeAlta" />
+                <asp:BoundField HeaderText="Problematica" DataField="Problematica" />
+
+                <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <asp:Button ID="BtnModificar"
+                            Text="Modificar"
+                            runat="server"
+                            CssClass="btn btn-link" />
+
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <asp:Button ID="BtnResolver"
+                            Text="Resolver"
+                            runat="server"
+                            CssClass="btn btn-link" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <asp:Button ID="BtnCerrar"
+                            Text="Cerrar"
+                            runat="server"
+                            CssClass="btn btn-link" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
         </asp:GridView>
     </div>
 </asp:Content>
