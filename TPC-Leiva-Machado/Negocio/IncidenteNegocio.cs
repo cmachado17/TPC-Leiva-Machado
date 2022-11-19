@@ -88,5 +88,33 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public List<Incidente> listarIncidenciasPorUsuario(int id)
+        {
+            List<Incidente> lista = new List<Incidente>();
+
+            try
+            {
+                datos.setearConsulta("select Problematica FROM Incidentes Where IdEmpleado = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Incidente aux = new Incidente();
+                    aux.Problematica = (string)datos.Lector["Problematica"];
+                    lista.Add(aux);
+                }
+                    return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

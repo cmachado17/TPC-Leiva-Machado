@@ -22,19 +22,13 @@
             CssClass="table table-striped w-100"
             ID="dgvIncidenciasAsignadas" runat="server"
             Style="text-align: center">
-            <Columns>
-                <asp:BoundField HeaderText="ID" DataField="ID" />
-                <asp:BoundField HeaderText="Descripcion" DataField="Descripcion" />
-                <%--      <asp:TemplateField HeaderText="">
-                        <ItemTemplate>
-                            <asp:Button ID="BtnPrioridad"
-                                Text="Borrar prioridad"
-                                OnClick="BtnPrioridad_Click"
-                                runat="server"
-                                CssClass="btn btn-link" />
-                        </ItemTemplate>
-                    </asp:TemplateField>--%>
-            </Columns>
+      <Columns>
+            <asp:BoundField HeaderText="Cliente" DataField="Problematica" />
+          <%--  <asp:BoundField HeaderText="Telefonista" DataField="EmpleadoAsignado.Nombres" />
+            <asp:BoundField HeaderText="Tipo" DataField="Tipo.Descripcion" />
+            <asp:BoundField HeaderText="Prioridad" DataField="Prioridad.Descripcion" />
+            <asp:BoundField HeaderText="FechaDeAlta" DataField="FechaDeAlta" />--%>
+           </Columns>
         </asp:GridView>
     </div>
 </asp:Content>
