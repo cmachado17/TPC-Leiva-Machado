@@ -14,7 +14,7 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Seguridad.esAdmin(Session["empleadoLogueado"]))
+            if ( !Seguridad.esAdmin(Session["empleadoLogueado"]) && !Seguridad.esSupervisor(Session["empleadoLogueado"]))
             {
                 Session.Add("error", "Se necesita perfil de administrador para ingresar en esta seccion");
                 Response.Redirect("Errores.aspx");

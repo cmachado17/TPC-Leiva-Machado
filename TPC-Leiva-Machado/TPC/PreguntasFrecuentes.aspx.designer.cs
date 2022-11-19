@@ -11,7 +11,7 @@ namespace TPC
 {
 
 
-    public partial class Formulario_web11
+    public partial class PreguntasFrecuentes
     {
     }
 }

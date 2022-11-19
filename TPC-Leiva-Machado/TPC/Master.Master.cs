@@ -17,7 +17,7 @@ namespace TPC
             MenuTel.Visible = false;
             MenuSup.Visible = false;
 
-            if(!(Page is Login || Page is Home))
+            if(!(Page is Login || Page is Home || Page is PreguntasFrecuentes))
             {
                 if (!Seguridad.sesionActiva(Session["empleadoLogueado"]))
                     Response.Redirect("Login.aspx");
@@ -44,6 +44,12 @@ namespace TPC
             }
 
 
+        }
+
+        protected void Logout_Click(object sender, EventArgs e)
+        {
+            Session.Remove("empleadoLogueado");
+            Response.Redirect("Home.aspx");
         }
     }
 }
