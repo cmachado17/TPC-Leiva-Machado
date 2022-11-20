@@ -18,5 +18,21 @@ namespace TPC
             dgvIncidenciasAsignadas.DataSource = negocio.listarIncidenciasPorUsuario(((Empleado)Session["empleadoLogueado"]).Id);
             dgvIncidenciasAsignadas.DataBind();
         }
+
+        protected void BtnModificar_Click(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            GridViewRow row = (GridViewRow)b.NamingContainer;
+            if (row != null)
+            {
+                //Obtenemos el indice de la fila
+                int rowIndex = row.RowIndex;
+                //obtenemos el Datakey de la row, que es el ID Cliente
+                string key = dgvIncidenciasAsignadas.DataKeys[rowIndex].Value.ToString();
+
+                Response.Redirect("FormularioIncidencia.aspx?incidencia=" + key);
+
+            }
+        }
     }
 }

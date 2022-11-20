@@ -95,19 +95,23 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("select INC.ID, TI.ID 'IdTipo', TI.Descripcion 'Tipo', PRI.ID 'IdPrioridad', PRI.Descripcion 'Prioridad', CL.ID 'IdCliente', concat(CL.Nombres, ', ', CL.Apellidos) as 'Cliente', INC.Problematica, INC.FechaDeAlta FROM Incidentes INC LEFT JOIN TipoIncidencias TI ON TI.ID = INC.IdTipoIncidencia LEFT JOIN PrioridadIncidencias PRI ON PRI.Id = INC.IdPrioridad LEFT JOIN EstadoIncidencias EI ON EI.ID = INC.IdEstado LEFT JOIN Clientes CL ON CL.id = INC.idCliente LEFT JOIN Empleados as E ON E.ID = INC.IdEmpleado LEFT JOIN Motivos as M ON M.ID = INC.IdMotivo Where INC.IdEmpleado = @id");
+                datos.setearConsulta("select INC.ID, TI.ID 'IdTipo', TI.Descripcion 'Tipo', PRI.ID 'IdPrioridad', PRI.Descripcion 'Prioridad',EI.ID 'IdEstado', EI.Descripcion 'Estado', CL.ID 'IdCliente', concat(CL.Nombres, ', ', CL.Apellidos) as 'Cliente', INC.Problematica, INC.FechaDeAlta FROM Incidentes INC LEFT JOIN TipoIncidencias TI ON TI.ID = INC.IdTipoIncidencia LEFT JOIN PrioridadIncidencias PRI ON PRI.Id = INC.IdPrioridad LEFT JOIN EstadoIncidencias EI ON EI.ID = INC.IdEstado LEFT JOIN Clientes CL ON CL.id = INC.idCliente LEFT JOIN Empleados as E ON E.ID = INC.IdEmpleado LEFT JOIN Motivos as M ON M.ID = INC.IdMotivo Where INC.IdEmpleado = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Incidente aux = new Incidente();
+                    aux.Id = (int)datos.Lector["ID"];
                     aux.Tipo = new TipoIncidencia();
                     aux.Tipo.Id = (int)datos.Lector["IdTipo"];
                     aux.Tipo.Descripcion = (string)datos.Lector["Tipo"];
                     aux.Prioridad = new Prioridad();
                     aux.Prioridad.Id = (int)datos.Lector["IdPrioridad"];
                     aux.Prioridad.Descripcion = (string)datos.Lector["Prioridad"];
+                    aux.Estado = new Estado();
+                    aux.Estado.Id = (int)datos.Lector["IdEstado"];
+                    aux.Estado.Descripcion = (string)datos.Lector["Estado"];
                     aux.Cliente = new Cliente();
                     aux.Cliente.Id = (int)datos.Lector["IdCliente"];
                     aux.Cliente.Nombres = (string)datos.Lector["Cliente"];
@@ -116,6 +120,63 @@ namespace Negocio
                     lista.Add(aux);
                 }
                     return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public Incidente listarIncidentePorId(int id)
+        {
+            Incidente encontrado = new Incidente();
+            try
+            {
+                datos.setearConsulta("select INC.ID, TI.ID 'IdTipo', TI.Descripcion 'Tipo', PRI.ID 'IdPrioridad', PRI.Descripcion 'Prioridad', CL.ID 'IdCliente', concat(CL.Nombres, ', ', CL.Apellidos) as 'Cliente', INC.Problematica, INC.FechaDeAlta FROM Incidentes INC LEFT JOIN TipoIncidencias TI ON TI.ID = INC.IdTipoIncidencia LEFT JOIN PrioridadIncidencias PRI ON PRI.Id = INC.IdPrioridad LEFT JOIN EstadoIncidencias EI ON EI.ID = INC.IdEstado LEFT JOIN Clientes CL ON CL.id = INC.idCliente LEFT JOIN Empleados as E ON E.ID = INC.IdEmpleado LEFT JOIN Motivos as M ON M.ID = INC.IdMotivo Where INC.ID = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    encontrado.Id = (int)datos.Lector["ID"];
+                    encontrado.Tipo = new TipoIncidencia();
+                    encontrado.Tipo.Id = (int)datos.Lector["IdTipo"];
+                    encontrado.Tipo.Descripcion = (string)datos.Lector["Tipo"];
+                    encontrado.Prioridad = new Prioridad();
+                    encontrado.Prioridad.Id = (int)datos.Lector["IdPrioridad"];
+                    encontrado.Prioridad.Descripcion = (string)datos.Lector["Prioridad"];
+                    encontrado.Cliente = new Cliente();
+                    encontrado.Cliente.Id = (int)datos.Lector["IdCliente"];
+                    encontrado.Cliente.Nombres = (string)datos.Lector["Cliente"];
+                    encontrado.FechaDeAlta = datos.Lector["FechaDeAlta"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeAlta"]).ToShortDateString() : "";
+                    encontrado.Problematica = (string)datos.Lector["Problematica"];
+                }
+
+                return encontrado;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void modificarEnAnalisis(Incidente nuevo)
+        {
+            try
+            {
+                datos.limpiarParametros();
+                datos.setearSP("sp_modifica_incidente_analisis");
+                datos.setearParametro("@Id", nuevo.Id);
+                datos.setearParametro("@Problematica", nuevo.Problematica);
+
+                datos.ejecutarAccion();
             }
             catch (Exception ex)
             {

@@ -10,6 +10,7 @@
             <asp:BoundField HeaderText="Telefonista" DataField="EmpleadoAsignado.Nombres" />
             <asp:BoundField HeaderText="Tipo" DataField="Tipo.Descripcion" />
             <asp:BoundField HeaderText="Prioridad" DataField="Prioridad.Descripcion" />
+             <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
             <asp:BoundField HeaderText="FechaDeAlta" DataField="FechaDeAlta" />
            </Columns>
      </asp:GridView>

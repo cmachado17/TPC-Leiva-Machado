@@ -18,14 +18,17 @@
 
     <div class="text-center">
         <h2>Mis incidencias asignadas</h2>
+
         <asp:GridView AutoGenerateColumns="false"
             CssClass="table table-striped w-100"
             ID="dgvIncidenciasAsignadas" runat="server"
+            DataKeyNames="Id"
             Style="text-align: center">
             <Columns>
                 <asp:BoundField HeaderText="Cliente" DataField="Cliente.Nombres" />
                 <asp:BoundField HeaderText="Tipo" DataField="Tipo.Descripcion" />
                 <asp:BoundField HeaderText="Prioridad" DataField="Prioridad.Descripcion" />
+                 <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
                 <asp:BoundField HeaderText="FechaDeAlta" DataField="FechaDeAlta" />
                 <asp:BoundField HeaderText="Problematica" DataField="Problematica" />
 
@@ -34,7 +37,8 @@
                         <asp:Button ID="BtnModificar"
                             Text="Modificar"
                             runat="server"
-                            CssClass="btn btn-link" />
+                            CssClass="btn btn-link" 
+                            onclick="BtnModificar_Click"/>
 
                     </ItemTemplate>
                 </asp:TemplateField>

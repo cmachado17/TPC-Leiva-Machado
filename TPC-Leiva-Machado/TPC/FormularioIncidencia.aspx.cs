@@ -42,10 +42,27 @@ namespace TPC
                     dwPrioridad.DataBind();
 
                 }
+
+                if (Request.QueryString["incidencia"] != null && !IsPostBack)
+                {
+                    btnAceptar.Text = "Modificar";
+                    dwTipo.Enabled = false;
+                    dwPrioridad.Enabled = false;
+
+                    IncidenteNegocio negocio = new IncidenteNegocio();
+                    Incidente seleccionado = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
+
+                    //lo guardamos en session
+                    Session.Add("IncidenteSeleccionado", seleccionado);
+
+                    //cargamos los campos del formulario
+                    dwTipo.SelectedValue = seleccionado.Tipo.Id.ToString();
+                    dwPrioridad.SelectedValue = seleccionado.Prioridad.Id.ToString();
+                    txProblematica.Text = seleccionado.Problematica;
+                }
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -59,18 +76,27 @@ namespace TPC
                 ClienteNegocio negocioCliente = new ClienteNegocio();
                 EmpleadoNegocio negocioEmpleado = new EmpleadoNegocio();
 
-                nuevo.Tipo = new TipoIncidencia();
-                nuevo.Tipo.Id = int.Parse(dwTipo.SelectedValue);
-                nuevo.Prioridad = new Prioridad();
-                nuevo.Prioridad.Id = int.Parse(dwPrioridad.SelectedValue);
-                nuevo.Problematica = txProblematica.Text;
-                //estado?
-                nuevo.Cliente = negocioCliente.listarClientePorId(int.Parse(Request.QueryString["id"]));
-                nuevo.EmpleadoAsignado = negocioEmpleado.listarEmpleadoPorId(((Empleado)Session["empleadoLogueado"]).Id);
-
-                negocio.agregarIncidencia(nuevo);
-
-                Response.Redirect("Clientes.aspx", false);
+                if (Request.QueryString["incidencia"] != null)
+                {
+                    nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
+                    nuevo.Problematica = txProblematica.Text;
+                    negocio.modificarEnAnalisis(nuevo);
+                    Response.Redirect("Clientes.aspx", false);
+                }
+                else
+                {
+                    nuevo.Tipo = new TipoIncidencia();
+                    nuevo.Tipo.Id = int.Parse(dwTipo.SelectedValue);
+                    nuevo.Prioridad = new Prioridad();
+                    nuevo.Prioridad.Id = int.Parse(dwPrioridad.SelectedValue);
+                    nuevo.Problematica = txProblematica.Text;
+                    //estado?
+                    nuevo.Cliente = negocioCliente.listarClientePorId(int.Parse(Request.QueryString["id"]));
+                    nuevo.EmpleadoAsignado = negocioEmpleado.listarEmpleadoPorId(((Empleado)Session["empleadoLogueado"]).Id);
+                    negocio.agregarIncidencia(nuevo);
+                    Response.Redirect("Clientes.aspx", false);
+                }
+             
             }
             catch (Exception ex)
             {

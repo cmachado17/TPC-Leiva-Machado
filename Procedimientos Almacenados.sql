@@ -152,3 +152,13 @@ LEFT JOIN Clientes CL ON CL.id = INC.idCliente
 LEFT JOIN Empleados as E ON E.ID = INC.IdEmpleado
 LEFT JOIN Motivos as M ON M.ID = INC.IdMotivo
 end
+
+go
+CREATE PROCEDURE sp_modifica_incidente_analisis
+(@Id INT, @Problematica TEXT)
+as begin
+UPDATE Incidentes 
+SET Problematica = @Problematica,
+IdEstado = 2
+WHERE ID = @ID
+end
