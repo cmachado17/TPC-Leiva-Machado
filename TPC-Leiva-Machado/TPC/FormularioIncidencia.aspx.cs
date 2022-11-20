@@ -21,6 +21,11 @@ namespace TPC
                 Response.Redirect("Errores.aspx");
             }
 
+            lbMotivo.Visible = false;
+            dwMotivo.Visible = false;
+            lbComentario.Visible = false;
+            txComentario.Visible = false;
+
             try
             {
                 if (!IsPostBack)
@@ -43,7 +48,7 @@ namespace TPC
 
                 }
 
-                if (Request.QueryString["incidencia"] != null && !IsPostBack)
+                if (Request.QueryString["incidencia"] != null && Request.QueryString["accion"] == null && !IsPostBack)
                 {
                     btnAceptar.Text = "Modificar";
                     dwTipo.Enabled = false;
@@ -59,6 +64,41 @@ namespace TPC
                     dwTipo.SelectedValue = seleccionado.Tipo.Id.ToString();
                     dwPrioridad.SelectedValue = seleccionado.Prioridad.Id.ToString();
                     txProblematica.Text = seleccionado.Problematica;
+                }
+                else if (Request.QueryString["accion"] != null && !IsPostBack)
+                {
+                    dwTipo.Enabled = false;
+                    dwPrioridad.Enabled = false;
+                    txProblematica.Enabled = false;
+
+                    IncidenteNegocio negocio = new IncidenteNegocio();
+                    Incidente seleccionado = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
+
+                    dwTipo.SelectedValue = seleccionado.Tipo.Id.ToString();
+                    dwPrioridad.SelectedValue = seleccionado.Prioridad.Id.ToString();
+                    txProblematica.Text = seleccionado.Problematica;
+
+                    if (Request.QueryString["accion"] == "resolver")
+                    {
+                        lbComentario.Visible = true;
+                        txComentario.Visible = true;
+                        btnAceptar.Text = "Resolver";
+                    }
+                    else
+                    {
+                        MotivoNegocio motivoNegocio = new MotivoNegocio();
+
+                        List<Motivo> motivos = motivoNegocio.listarMotivos();
+
+                        dwMotivo.DataSource = motivos;
+                        dwMotivo.DataValueField = "Id";
+                        dwMotivo.DataTextField = "Descripcion";
+                        dwMotivo.DataBind();
+
+                        btnAceptar.Text = "Cerrar";
+                        lbMotivo.Visible = true;
+                        dwMotivo.Visible = true;
+                    }
                 }
             }
             catch (Exception ex)
@@ -96,7 +136,7 @@ namespace TPC
                     negocio.agregarIncidencia(nuevo);
                     Response.Redirect("Clientes.aspx", false);
                 }
-             
+
             }
             catch (Exception ex)
             {

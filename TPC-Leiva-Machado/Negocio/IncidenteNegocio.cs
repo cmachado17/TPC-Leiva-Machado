@@ -187,5 +187,47 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void cerrarIncidente(Incidente nuevo)
+        {
+            try
+            {
+                datos.limpiarParametros();
+                datos.setearSP("sp_Cerrar_Incidencia");
+                datos.setearParametro("@Id", nuevo.Id);
+                datos.setearParametro("@Comentario", nuevo.Comentario);
+                datos.setearParametro("@Motivo", nuevo.Motivo.Id);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void resolverIncidente(Incidente nuevo)
+        {
+            try
+            {
+                datos.limpiarParametros();
+                datos.setearSP("sp_Resolver_Incidencia");
+                datos.setearParametro("@Id", nuevo.Id);
+                datos.setearParametro("@Comentario", nuevo.Comentario);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

@@ -20,6 +20,12 @@
         <asp:Label ID="lbProblematica" runat="server" Text="Problematica" CssClass="form-label">Problematica</asp:Label>
         <asp:textbox id="txProblematica" TextMode="multiline" Height="100" runat="server" CssClass="form-control" />
     </div>
+    <div class="mb-3">
+        <asp:Label ID="lbMotivo" runat="server" Text="Motivo" CssClass="form-label">Motivo</asp:Label>
+         <asp:DropDownList ID="dwMotivo" runat="server" CssClass="form-control"></asp:DropDownList>
+         <asp:Label ID="lbComentario" runat="server" Text="Comentario" CssClass="form-label">Comentario</asp:Label>
+        <asp:textbox id="txComentario" TextMode="multiline" Height="100" runat="server" CssClass="form-control" />
+    </div>
     <div class="row">
         <div class="col-12 text-center mb-2 d-flex">
             <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" type="submit" CssClass="btn btn-primary btn-block my-1 mx-5" onclick="btnAceptar_Click"/>

@@ -162,3 +162,24 @@ SET Problematica = @Problematica,
 IdEstado = 2
 WHERE ID = @ID
 end
+
+GO
+CREATE PROCEDURE sp_Resolver_Incidencia
+(@Id INT, @Comentario VARCHAR(100))
+as begin
+UPDATE Incidentes 
+SET Comentario = @Comentario,
+IdEstado = 6
+WHERE ID = @ID
+end
+
+GO
+CREATE PROCEDURE sp_Cerrar_Incidencia
+(@Id INT, @Motivo INT, @Comentario VARCHAR(100))
+as begin
+UPDATE Incidentes 
+SET Comentario = @Comentario,
+IdEstado = 3,
+IdMotivo = @Motivo
+WHERE ID = @ID
+end

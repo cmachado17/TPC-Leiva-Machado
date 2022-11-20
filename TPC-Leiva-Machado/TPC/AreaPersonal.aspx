@@ -47,7 +47,8 @@
                         <asp:Button ID="BtnResolver"
                             Text="Resolver"
                             runat="server"
-                            CssClass="btn btn-link" />
+                            CssClass="btn btn-link" 
+                            onclick="BtnResolver_Click"/>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="">
@@ -55,7 +56,8 @@
                         <asp:Button ID="BtnCerrar"
                             Text="Cerrar"
                             runat="server"
-                            CssClass="btn btn-link" />
+                            CssClass="btn btn-link" 
+                            onclick="BtnCerrar_Click"/>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
