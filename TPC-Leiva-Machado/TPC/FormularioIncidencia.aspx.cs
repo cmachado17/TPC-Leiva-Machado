@@ -116,14 +116,28 @@ namespace TPC
                 ClienteNegocio negocioCliente = new ClienteNegocio();
                 EmpleadoNegocio negocioEmpleado = new EmpleadoNegocio();
 
-                if (Request.QueryString["incidencia"] != null)
+                if (Request.QueryString["incidencia"] != null && Request.QueryString["accion"] == null)
                 {
                     nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
                     nuevo.Problematica = txProblematica.Text;
                     negocio.modificarEnAnalisis(nuevo);
-                    Response.Redirect("Clientes.aspx", false);
+                    Response.Redirect("AreaPersonal.aspx", false);
+                }else if(Request.QueryString["accion"] == "resolver")
+                {
+                    nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
+                    nuevo.Comentario = txComentario.Text;
+                    negocio.resolverIncidente(nuevo);
+                    Response.Redirect("AreaPersonal.aspx", false);
                 }
-                else
+                else if (Request.QueryString["accion"] == "cerrar")
+                {
+                    nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
+                    nuevo.Motivo = new Motivo();
+                    nuevo.Motivo.Id = int.Parse(dwMotivo.SelectedValue);
+                    negocio.cerrarIncidente(nuevo);
+                    Response.Redirect("AreaPersonal.aspx", false);
+                }
+                else 
                 {
                     nuevo.Tipo = new TipoIncidencia();
                     nuevo.Tipo.Id = int.Parse(dwTipo.SelectedValue);
