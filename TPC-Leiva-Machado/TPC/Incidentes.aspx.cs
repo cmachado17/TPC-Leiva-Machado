@@ -25,5 +25,27 @@ namespace TPC
             dgvIncidencias.DataSource = Session["listaIncidentes"];
             dgvIncidencias.DataBind();
         }
+
+        protected void dgvIncidencias_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvIncidencias.PageIndex = e.NewPageIndex;
+            dgvIncidencias.DataBind();
+        }
+
+        protected void BtnDetalleI_Click(object sender, ImageClickEventArgs e)
+        {
+            ImageButton b = (ImageButton)sender;
+            GridViewRow row = (GridViewRow)b.NamingContainer;
+            if (row != null)
+            {
+                //Obtenemos el indice de la fila
+                int rowIndex = row.RowIndex;
+                //obtenemos el Datakey de la row, que es el ID del Incidente
+                string key = dgvIncidencias.DataKeys[rowIndex].Value.ToString();
+
+                Response.Redirect("DetalleIncidentes.aspx?id=" + key);
+
+            }
+        }
     }
 }

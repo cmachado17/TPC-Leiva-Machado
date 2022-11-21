@@ -15,6 +15,12 @@ namespace TPC
         public bool ConfirmarEliminacion { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Seguridad.esAdmin(Session["empleadoLogueado"]) || Seguridad.esTelefonista(Session["empleadoLogueado"]))
+            {
+                Session.Add("error", "Se necesita perfil de administrador o telefonista para ingresar en esta seccion");
+                Response.Redirect("Errores.aspx");
+            }
+
             ConfirmarEliminacion = false;
             txtId.Visible = false;
             lbError.Visible = false;
