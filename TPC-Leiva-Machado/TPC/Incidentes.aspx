@@ -4,14 +4,41 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Incidencias</h2>
     <%--<asp:Button Text="Cargar incidencia" runat="server" cssclass="btn btn-primary" href="Incidentes.aspx"/>--%>
-     <asp:GridView cssclass="table table-striped" ID="dgvIncidencias" runat="server">
+     <asp:GridView  CssClass="table table-striped w-100" 
+         ID="dgvIncidencias" runat="server"
+         AutoGenerateColumns="false"
+         DataKeyNames="Id"
+        OnPageIndexChanging="dgvIncidencias_PageIndexChanging"
+        AllowPaging="true" PageSize="10"
+        style= "text-align:center">
          <Columns>
+            
             <asp:BoundField HeaderText="Cliente" DataField="Cliente.Nombres" />
-            <asp:BoundField HeaderText="Telefonista" DataField="EmpleadoAsignado.Nombres" />
-            <asp:BoundField HeaderText="Tipo" DataField="Tipo.Descripcion" />
+             <asp:BoundField HeaderText="DNI" DataField="Cliente.DNI" />
+             <asp:BoundField HeaderText="Email" DataField="Cliente.Email" />
+             <asp:BoundField HeaderText="Numero" DataField="Id" />
+             <asp:BoundField HeaderText="Descripción" DataField="Problematica" />
+             <asp:BoundField HeaderText="Tipo" DataField="Tipo.Descripcion" />
             <asp:BoundField HeaderText="Prioridad" DataField="Prioridad.Descripcion" />
              <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
             <asp:BoundField HeaderText="FechaDeAlta" DataField="FechaDeAlta" />
-           </Columns>
+         <asp:BoundField HeaderText="Empleado Asignado" DataField="EmpleadoAsignado.Nombres" />  
+        
+             
+         
+                    <asp:TemplateField HeaderText="">
+                <ItemTemplate>
+                    <asp:ImageButton ID="BtnDetalleI"
+                        Text="Detalle"
+                        OnClick="BtnDetalleI_Click"
+                        runat="server" 
+                        ImageUrl="lupa.png" width="20" />
+                </ItemTemplate>
+            </asp:TemplateField>
+
+
+
+         
+         </Columns>
      </asp:GridView>
 </asp:Content>

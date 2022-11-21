@@ -16,7 +16,7 @@ namespace TPC
         {
             if ( !Seguridad.esAdmin(Session["empleadoLogueado"]) && !Seguridad.esSupervisor(Session["empleadoLogueado"]))
             {
-                Session.Add("error", "Se necesita perfil de administrador para ingresar en esta seccion");
+                Session.Add("error", "Se necesita perfil de administrador o Supervisor para ingresar en esta seccion");
                 Response.Redirect("Errores.aspx");
             }
 

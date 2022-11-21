@@ -44,23 +44,19 @@ namespace TPC
             }
 
 
-            if (!(Page is Login || Page is Home || Page is PreguntasFrecuentes || Page is Contacto))
+            if (!(Page is Login || Page is Home || Page is PreguntasFrecuentes || Page is Contacto || Page is Errores))
             {
                 if (!Seguridad.sesionActiva(Session["empleadoLogueado"]))
                 {
+
+                    Response.Redirect("Login.aspx");
+
                     if (Session["error"] != null)
                     {
                         Response.Redirect("Errores.aspx", false);
-                        if (Page is Errores)
-                        {
-                            Response.Redirect("Errores.aspx", false);
-                        }
+                       
                     }
-                    else
-                    {
-                        Response.Redirect("Login.aspx");
-                    }
-                      
+       
                 }
                     
                       

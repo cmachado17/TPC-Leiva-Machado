@@ -14,6 +14,11 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Seguridad.sesionActiva(Session["empleadoLogueado"]))
+            {
+                Session.Add("error", "Se necesita estar logueado para ingresar en esta seccion");
+                Response.Redirect("Errores.aspx");
+            }
             IncidenteNegocio negocio = new IncidenteNegocio();
             dgvIncidenciasAsignadas.DataSource = negocio.listarIncidenciasPorUsuario(((Empleado)Session["empleadoLogueado"]).Id);
             dgvIncidenciasAsignadas.DataBind();
