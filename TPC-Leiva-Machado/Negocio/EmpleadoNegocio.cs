@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Negocio
 {
@@ -237,7 +239,9 @@ namespace Negocio
             {
                 //retorna null para que regrese al metodo y asi poder tomar el error en session
                 return null;
+              
             }
+           
             finally
             {
                 datos.cerrarConexion();

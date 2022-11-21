@@ -20,6 +20,7 @@ namespace TPC
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
+            Session.Remove("empleadoLogueado");
             Empleado datosLogin;
             EmpleadoNegocio negocio = new EmpleadoNegocio();
             Empleado empleado = new Empleado();

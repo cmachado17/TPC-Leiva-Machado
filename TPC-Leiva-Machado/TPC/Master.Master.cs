@@ -16,15 +16,12 @@ namespace TPC
             MenuAdmin.Visible = false;
             MenuTel.Visible = false;
             MenuSup.Visible = false;
-
-            if(!(Page is Login || Page is Home || Page is PreguntasFrecuentes || Page is Contacto))
-            {
-                if (!Seguridad.sesionActiva(Session["empleadoLogueado"]))
-                    Response.Redirect("Login.aspx");
-            }
+            Logout.Visible = false;
+            
 
             if (Session["empleadoLogueado"] != null)
             {
+                Logout.Visible = true;
                 Empleado empleado = (Empleado)Session["empleadoLogueado"];
 
                 switch (empleado.Perfil.Id)
@@ -44,12 +41,40 @@ namespace TPC
             }
 
 
+            if (!(Page is Login || Page is Home || Page is PreguntasFrecuentes || Page is Contacto))
+            {
+                if (!Seguridad.sesionActiva(Session["empleadoLogueado"]))
+                {
+                    if (Session["error"] != null)
+                    {
+                        Response.Redirect("Errores.aspx", false);
+                        if (Page is Errores)
+                        {
+                            Response.Redirect("Errores.aspx", false);
+                        }
+                    }
+                    else
+                    {
+                        Response.Redirect("Login.aspx");
+                    }
+                      
+                }
+                    
+                      
+            }
+
+     
+
         }
 
         protected void Logout_Click(object sender, EventArgs e)
         {
-            Session.Remove("empleadoLogueado");
-            Response.Redirect("Home.aspx");
+
+            if (Session["empleadoLogueado"] != null)
+            {
+                Session.Remove("empleadoLogueado");
+                Response.Redirect("Home.aspx");
+            }
         }
     }
 }

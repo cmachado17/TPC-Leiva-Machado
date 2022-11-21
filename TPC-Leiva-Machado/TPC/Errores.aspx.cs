@@ -14,7 +14,7 @@ namespace TPC
         {
 
 
-            String error = null;
+         
 
             if (Session["error"] != null)
             {
