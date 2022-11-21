@@ -16,8 +16,7 @@
             <asp:BoundField HeaderText="Cliente" DataField="Cliente.Nombres" />
              <asp:BoundField HeaderText="DNI" DataField="Cliente.DNI" />
              <asp:BoundField HeaderText="Email" DataField="Cliente.Email" />
-             <asp:BoundField HeaderText="Numero" DataField="Id" />
-             <asp:BoundField HeaderText="Descripción" DataField="Problematica" />
+             <asp:BoundField HeaderText="Numero Incidente" DataField="Id" />
              <asp:BoundField HeaderText="Tipo" DataField="Tipo.Descripcion" />
             <asp:BoundField HeaderText="Prioridad" DataField="Prioridad.Descripcion" />
              <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />

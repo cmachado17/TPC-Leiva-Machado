@@ -71,12 +71,14 @@
     </asp:GridView>
    
 
-
+        <%if (!Session["Perfil"].Equals(3))
+            { %>
     <div class="row mb-3 d-flex align-items-center">
         <div class="col-12">
             <a class="btn btn-primary btn-block" href="FormularioClientes.aspx">Agregar Cliente</a>
         </div>
 
     </div>
+    <%} %>
 
 </asp:Content>

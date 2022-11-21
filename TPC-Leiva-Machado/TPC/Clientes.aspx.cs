@@ -27,6 +27,7 @@ namespace TPC
                 {
                     dgvClientes.Columns[5].Visible = false;
                     dgvClientes.Columns[6].Visible = false;
+                    
                 }
 
                 if (Session["Perfil"].Equals(1))

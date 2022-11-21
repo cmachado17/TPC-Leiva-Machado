@@ -18,7 +18,7 @@ namespace TPC
             if (!Seguridad.esTelefonista(Session["empleadoLogueado"]))
             {
                 Session.Add("error", "Se necesita perfil de telefonista para ingresar en esta seccion");
-                Response.Redirect("Errores.aspx");
+                Response.Redirect("Errores.aspx", false);
             }
 
             lbMotivo.Visible = false;
@@ -137,7 +137,7 @@ namespace TPC
                     negocio.cerrarIncidente(nuevo);
                     Response.Redirect("AreaPersonal.aspx", false);
                 }
-                else 
+                else if (Request.QueryString["id"] != null)
                 {
                     nuevo.Tipo = new TipoIncidencia();
                     nuevo.Tipo.Id = int.Parse(dwTipo.SelectedValue);
