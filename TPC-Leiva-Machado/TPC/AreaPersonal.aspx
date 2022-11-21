@@ -17,8 +17,11 @@
     </div>
 
     <div class="text-center">
+             <% if (Session["Perfil"].Equals(2))
+                 { %>
+          
         <h2>Mis incidencias asignadas</h2>
-
+          <%} %>
         <asp:GridView AutoGenerateColumns="false"
             CssClass="table table-striped w-100"
             ID="dgvIncidenciasAsignadas" runat="server"
@@ -62,5 +65,6 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+                 
     </div>
 </asp:Content>
