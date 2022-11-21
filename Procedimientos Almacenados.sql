@@ -183,3 +183,17 @@ IdEstado = 3,
 IdMotivo = @Motivo
 WHERE ID = @ID
 end
+
+GO
+CREATE PROCEDURE sp_Detalle_Incidentes(@id int) as
+select INC.ID, TI.ID 'IdTipo', TI.Descripcion 'Tipo', PRI.ID 'IdPrioridad', PRI.Descripcion 'Prioridad', CL.ID 'IdCliente', 
+concat(CL.Nombres, ', ', CL.Apellidos) as 'Cliente', INC.Problematica, INC.FechaDeAlta, INC.FechaDeBaja,
+EI.ID 'IdEstado', EI.Descripcion 'Estado', M.ID 'IdMotivo', M.Descripcion 'Motivo',INC.Comentario
+FROM Incidentes INC 
+LEFT JOIN TipoIncidencias TI ON TI.ID = INC.IdTipoIncidencia 
+LEFT JOIN PrioridadIncidencias PRI ON PRI.Id = INC.IdPrioridad 
+LEFT JOIN EstadoIncidencias EI ON EI.ID = INC.IdEstado 
+LEFT JOIN Clientes CL ON CL.id = INC.idCliente 
+LEFT JOIN Empleados as E ON E.ID = INC.IdEmpleado 
+LEFT JOIN Motivos as M ON M.ID = INC.IdMotivo 
+Where INC.ID = @id
