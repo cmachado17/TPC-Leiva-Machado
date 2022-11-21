@@ -228,5 +228,50 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public Incidente listarDetallePorId(int id)
+        {
+            Incidente encontrado = new Incidente();
+            try
+            {
+                datos.setearSP("sp_Detalle_Incidentes");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    encontrado.Id = (int)datos.Lector["ID"];
+                    encontrado.Tipo = new TipoIncidencia();
+                    encontrado.Tipo.Id = (int)datos.Lector["IdTipo"];
+                    encontrado.Tipo.Descripcion = (string)datos.Lector["Tipo"];
+                    encontrado.Prioridad = new Prioridad();
+                    encontrado.Prioridad.Id = (int)datos.Lector["IdPrioridad"];
+                    encontrado.Prioridad.Descripcion = (string)datos.Lector["Prioridad"];
+                    encontrado.Cliente = new Cliente();
+                    encontrado.Cliente.Id = (int)datos.Lector["IdCliente"];
+                    encontrado.Cliente.Nombres = (string)datos.Lector["Cliente"];
+                    encontrado.FechaDeAlta = datos.Lector["FechaDeAlta"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeAlta"]).ToShortDateString() : "";
+                    encontrado.FechaDeBaja = datos.Lector["FechaDeBaja"] != DBNull.Value ? ((DateTime)datos.Lector["FechaDeBaja"]).ToShortDateString() : "";
+                    encontrado.Problematica = (string)datos.Lector["Problematica"];
+                    encontrado.Motivo = new Motivo();
+                    encontrado.Motivo.Id = (int)datos.Lector["IdMotivo"];
+                    encontrado.Motivo.Descripcion = (string)datos.Lector["Motivo"];
+                    encontrado.Estado = new Estado();
+                    encontrado.Estado.Id = (int)datos.Lector["IdEstado"];
+                    encontrado.Estado.Descripcion = (string)datos.Lector["Estado"];
+                    encontrado.Comentario = (string)datos.Lector["Comentario"];
+                }
+
+                return encontrado;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
     }
 }

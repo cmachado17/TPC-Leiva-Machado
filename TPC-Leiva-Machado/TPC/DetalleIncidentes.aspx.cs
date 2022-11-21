@@ -26,8 +26,8 @@ namespace TPC
             if (Session["Perfil"] != null && Session["Perfil"].Equals(3))
             {
                 btnAceptarI.Visible = true;
-                lbEmpleadoAsignado.Visible = true;
-                dwEmpleadoAsignado.Visible = true;
+                //lbEmpleadoAsignado.Visible = true;
+                //dwEmpleadoAsignado.Visible = true;
             }
 
 
@@ -44,8 +44,8 @@ namespace TPC
                     List<TipoIncidencia> listaTipo = tipoNegocio.listarTipo();
                     List<Prioridad> listaPrioridad = prioridadNegocio.listarPrioridad();
                     List<Estado> listaEstados = estadoNegocio.listarEstado();
-                    List<Motivo> listaMotivos = motivoNegocio.listarMotivos();
-                    List<Empleado> listaEmpleados = empleadoNegocio.listarEmpleados();
+                    //List<Motivo> listaMotivos = motivoNegocio.listarMotivos();
+                    //List<Empleado> listaEmpleados = empleadoNegocio.listarEmpleados();
 
                     dwTipoI.DataSource = listaTipo;
                     dwTipoI.DataValueField = "Id";
@@ -62,31 +62,31 @@ namespace TPC
                     dwEstadoI.DataTextField = "Descripcion";
                     dwEstadoI.DataBind();
 
-                    dwMotivoI.DataSource = listaMotivos;
+                    /*dwMotivoI.DataSource = listaMotivos;
                     dwMotivoI.DataValueField = "Id";
                     dwMotivoI.DataTextField = "Descripcion";
                     dwMotivoI.DataBind();
 
                     dwEmpleadoAsignado.DataSource = listaEmpleados;
                     dwEmpleadoAsignado.DataValueField = "Id";
-                    dwEmpleadoAsignado.DataTextField = "Apellidos" + "," + "Nombres";
-                    dwEmpleadoAsignado.DataBind();
+                    dwEmpleadoAsignado.DataTextField = "Apellidos";
+                    dwEmpleadoAsignado.DataBind();*/
                 }
                 if (Request.QueryString["id"] != null && !IsPostBack)
                 {
                     dwTipoI.Enabled = false;
                     dwPrioridadI.Enabled = false;
                     txProblematicaI.Enabled = false;
-                    dwEstadoI.Enabled = false;
-                    dwMotivoI.Enabled = false;
-                    txComentarioI.Enabled = false;
-                    txFechaAltaI.Enabled = false;
-                    txFechaBajaI.Enabled = false;
+                    //dwEstadoI.Enabled = false;
+                    //dwMotivoI.Enabled = false;
+                    //txComentarioI.Enabled = false;
+                    //txFechaAltaI.Enabled = false;
+                    //txFechaBajaI.Enabled = false;
 
 
 
                     IncidenteNegocio negocio = new IncidenteNegocio();
-                    Incidente seleccionado = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["id"]));
+                    Incidente seleccionado = negocio.listarDetallePorId(Int32.Parse(Request.QueryString["id"]));
                     ;
                     //lo guardamos en session
                     Session.Add("IncidenteSeleccionado", seleccionado);
@@ -96,11 +96,11 @@ namespace TPC
                     dwPrioridadI.SelectedValue = seleccionado.Prioridad.Id.ToString();
                     txProblematicaI.Text = seleccionado.Problematica;
                     dwEstadoI.SelectedValue = seleccionado.Estado.Id.ToString();
-                    dwMotivoI.SelectedValue = seleccionado.Motivo.Id.ToString();
-                    dwEmpleadoAsignado.SelectedValue = seleccionado.EmpleadoAsignado.Id.ToString();
-                    txComentarioI.Text = seleccionado.Comentario;
-                    txFechaAltaI.Text = seleccionado.FechaDeAlta;
-                    txFechaBajaI.Text = seleccionado.FechaDeBaja;
+                    //dwMotivoI.SelectedValue = seleccionado.Motivo.Id.ToString();
+                    //dwEmpleadoAsignado.SelectedValue = seleccionado.EmpleadoAsignado.Id.ToString();
+                    //txComentarioI.Text = seleccionado.Comentario;
+                    //txFechaAltaI.Text = seleccionado.FechaDeAlta;
+                    //txFechaBajaI.Text = seleccionado.FechaDeBaja;
 
                 }
             }
