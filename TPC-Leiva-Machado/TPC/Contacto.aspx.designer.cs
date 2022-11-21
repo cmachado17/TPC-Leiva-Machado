@@ -11,7 +11,7 @@ namespace TPC
 {
 
 
-    public partial class Formulario_web12
+    public partial class Contacto
     {
 
         /// <summary>

@@ -42,7 +42,7 @@
                     <Items>
                         <asp:MenuItem NavigateUrl="Clientes.aspx" Text="Clientes" ToolTip="Clientes"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="Incidentes.aspx" Text="Incidentes" ToolTip="Incidentes"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="Empleados.aspx" Text="Usuarios" ToolTip="Usuarios"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Empleados.aspx" Text="Empleados" ToolTip="Empleados"></asp:MenuItem>
                          <asp:MenuItem NavigateUrl="Administracion.aspx" Text="Administracion" ToolTip="Administracion"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="AreaPersonal.aspx" Text="Area personal" ToolTip="Area personal"></asp:MenuItem>
                     </Items>
@@ -93,7 +93,7 @@
                         <asp:MenuItem NavigateUrl="Contacto.aspx" Text="Contacto" ToolTip="Contacto"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
-                <asp:Button Text="Logout" ID="Logout" runat="server" onclick="Logout_Click"/>
+                <asp:Button type="button" cssclass="btn btn-outline-primary" Text="Logout" ID="Logout" runat="server" onclick="Logout_Click"/>
 
             </div>
 

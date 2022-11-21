@@ -36,7 +36,8 @@
                         Text="Cargar Incidencia"
                         OnClick="BtnIncidencia_Click"
                         runat="server" 
-                        cssclass="btn btn-link"
+                        type="button" 
+                        cssclass="btn btn-outline-primary"
                      />
                 </ItemTemplate>
 
