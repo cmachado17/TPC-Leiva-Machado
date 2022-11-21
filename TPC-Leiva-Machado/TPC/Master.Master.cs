@@ -24,7 +24,7 @@ namespace TPC
                 Logout.Visible = true;
                 Empleado empleado = (Empleado)Session["empleadoLogueado"];
 
-                //se guarda el perfil para no mostar las incidencias en area personal
+                //se guarda el perfil para manejar lo que se ve de html
                 Session.Add("Perfil", empleado.Perfil.Id);
 
                 switch (empleado.Perfil.Id)

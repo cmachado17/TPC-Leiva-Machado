@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="TPC.Formulario_web14" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="TPC.Clientes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -13,14 +13,18 @@
     <div class="mb-3" style= "padding-bottom:3px">    
         <asp:TextBox runat="server" ID="FiltroClientes" AutoPostBack="true" OnTextChanged="FiltroClientes_TextChanged" CssClass="form-control" placeholder="Ingrese el nombre del cliente.." />
     </div>
-    <%-- OnSelectedIndexChanged="dgvClientes_SelectedIndexChanged" --%>
-    <asp:GridView AutoGenerateColumns="false"
+
+ 
+    
+      <asp:GridView AutoGenerateColumns="false"
         CssClass="table table-striped w-100"
         ID="dgvClientes" runat="server"
         DataKeyNames="Id"
         OnPageIndexChanging="dgvClientes_PageIndexChanging"
         AllowPaging="true" PageSize="10"
         style= "text-align:center">
+   
+                
         <Columns>
             <asp:BoundField HeaderText="Nombres" DataField="Nombres" />
             <asp:BoundField HeaderText="Apellidos" DataField="Apellidos" />
@@ -28,11 +32,11 @@
             <asp:BoundField HeaderText="Email" DataField="Email" />
             <asp:BoundField HeaderText="Telefono" DataField="Telefono" />
            
-            <%-- <asp:CommandField HeaderText="Modificar" ShowSelectButton="true" SelectText="Modificar"/>
-                    <asp:CommandField HeaderText="Detalle" ShowSelectButton="true" SelectText="Detalle"/>--%>
-            <asp:TemplateField HeaderText="">
-                <ItemTemplate>
-                    <asp:Button ID="BtnIncidencia"
+            
+            <asp:TemplateField  HeaderText="">
+                
+                <ItemTemplate >
+                     <asp:Button ID="BtnIncidencia"
                         Text="Cargar Incidencia"
                         OnClick="BtnIncidencia_Click"
                         runat="server" 
@@ -40,8 +44,9 @@
                         cssclass="btn btn-outline-primary"
                      />
                 </ItemTemplate>
-
             </asp:TemplateField>
+            
+
             <asp:TemplateField HeaderText="">
                 <ItemTemplate>
                     <asp:ImageButton ID="BtnModificar"
@@ -51,6 +56,7 @@
                         ImageUrl="lapiz.png" width="20" />
                 </ItemTemplate>
             </asp:TemplateField>
+
                       <asp:TemplateField HeaderText="">
                 <ItemTemplate>
                     <asp:ImageButton ID="BtnDetalle"
@@ -60,8 +66,12 @@
                         ImageUrl="lupa.png" width="20" />
                 </ItemTemplate>
             </asp:TemplateField>
+            
         </Columns>
     </asp:GridView>
+   
+
+
     <div class="row mb-3 d-flex align-items-center">
         <div class="col-12">
             <a class="btn btn-primary btn-block" href="FormularioClientes.aspx">Agregar Cliente</a>

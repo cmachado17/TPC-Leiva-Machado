@@ -11,7 +11,7 @@ namespace TPC
 {
 
 
-    public partial class Formulario_web14
+    public partial class Clientes
     {
 
         /// <summary>
