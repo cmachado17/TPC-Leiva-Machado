@@ -197,3 +197,24 @@ LEFT JOIN Clientes CL ON CL.id = INC.idCliente
 LEFT JOIN Empleados as E ON E.ID = INC.IdEmpleado 
 LEFT JOIN Motivos as M ON M.ID = INC.IdMotivo 
 Where INC.ID = @id
+
+go
+CREATE PROCEDURE sp_listar_Telefonistas
+as begin
+SELECT E.Id, concat(E.Nombres, ', ', E.Apellidos) 'Nombre'
+from Empleados as E
+WHERE E.IdPerfil = 2
+AND E.Activo = 1
+end
+
+go
+CREATE PROCEDURE sp_reasignar_Incidencia
+(@Id INT, @Empleado INT)
+as begin
+UPDATE Incidentes 
+SET 
+IdEstado = 5,
+IdEmpleado = @Empleado
+WHERE ID = @ID
+end
+

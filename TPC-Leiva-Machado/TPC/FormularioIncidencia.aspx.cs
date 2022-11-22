@@ -90,6 +90,14 @@ namespace TPC
                         lbEmpleado.Visible = true;
                         dwEmpleados.Visible = true;
                         btnAceptar.Text = "Reasignar";
+
+                        EmpleadoNegocio negocioEmpleado = new EmpleadoNegocio();
+                        List<Empleado> lista = negocioEmpleado.listarTelefonistas();
+
+                        dwEmpleados.DataSource = lista;
+                        dwEmpleados.DataValueField = "Id";
+                        dwEmpleados.DataTextField = "Nombres";
+                        dwEmpleados.DataBind();
                     }
                     else
                     {
@@ -143,6 +151,13 @@ namespace TPC
                     nuevo.Motivo.Id = int.Parse(dwMotivo.SelectedValue);
                     negocio.cerrarIncidente(nuevo);
                     Response.Redirect("AreaPersonal.aspx", false);
+                }
+                else if (Request.QueryString["accion"] == "reasignar")
+                {
+                    nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
+                    nuevo.EmpleadoAsignado.Id = int.Parse(dwEmpleados.SelectedValue);
+                    negocio.reasignarIncidente(nuevo);
+                    Response.Redirect("Incidentes.aspx", false);
                 }
                 else if (Request.QueryString["id"] != null)
                 {

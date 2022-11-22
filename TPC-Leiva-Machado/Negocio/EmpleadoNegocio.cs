@@ -52,6 +52,34 @@ namespace Negocio
             }
         }
 
+        public List<Empleado> listarTelefonistas()
+        {
+            List<Empleado> lista = new List<Empleado>();
+
+            try
+            {
+                datos.setearConsulta("sp_listar_telefonistas");
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Empleado aux = new Empleado();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Nombres = (string)datos.Lector["Nombre"];
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public Empleado listarEmpleadoPorId(int id)
         {
             Empleado empleado = new Empleado();
