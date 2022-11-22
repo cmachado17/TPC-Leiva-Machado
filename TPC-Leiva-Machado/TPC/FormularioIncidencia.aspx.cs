@@ -130,6 +130,7 @@ namespace TPC
                 IncidenteNegocio negocio = new IncidenteNegocio();
                 ClienteNegocio negocioCliente = new ClienteNegocio();
                 EmpleadoNegocio negocioEmpleado = new EmpleadoNegocio();
+                EmailService emailService = new EmailService();
 
                 if (Request.QueryString["incidencia"] != null && Request.QueryString["accion"] == null)
                 {
@@ -170,6 +171,8 @@ namespace TPC
                     nuevo.Cliente = negocioCliente.listarClientePorId(int.Parse(Request.QueryString["id"]));
                     nuevo.EmpleadoAsignado = negocioEmpleado.listarEmpleadoPorId(((Empleado)Session["empleadoLogueado"]).Id);
                     negocio.agregarIncidencia(nuevo);
+                    emailService.armarCorreo(nuevo.Cliente.Email, "Probando", "hola");
+                    emailService.enviarEmail();
                     Response.Redirect("Clientes.aspx", false);
                 }
 
