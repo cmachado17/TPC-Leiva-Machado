@@ -117,6 +117,7 @@ BEGIN
 	IdEmpleado, 
 	FechaDeAlta, 
 	Activo)
+	OUTPUT Inserted.Id
 	VALUES
 	(@IdTipo, @Prioridad,@Problematica, 1, @Cliente, @Empleado, getdate(), 1)
 END

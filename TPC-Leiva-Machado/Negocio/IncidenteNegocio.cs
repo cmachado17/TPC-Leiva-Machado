@@ -65,7 +65,7 @@ namespace Negocio
             }
         }
 
-        public void agregarIncidencia(Incidente nuevo)
+        public int agregarIncidencia(Incidente nuevo)
         {
             try
             {
@@ -77,7 +77,9 @@ namespace Negocio
                 datos.setearParametro("@Cliente", nuevo.Cliente.Id);
                 datos.setearParametro("@Empleado", nuevo.EmpleadoAsignado.Id);
 
-                datos.ejecutarAccion();
+                return datos.ejecutarAccionScalar();
+
+
             }
             catch (Exception ex)
             {

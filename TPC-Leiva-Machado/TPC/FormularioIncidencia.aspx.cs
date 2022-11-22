@@ -170,8 +170,8 @@ namespace TPC
                     //estado?
                     nuevo.Cliente = negocioCliente.listarClientePorId(int.Parse(Request.QueryString["id"]));
                     nuevo.EmpleadoAsignado = negocioEmpleado.listarEmpleadoPorId(((Empleado)Session["empleadoLogueado"]).Id);
-                    negocio.agregarIncidencia(nuevo);
-                    emailService.armarCorreo(nuevo.Cliente.Email, "Probando", "hola");
+                    string nuevoId = negocio.agregarIncidencia(nuevo).ToString();
+                    emailService.armarCorreo(nuevo.Cliente.Email, "Alta de incidente #" + nuevoId, "hola");
                     emailService.enviarEmail();
                     Response.Redirect("Clientes.aspx", false);
                 }
