@@ -23,9 +23,17 @@
             <asp:BoundField HeaderText="FechaDeAlta" DataField="FechaDeAlta" />
          <asp:BoundField HeaderText="Empleado Asignado" DataField="EmpleadoAsignado.Nombres" />  
         
-             
+                        <asp:TemplateField HeaderText="Re-asignar">
+                <ItemTemplate>
+                    <asp:ImageButton ID="BtnReAsignar"
+                        Text="Detalle"
+                        OnClick="BtnReAsignar_Click"
+                        runat="server" 
+                        ImageUrl="lupa.png" width="20" />
+                </ItemTemplate>
+            </asp:TemplateField>
          
-                    <asp:TemplateField HeaderText="">
+                    <asp:TemplateField HeaderText="Detalle">
                 <ItemTemplate>
                     <asp:ImageButton ID="BtnDetalleI"
                         Text="Detalle"

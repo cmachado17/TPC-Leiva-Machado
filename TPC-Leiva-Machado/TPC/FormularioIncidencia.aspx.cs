@@ -15,9 +15,9 @@ namespace TPC
         protected void Page_Load(object sender, EventArgs e)
         {
             //tiene q entrar tele
-            if (!Seguridad.esTelefonista(Session["empleadoLogueado"]))
+            if (((!Seguridad.esTelefonista(Session["empleadoLogueado"]) && !Seguridad.esSupervisor(Session["empleadoLogueado"]))))
             {
-                Session.Add("error", "Se necesita perfil de telefonista para ingresar en esta seccion");
+                Session.Add("error", "Se necesita perfil de telefonista o supervisor para ingresar en esta seccion");
                 Response.Redirect("Errores.aspx", false);
             }
 
@@ -25,6 +25,8 @@ namespace TPC
             dwMotivo.Visible = false;
             lbComentario.Visible = false;
             txComentario.Visible = false;
+            lbEmpleado.Visible = false;
+            dwEmpleados.Visible = false;
 
             try
             {
@@ -83,6 +85,11 @@ namespace TPC
                         lbComentario.Visible = true;
                         txComentario.Visible = true;
                         btnAceptar.Text = "Resolver";
+                    } else if (Request.QueryString["accion"] == "reasignar")
+                    {
+                        lbEmpleado.Visible = true;
+                        dwEmpleados.Visible = true;
+                        btnAceptar.Text = "Reasignar";
                     }
                     else
                     {

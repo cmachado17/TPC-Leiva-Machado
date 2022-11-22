@@ -25,6 +25,8 @@
          <asp:DropDownList ID="dwMotivo" runat="server" CssClass="form-control"></asp:DropDownList>
          <asp:Label ID="lbComentario" runat="server" Text="Comentario" CssClass="form-label">Comentario</asp:Label>
         <asp:textbox id="txComentario" TextMode="multiline" Height="100" runat="server" CssClass="form-control" />
+          <asp:Label ID="lbEmpleado" runat="server" Text="Empleado asignado" CssClass="form-label">Empleado asignado</asp:Label>
+         <asp:DropDownList ID="dwEmpleados" runat="server" CssClass="form-control"></asp:DropDownList>
     </div>
     <div class="row">
         <div class="col-12 text-center mb-2 d-flex">
