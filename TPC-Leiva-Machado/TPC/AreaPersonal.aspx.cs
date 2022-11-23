@@ -19,9 +19,23 @@ namespace TPC
                 Session.Add("error", "Se necesita estar logueado para ingresar en esta seccion");
                 Response.Redirect("Errores.aspx", false);
             }
+        
             IncidenteNegocio negocio = new IncidenteNegocio();
-            dgvIncidenciasAsignadas.DataSource = negocio.listarIncidenciasPorUsuario(((Empleado)Session["empleadoLogueado"]).Id);
+            Session.Add("IncidenciasLogueado", negocio.listarIncidenciasPorUsuario(((Empleado)Session["empleadoLogueado"]).Id));
+            dgvIncidenciasAsignadas.DataSource = Session["IncidenciasLogueado"];
             dgvIncidenciasAsignadas.DataBind();
+
+            if (!IsPostBack)
+            {
+                EstadoNegocio estadoNegocio = new EstadoNegocio();
+                List<Estado> listEstado = estadoNegocio.listarEstado();
+
+                dwEstados.DataSource = listEstado;
+                dwEstados.DataValueField = "Id";
+                dwEstados.DataTextField = "Descripcion";
+                dwEstados.DataBind();
+            }
+
         }
 
         protected void BtnModificar_Click(object sender, EventArgs e)
@@ -73,5 +87,14 @@ namespace TPC
 
             }
         }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            List<Incidente> listaIncidentes = (List<Incidente>)Session["IncidenciasLogueado"];
+            List<Incidente> listaFiltrada = listaIncidentes.FindAll(x => x.Estado.Id == int.Parse(dwEstados.SelectedValue));
+            dgvIncidenciasAsignadas.DataSource = listaFiltrada;
+            dgvIncidenciasAsignadas.DataBind();
+        }
     }
 }
+

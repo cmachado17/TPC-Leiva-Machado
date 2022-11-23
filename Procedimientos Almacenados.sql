@@ -10,7 +10,7 @@ end
 go
 CREATE PROCEDURE sp_listar_Estados
 as begin
-select Id, Descripcion from EstadoIncidencia
+select Id, Descripcion from EstadoIncidencias
 end
 
 go

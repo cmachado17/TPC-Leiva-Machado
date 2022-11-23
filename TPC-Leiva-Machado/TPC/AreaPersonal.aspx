@@ -17,11 +17,20 @@
     </div>
 
     <div class="text-center">
-             <% if (Session["Perfil"].Equals(2))
-                 { %>
-          
+        <% if (Session["Perfil"].Equals(2))
+            { %>
+
         <h2>Mis incidencias asignadas</h2>
-          <%} %>
+        <div class="mb-3 form-label" style="padding-top: 30px; font-size: 20px; font-weight: bold">
+            <asp:Label Text="Estado:" runat="server" CssClass="form-label" />
+        </div>
+        <div class="mb-3" style="padding-bottom: 3px">
+            <asp:DropDownList ID="dwEstados" AutoPostBack="false" CssClass="form-control" runat="server"></asp:DropDownList>
+            <asp:Button ID="btnBuscar" Text="Buscar" runat="server" onclick="btnBuscar_Click"/>
+        </div>
+        <%} %>
+
+
         <asp:GridView AutoGenerateColumns="false"
             CssClass="table table-striped w-100"
             ID="dgvIncidenciasAsignadas" runat="server"
@@ -31,7 +40,7 @@
                 <asp:BoundField HeaderText="Cliente" DataField="Cliente.Nombres" />
                 <asp:BoundField HeaderText="Tipo" DataField="Tipo.Descripcion" />
                 <asp:BoundField HeaderText="Prioridad" DataField="Prioridad.Descripcion" />
-                 <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
+                <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
                 <asp:BoundField HeaderText="FechaDeAlta" DataField="FechaDeAlta" />
                 <asp:BoundField HeaderText="Problematica" DataField="Problematica" />
 
@@ -40,8 +49,8 @@
                         <asp:Button ID="BtnModificar"
                             Text="Modificar"
                             runat="server"
-                            CssClass="btn btn-link" 
-                            onclick="BtnModificar_Click"/>
+                            CssClass="btn btn-link"
+                            OnClick="BtnModificar_Click" />
 
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -50,8 +59,8 @@
                         <asp:Button ID="BtnResolver"
                             Text="Resolver"
                             runat="server"
-                            CssClass="btn btn-link" 
-                            onclick="BtnResolver_Click"/>
+                            CssClass="btn btn-link"
+                            OnClick="BtnResolver_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="">
@@ -59,12 +68,12 @@
                         <asp:Button ID="BtnCerrar"
                             Text="Cerrar"
                             runat="server"
-                            CssClass="btn btn-link" 
-                            onclick="BtnCerrar_Click"/>
+                            CssClass="btn btn-link"
+                            OnClick="BtnCerrar_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
-                 
+
     </div>
 </asp:Content>
