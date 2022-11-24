@@ -143,6 +143,8 @@ namespace TPC
                     nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
                     nuevo.Comentario = txComentario.Text;
                     negocio.resolverIncidente(nuevo);
+                    emailService.armarCorreo(nuevo.Cliente.Email, "Resolucion de Incidente #" + nuevo.Id, "fue resuelto");
+                    emailService.enviarEmail();
                     Response.Redirect("AreaPersonal.aspx", false);
                 }
                 else if (Request.QueryString["accion"] == "cerrar")
@@ -151,6 +153,8 @@ namespace TPC
                     nuevo.Motivo = new Motivo();
                     nuevo.Motivo.Id = int.Parse(dwMotivo.SelectedValue);
                     negocio.cerrarIncidente(nuevo);
+                    emailService.armarCorreo(nuevo.Cliente.Email, "Cierre de Incidente #" + nuevo.Id, "fue cerrado");
+                    emailService.enviarEmail();
                     Response.Redirect("AreaPersonal.aspx", false);
                 }
                 else if (Request.QueryString["accion"] == "reasignar")

@@ -138,7 +138,7 @@ namespace Negocio
             Incidente encontrado = new Incidente();
             try
             {
-                datos.setearConsulta("select INC.ID, TI.ID 'IdTipo', TI.Descripcion 'Tipo', PRI.ID 'IdPrioridad', PRI.Descripcion 'Prioridad', CL.ID 'IdCliente', concat(CL.Nombres, ', ', CL.Apellidos) as 'Cliente', E.ID 'Empleado', INC.Problematica, INC.FechaDeAlta, EI.ID 'Estado' FROM Incidentes INC LEFT JOIN TipoIncidencias TI ON TI.ID = INC.IdTipoIncidencia LEFT JOIN PrioridadIncidencias PRI ON PRI.Id = INC.IdPrioridad LEFT JOIN EstadoIncidencias EI ON EI.ID = INC.IdEstado LEFT JOIN Clientes CL ON CL.id = INC.idCliente LEFT JOIN Empleados as E ON E.ID = INC.IdEmpleado LEFT JOIN Motivos as M ON M.ID = INC.IdMotivo Where INC.ID = @id");
+                datos.setearConsulta("select INC.ID, TI.ID 'IdTipo', TI.Descripcion 'Tipo', PRI.ID 'IdPrioridad', PRI.Descripcion 'Prioridad', CL.ID 'IdCliente', concat(CL.Nombres, ', ', CL.Apellidos) as 'Cliente', CL.Email 'EmailCliente', E.ID 'Empleado', INC.Problematica, INC.FechaDeAlta, EI.ID 'Estado' FROM Incidentes INC LEFT JOIN TipoIncidencias TI ON TI.ID = INC.IdTipoIncidencia LEFT JOIN PrioridadIncidencias PRI ON PRI.Id = INC.IdPrioridad LEFT JOIN EstadoIncidencias EI ON EI.ID = INC.IdEstado LEFT JOIN Clientes CL ON CL.id = INC.idCliente LEFT JOIN Empleados as E ON E.ID = INC.IdEmpleado LEFT JOIN Motivos as M ON M.ID = INC.IdMotivo Where INC.ID = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
@@ -153,6 +153,7 @@ namespace Negocio
                     encontrado.Cliente = new Cliente();
                     encontrado.Cliente.Id = (int)datos.Lector["IdCliente"];
                     encontrado.Cliente.Nombres = (string)datos.Lector["Cliente"];
+                    encontrado.Cliente.Email = (string)datos.Lector["EmailCliente"];
                     encontrado.EmpleadoAsignado = new Empleado();
                     encontrado.EmpleadoAsignado.Id = (int)datos.Lector["Empleado"];
                     encontrado.Estado = new Estado();
