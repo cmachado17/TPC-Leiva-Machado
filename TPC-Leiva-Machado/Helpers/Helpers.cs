@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dominio;
+using Negocio;
 
 namespace Helpers
 {
@@ -59,6 +61,13 @@ namespace Helpers
             {
                 return false;
             }
+        }
+
+        public int buscarEstadoIncidencia(string key)
+        {
+            IncidenteNegocio negocio = new IncidenteNegocio();
+
+            return negocio.listarIncidentePorId(int.Parse(key)).Estado.Id;
         }
     }
 }

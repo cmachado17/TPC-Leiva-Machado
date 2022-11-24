@@ -52,8 +52,7 @@ namespace TPC
         {
             ImageButton b = (ImageButton)sender;
             GridViewRow row = (GridViewRow)b.NamingContainer;
-            Incidente incidencia = new Incidente();
-            IncidenteNegocio incidenciaNegocio = new IncidenteNegocio();
+            MetodosCompartidos helper = new MetodosCompartidos();
 
             if (row != null)
             {
@@ -62,8 +61,9 @@ namespace TPC
                 //obtenemos el Datakey de la row, que es el ID del Incidente
                 string key = dgvIncidencias.DataKeys[rowIndex].Value.ToString();
 
-                int estadoIncidencidencia = incidenciaNegocio.listarIncidentePorId(int.Parse(key)).Estado.Id;
-                if(estadoIncidencidencia != 1 && estadoIncidencidencia != 2)
+                int estadoIncidencidencia = helper.buscarEstadoIncidencia(key);
+
+                if (estadoIncidencidencia != 1 && estadoIncidencidencia != 2)
                 {
                     Session.Add("error", "Solo se pueden reasignar incidencias abiertas o en analisis");
                     Response.Redirect("Errores.aspx", false);

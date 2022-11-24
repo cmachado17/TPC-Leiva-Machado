@@ -42,6 +42,7 @@ namespace TPC
         {
             Button b = (Button)sender;
             GridViewRow row = (GridViewRow)b.NamingContainer;
+            MetodosCompartidos helper = new MetodosCompartidos();
             if (row != null)
             {
                 //Obtenemos el indice de la fila
@@ -49,8 +50,16 @@ namespace TPC
                 //obtenemos el Datakey de la row, que es el ID Cliente
                 string key = dgvIncidenciasAsignadas.DataKeys[rowIndex].Value.ToString();
 
-                Response.Redirect("FormularioIncidencia.aspx?incidencia=" + key);
+                int estadoIncidencidencia = helper.buscarEstadoIncidencia(key);
 
+                if (estadoIncidencidencia != 1 && estadoIncidencidencia != 2 && estadoIncidencidencia!= 5)
+                {
+                    Session.Add("error", "Solo se pueden modificar incidencias en estado: abierto, en analisis o asignado");
+                    Response.Redirect("Errores.aspx", false);
+                    return;
+                }
+
+                Response.Redirect("FormularioIncidencia.aspx?incidencia=" + key);
             }
         }
 
@@ -59,12 +68,22 @@ namespace TPC
 
             Button b = (Button)sender;
             GridViewRow row = (GridViewRow)b.NamingContainer;
+            MetodosCompartidos helper = new MetodosCompartidos();
             if (row != null)
             {
                 //Obtenemos el indice de la fila
                 int rowIndex = row.RowIndex;
                 //obtenemos el Datakey de la row, que es el ID Cliente
                 string key = dgvIncidenciasAsignadas.DataKeys[rowIndex].Value.ToString();
+
+                int estadoIncidencidencia = helper.buscarEstadoIncidencia(key);
+
+                if (estadoIncidencidencia == 3 || estadoIncidencidencia == 6)
+                {
+                    Session.Add("error", "Solo se pueden resolver incidencias en estado: abierto, en analisis o asignado");
+                    Response.Redirect("Errores.aspx", false);
+                    return;
+                }
 
                 Response.Redirect("FormularioIncidencia.aspx?accion=resolver&incidencia=" + key);
 
@@ -76,12 +95,22 @@ namespace TPC
 
             Button b = (Button)sender;
             GridViewRow row = (GridViewRow)b.NamingContainer;
+            MetodosCompartidos helper = new MetodosCompartidos();
             if (row != null)
             {
                 //Obtenemos el indice de la fila
                 int rowIndex = row.RowIndex;
                 //obtenemos el Datakey de la row, que es el ID Cliente
                 string key = dgvIncidenciasAsignadas.DataKeys[rowIndex].Value.ToString();
+
+                int estadoIncidencidencia = helper.buscarEstadoIncidencia(key);
+
+                if (estadoIncidencidencia != 1 && estadoIncidencidencia != 2 && estadoIncidencidencia != 5)
+                {
+                    Session.Add("error", "Solo se pueden cerrar incidencias en estado: abierto, en analisis o asignado");
+                    Response.Redirect("Errores.aspx", false);
+                    return;
+                }
 
                 Response.Redirect("FormularioIncidencia.aspx?accion=cerrar&incidencia=" + key);
 
