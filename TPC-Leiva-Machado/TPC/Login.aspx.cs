@@ -14,7 +14,12 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtErrorClave.Visible = false;
+            if (Session["empleadoLogueado"] != null)
+            {
+                Session.Add("error", "Ya existe un usuario logueado");
+                Response.Redirect("Errores.aspx");
+            }
+                txtErrorClave.Visible = false;
             txtErrorEmail.Visible = false;
         }
 

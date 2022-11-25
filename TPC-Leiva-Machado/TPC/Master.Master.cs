@@ -17,11 +17,15 @@ namespace TPC
             MenuTel.Visible = false;
             MenuSup.Visible = false;
             Logout.Visible = false;
+            Menu1.Visible = true;
+            Menu2.Visible = false;
             
 
             if (Session["empleadoLogueado"] != null)
             {
                 Logout.Visible = true;
+                Menu1.Visible = false;
+                Menu2.Visible = true;
                 Empleado empleado = (Empleado)Session["empleadoLogueado"];
 
                 //se guarda el perfil para manejar lo que se ve de html

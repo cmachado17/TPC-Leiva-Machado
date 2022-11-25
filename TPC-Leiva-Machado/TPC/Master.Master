@@ -93,6 +93,18 @@
                         <asp:MenuItem NavigateUrl="Contacto.aspx" Text="Contacto" ToolTip="Contacto"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
+
+                <asp:Menu runat="server" ID="Menu2" CssClass="bg-dark text-light py-2 navbar" Orientation="Horizontal" StaticDisplayLevels="2">
+                    <StaticMenuItemStyle
+                        HorizontalPadding="15"
+                        VerticalPadding="5"
+                        CssClass="nav-link text-light" />
+                    <Items>
+                        <asp:MenuItem NavigateUrl="Home.aspx" Text="Home" ToolTip="Home"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="PreguntasFrecuentes.aspx" Text="Preguntas Frecuentes" ToolTip="PreguntasFrecuentes"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Contacto.aspx" Text="Contacto" ToolTip="Contacto"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
                 <asp:Button type="button" cssclass="btn btn-outline-primary" Text="Logout" ID="Logout" runat="server" onclick="Logout_Click"/>
 
             </div>
