@@ -44,20 +44,7 @@
         <asp:textbox id="txComentarioI" TextMode="multiline" Height="100" runat="server" CssClass="form-control" />
     </div>
     
-
-    <div class="mb-3">
-        <asp:Label ID="lbEmpleadoAsignado" runat="server" Text="Empleado Asignado" CssClass="form-label">Empleado Asignado</asp:Label>
-        <asp:DropDownList ID="dwEmpleadoAsignado" runat="server" CssClass="form-control"></asp:DropDownList>
-    </div>
-
-
-
-    <div class="row">
-        <div class="col-12 text-center mb-2 d-flex">
-            <asp:Button ID="btnAceptarI" runat="server" Text="Aceptar" type="submit" CssClass="btn btn-primary btn-block my-1 mx-5" onclick="btnAceptarI_Click"/>
-            <a href="Incidentes.aspx" class="btn btn-danger btn-block my-1 mx-5">Cancelar</a>
-        </div>
-    </div>
+      <asp:Button ID="btnCancelar" runat="server" Text="Volver" type="submit" CssClass="btn btn-danger btn-block my-1 mx-5" onclick="btnCancelar_Click"/>
 
 
 </asp:Content>

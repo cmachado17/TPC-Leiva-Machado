@@ -31,7 +31,7 @@
     <div class="row">
         <div class="col-12 text-center mb-2 d-flex">
             <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" type="submit" CssClass="btn btn-primary btn-block my-1 mx-5" onclick="btnAceptar_Click"/>
-            <a href="Clientes.aspx" class="btn btn-danger btn-block my-1 mx-5">Cancelar</a>
+            <a href="Home.aspx" class="btn btn-danger btn-block my-1 mx-5">Cancelar</a>
         </div>
     </div>
 

@@ -159,30 +159,12 @@ namespace TPC
         protected global::System.Web.UI.WebControls.TextBox txComentarioI;
 
         /// <summary>
-        /// Control lbEmpleadoAsignado.
+        /// Control btnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbEmpleadoAsignado;
-
-        /// <summary>
-        /// Control dwEmpleadoAsignado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dwEmpleadoAsignado;
-
-        /// <summary>
-        /// Control btnAceptarI.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAceptarI;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
     }
 }
