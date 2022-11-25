@@ -27,6 +27,7 @@ namespace TPC
             txComentario.Visible = false;
             lbEmpleado.Visible = false;
             dwEmpleados.Visible = false;
+            lbError.Visible = false;
 
             try
             {
@@ -85,7 +86,8 @@ namespace TPC
                         lbComentario.Visible = true;
                         txComentario.Visible = true;
                         btnAceptar.Text = "Resolver";
-                    } else if (Request.QueryString["accion"] == "reasignar")
+                    }
+                    else if (Request.QueryString["accion"] == "reasignar")
                     {
                         lbEmpleado.Visible = true;
                         dwEmpleados.Visible = true;
@@ -134,18 +136,36 @@ namespace TPC
 
                 if (Request.QueryString["incidencia"] != null && Request.QueryString["accion"] == null)
                 {
-                    nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
-                    nuevo.Problematica = txProblematica.Text;
-                    negocio.modificarEnAnalisis(nuevo);
-                    Response.Redirect("AreaPersonal.aspx", false);
-                }else if(Request.QueryString["accion"] == "resolver")
+                    if (validarCargaIncidente())
+                    {
+                        nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
+                        nuevo.Problematica = txProblematica.Text;
+                        negocio.modificarEnAnalisis(nuevo);
+                        Response.Redirect("AreaPersonal.aspx", false);
+                    }
+                    else
+                    {
+                        lbError.Visible = true;
+                    }
+                }
+                else if (Request.QueryString["accion"] == "resolver")
                 {
-                    nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
-                    nuevo.Comentario = txComentario.Text;
-                    negocio.resolverIncidente(nuevo);
-                    emailService.armarCorreo(nuevo.Cliente.Email, "Resolucion de Incidente #" + nuevo.Id, "fue resuelto");
-                    emailService.enviarEmail();
-                    Response.Redirect("AreaPersonal.aspx", false);
+                    if (validarResolverAccidente())
+                    {
+                        nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
+                        nuevo.Comentario = txComentario.Text;
+                        negocio.resolverIncidente(nuevo);
+                        emailService.armarCorreo(nuevo.Cliente.Email, "Resolucion de Incidente #" + nuevo.Id, "fue resuelto");
+                        emailService.enviarEmail();
+                        Response.Redirect("AreaPersonal.aspx", false);
+                    }
+                    else
+                    {
+                        lbComentario.Visible = true;
+                        txComentario.Visible = true;
+                        lbError.Visible = true;
+                    }
+
                 }
                 else if (Request.QueryString["accion"] == "cerrar")
                 {
@@ -166,18 +186,25 @@ namespace TPC
                 }
                 else if (Request.QueryString["id"] != null)
                 {
-                    nuevo.Tipo = new TipoIncidencia();
-                    nuevo.Tipo.Id = int.Parse(dwTipo.SelectedValue);
-                    nuevo.Prioridad = new Prioridad();
-                    nuevo.Prioridad.Id = int.Parse(dwPrioridad.SelectedValue);
-                    nuevo.Problematica = txProblematica.Text;
-                    //estado?
-                    nuevo.Cliente = negocioCliente.listarClientePorId(int.Parse(Request.QueryString["id"]));
-                    nuevo.EmpleadoAsignado = negocioEmpleado.listarEmpleadoPorId(((Empleado)Session["empleadoLogueado"]).Id);
-                    string nuevoId = negocio.agregarIncidencia(nuevo).ToString();
-                    emailService.armarCorreo(nuevo.Cliente.Email, "Alta de incidente #" + nuevoId, "hola");
-                    emailService.enviarEmail();
-                    Response.Redirect("Clientes.aspx", false);
+                    if (validarCargaIncidente())
+                    {
+                        nuevo.Tipo = new TipoIncidencia();
+                        nuevo.Tipo.Id = int.Parse(dwTipo.SelectedValue);
+                        nuevo.Prioridad = new Prioridad();
+                        nuevo.Prioridad.Id = int.Parse(dwPrioridad.SelectedValue);
+                        nuevo.Problematica = txProblematica.Text;
+                        //estado?
+                        nuevo.Cliente = negocioCliente.listarClientePorId(int.Parse(Request.QueryString["id"]));
+                        nuevo.EmpleadoAsignado = negocioEmpleado.listarEmpleadoPorId(((Empleado)Session["empleadoLogueado"]).Id);
+                        string nuevoId = negocio.agregarIncidencia(nuevo).ToString();
+                        emailService.armarCorreo(nuevo.Cliente.Email, "Alta de incidente #" + nuevoId, "hola");
+                        emailService.enviarEmail();
+                        Response.Redirect("Clientes.aspx", false);
+                    }
+                    else
+                    {
+                        lbError.Visible = true;
+                    }
                 }
 
             }
@@ -186,6 +213,46 @@ namespace TPC
 
                 throw ex;
             }
+        }
+
+        private bool validarCargaIncidente()
+        {
+            bool bandera = true;
+            MetodosCompartidos helper = new MetodosCompartidos();
+            reiniciarFormato();
+
+            //los helpers devuelven FALSE si no validan
+            if (string.IsNullOrEmpty(txProblematica.Text))
+            {
+                txProblematica.BorderColor = System.Drawing.Color.Red;
+                bandera = false;
+            }
+
+            return bandera;
+        }
+
+        private bool validarResolverAccidente()
+        {
+            bool bandera = true;
+            MetodosCompartidos helper = new MetodosCompartidos();
+            reiniciarFormato();
+
+            //los helpers devuelven FALSE si no validan
+            if (string.IsNullOrEmpty(txComentario.Text))
+            {
+                txComentario.BorderColor = System.Drawing.Color.Red;
+                bandera = false;
+            }
+
+            return bandera;
+        }
+
+        private void reiniciarFormato()
+        {
+            txProblematica.BorderColor = System.Drawing.Color.Black;
+            dwTipo.BorderColor = System.Drawing.Color.Black;
+            dwPrioridad.BorderColor = System.Drawing.Color.Black;
+            txComentario.BorderColor = System.Drawing.Color.Black;
         }
     }
 }

@@ -1,3 +1,125 @@
+CREATE DATABASE CALLCENTER 
+GO
+USE CALLCENTER
+GO
+CREATE TABLE TipoIncidencias(
+	ID INT PRIMARY KEY IDENTITY (1,1),
+	Descripcion VARCHAR(100) NOT NULL,
+	Estado bit NOT NULL
+)
+GO
+CREATE TABLE PrioridadIncidencias(
+	ID INT PRIMARY KEY IDENTITY (1,1),
+	Descripcion VARCHAR(100) NOT NULL,
+	Estado bit NOT NULL
+)
+GO
+CREATE TABLE EstadoIncidencias(
+	ID INT PRIMARY KEY IDENTITY (1,1),
+	Descripcion VARCHAR(100) NOT NULL
+)
+GO
+CREATE TABLE Clientes(
+	ID INT PRIMARY KEY IDENTITY (1,1),
+	Nombres VARCHAR(50) NOT NULL,
+	Apellidos VARCHAR(50) NOT NULL,
+	DNI VARCHAR(25) NOT NULL,
+	Email VARCHAR(50) NOT NULL,
+	Telefono VARCHAR(50) NOT NULL,
+	FechaDeAlta datetime NOT NULL,
+	FechaDeBaja datetime,
+	Activo bit NOT NULL
+)
+GO
+CREATE TABLE Perfiles(
+	ID INT PRIMARY KEY IDENTITY (1,1),
+	Descripcion VARCHAR(100) NOT NULL
+)
+GO
+CREATE TABLE Empleados(
+	ID INT PRIMARY KEY IDENTITY (1,1),
+	Nombres VARCHAR(50) NOT NULL,
+	Apellidos VARCHAR(50) NOT NULL,
+	DNI VARCHAR(50) NOT NULL,
+	Email VARCHAR(50) NOT NULL,
+	Telefono VARCHAR(50) NOT NULL,
+	IdPerfil INT NOT NULL FOREIGN KEY REFERENCES Perfiles (ID),
+	FechaDeAlta datetime NOT NULL,
+	FechaDeBaja datetime NULL,
+	Clave int NOT NULL,
+	Activo bit NOT NULL
+)
+GO
+CREATE TABLE Motivos(
+	ID INT PRIMARY KEY IDENTITY (1,1),
+	Descripcion VARCHAR(100) NOT NULL,
+	Estado bit NOT NULL
+)
+GO
+CREATE TABLE Incidentes(
+	ID INT PRIMARY KEY IDENTITY (1,1),
+	IdTipoIncidencia INT NOT NULL FOREIGN KEY REFERENCES TipoIncidencias (ID),
+	IdPrioridad INT NOT NULL FOREIGN KEY REFERENCES PrioridadIncidencias (ID),
+	Problematica TEXT NOT NULL,
+	IdEstado INT NOT NULL FOREIGN KEY REFERENCES EstadoIncidencias (ID),
+	IdCliente INT NOT NULL FOREIGN KEY REFERENCES Clientes (ID),
+	IdEmpleado INT NOT NULL FOREIGN KEY REFERENCES Empleados (ID),
+	Comentario VARCHAR(100),
+	IdMotivo INT NULL FOREIGN KEY REFERENCES Motivos (ID),
+	FechaDeAlta datetime NOT NULL,
+	FechaDeBaja datetime,
+	Activo bit NOT NULL
+)
+
+USE CALLCENTER
+GO
+
+insert into CALLCENTER.dbo.Clientes(Nombres, Apellidos, DNI, Email, Telefono, FechaDeAlta,Activo) 
+VALUES 
+('Juan', 'Perez', '123','juanperez@gmail.com', '011445566',getdate(),1),
+('Carlos', 'Gomez', '345','carlosgomez@gmail.com', '011557788', getdate(),1),
+('Pedro', 'Martinez', '678','pedromartinez@gmail.com', '011778899', getdate(),1)
+
+insert into CALLCENTER.dbo.EstadoIncidencias(Descripcion) 
+VALUES 
+('Abierto'),
+('En analisis'),
+('Cerrado'),
+('Reabierto'),
+('Asignado'),
+('Resuelto')
+
+insert into CALLCENTER.dbo.Perfiles(Descripcion) 
+VALUES 
+('Administrador'),
+('Telefonista'),
+('Supervisor')
+
+insert into CALLCENTER.dbo.PrioridadIncidencias(Descripcion, Estado) 
+VALUES 
+('Alta',1),
+('Media',1),
+('Baja',1)
+
+insert into CALLCENTER.dbo.TipoIncidencias(Descripcion, Estado) 
+VALUES 
+('Error',1),
+('Consulta',1),
+('Reclamo',1),
+('Sugerencia',1)
+
+insert into CALLCENTER.dbo.Empleados(Nombres, Apellidos, DNI, Email, Telefono, IdPerfil, FechaDeAlta,Clave,  Activo) 
+VALUES 
+('Antonio', 'Ramirez', '11222333','antonioramirez@gmail.com','1120204040', 1, getdate(), 123,1),
+('Manuel', 'Giordano', '22445550', 'manuelgiordano@gmail.com','1130303030',2, getdate(), 123,1),
+('Cecilia', 'Ledesma', '20304050', 'cecilialedesma@gmail.com','1150502020',3, getdate(), 123,1)
+
+insert into CALLCENTER.dbo.Motivos(Descripcion, Estado) 
+VALUES 
+('Cancelado',1),
+('Vencido',1),
+('Otros',1)
+
 use CALLCENTER
 GO
 
@@ -218,4 +340,3 @@ IdEstado = 5,
 IdEmpleado = @Empleado
 WHERE ID = @ID
 end
-

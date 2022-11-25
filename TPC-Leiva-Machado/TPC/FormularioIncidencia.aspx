@@ -28,6 +28,9 @@
           <asp:Label ID="lbEmpleado" runat="server" Text="Empleado asignado" CssClass="form-label">Empleado asignado</asp:Label>
          <asp:DropDownList ID="dwEmpleados" runat="server" CssClass="form-control"></asp:DropDownList>
     </div>
+        <div class="mb-3">
+        <asp:Label ID="lbError" runat="server" Text="Revisar los campos marcados" CssClass="form-label">Revisar los campos marcados</asp:Label>
+    </div>
     <div class="row">
         <div class="col-12 text-center mb-2 d-flex">
             <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" type="submit" CssClass="btn btn-primary btn-block my-1 mx-5" onclick="btnAceptar_Click"/>
