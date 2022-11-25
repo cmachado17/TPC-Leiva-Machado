@@ -9,3 +9,14 @@ E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machad
 E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\bin\Debug\Dominio.pdb
 E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\bin\Debug\Negocio.pdb
 E:\Practicas\Facultad\PROG3\TPC-Leiva-Machado\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\obj\Debug\Helpers.csproj.CopyComplete
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\bin\Debug\Helpers.dll
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\bin\Debug\Helpers.pdb
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\bin\Debug\Dominio.dll
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\bin\Debug\Negocio.dll
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\bin\Debug\Dominio.pdb
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\bin\Debug\Negocio.pdb
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\obj\Debug\Helpers.csproj.AssemblyReference.cache
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\obj\Debug\Helpers.csproj.CoreCompileInputs.cache
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\obj\Debug\Helpers.csproj.CopyComplete
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\obj\Debug\Helpers.dll
+C:\Users\Intel-Pentium\Documents\GitHub\TPC-Leiva-Machado\TPC-Leiva-Machado\Helpers\obj\Debug\Helpers.pdb
