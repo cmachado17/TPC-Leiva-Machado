@@ -41,6 +41,7 @@ CREATE TABLE Empleados(
 	Nombres VARCHAR(50) NOT NULL,
 	Apellidos VARCHAR(50) NOT NULL,
 	DNI VARCHAR(50) NOT NULL,
+	URLImagen VARCHAR(100) NULL,
 	Email VARCHAR(50) NOT NULL,
 	Telefono VARCHAR(50) NOT NULL,
 	IdPerfil INT NOT NULL FOREIGN KEY REFERENCES Perfiles (ID),
@@ -196,7 +197,7 @@ CREATE PROCEDURE sp_Agregar_Empleado
 @DNI varchar(25), @Email varchar(50), @Telefono int, @Perfil INT, @Clave int)
 AS
 BEGIN
-	insert into Empleados values (@Nombres, @Apellidos,@DNI, @Email, @Telefono, @Perfil, getdate(),null, @Clave, 1)
+	insert into Empleados values (@Nombres, @Apellidos,@DNI,NULL, @Email, @Telefono, @Perfil, getdate(),null, @Clave, 1)
 END
 GO
 
@@ -214,7 +215,7 @@ END
 
 go
 CREATE PROCEDURE SP_ListarEmpleado_PorId (@Id int) as
-Select E.Id, Nombres, Apellidos,DNI, Email,Telefono, IdPerfil, FechaDeAlta, FechaDeBaja, Activo, Descripcion from Empleados E
+Select E.Id, Nombres, Apellidos,DNI,URLImagen,Email,Telefono, IdPerfil, FechaDeAlta, FechaDeBaja, Activo, Descripcion from Empleados E
 INNER JOIN Perfiles P ON P.ID = E.IdPerfil where E.Id = @Id
 
 GO

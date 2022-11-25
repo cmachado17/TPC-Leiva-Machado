@@ -96,6 +96,7 @@ namespace Negocio
                     empleado.Nombres = (string)datos.Lector["Nombres"];
                     empleado.Apellidos = (string)datos.Lector["Apellidos"];
                     empleado.DNI = (string)datos.Lector["DNI"];
+                    empleado.URLImagen = datos.Lector["URLImagen"] != DBNull.Value ? (string)datos.Lector["URLImagen"] : "";
                     empleado.Email = (string)datos.Lector["Email"];
                     empleado.Telefono = (string)datos.Lector["Telefono"];
                     empleado.Perfil = new Perfil();
@@ -234,8 +235,6 @@ namespace Negocio
             }
         }
 
-
-        
         //va a devolver los datos del empleado logueado o null
         public Empleado Loguear(Empleado empleado)
         {
@@ -270,6 +269,26 @@ namespace Negocio
               
             }
            
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void actualizarFoto(Empleado empleado)
+        {
+            try
+            {
+                datos.setearConsulta("UPDATE Empleados SET URLImagen = @urlImagen WHERE Id = @id");
+                datos.setearParametro("@id", empleado.Id);
+                datos.setearParametro("@urlImagen", empleado.URLImagen);
+                datos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
             finally
             {
                 datos.cerrarConexion();

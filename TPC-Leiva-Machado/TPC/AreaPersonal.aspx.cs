@@ -14,6 +14,8 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string ruta = Server.MapPath("./Images/");
+
             if (!Seguridad.sesionActiva(Session["empleadoLogueado"]))
             {
                 Session.Add("error", "Se necesita estar logueado para ingresar en esta seccion");
@@ -27,6 +29,7 @@ namespace TPC
 
             if (!IsPostBack)
             {
+                Empleado empleado = (Empleado)Session["empleadoLogueado"];
                 EstadoNegocio estadoNegocio = new EstadoNegocio();
                 List<Estado> listEstado = estadoNegocio.listarEstado();
 
@@ -34,6 +37,15 @@ namespace TPC
                 dwEstados.DataValueField = "Id";
                 dwEstados.DataTextField = "Descripcion";
                 dwEstados.DataBind();
+
+                lbNombreEmpleado.Text = empleado.Apellidos + ", " + empleado.Nombres;
+                lbEmailEmpleado.Text = empleado.Email;
+                lbPerfilEmpleado.Text = empleado.Perfil.Descripcion;
+
+                if (empleado.URLImagen != "")
+                {
+                    ImagenPerfil.ImageUrl = "~/Images/" + empleado.URLImagen;
+                }
             }
 
         }
@@ -123,6 +135,29 @@ namespace TPC
             List<Incidente> listaFiltrada = listaIncidentes.FindAll(x => x.Estado.Id == int.Parse(dwEstados.SelectedValue));
             dgvIncidenciasAsignadas.DataSource = listaFiltrada;
             dgvIncidenciasAsignadas.DataBind();
+        }
+
+        protected void btnImagen_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EmpleadoNegocio negocio = new EmpleadoNegocio();
+                Empleado empleado = (Empleado)Session["empleadoLogueado"];
+                string ruta = Server.MapPath("./Images/");
+                txtImagen.PostedFile.SaveAs(ruta + "empleado-" + empleado.Id + ".jpg");
+
+                empleado.URLImagen = "empleado-" + empleado.Id + ".jpg";
+                negocio.actualizarFoto(empleado);
+
+                ImagenPerfil.ImageUrl = "~/Images/" + empleado.URLImagen;
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", "Error al cargar la imagen");
+                Response.Redirect("Errores.aspx", false);
+            }
+
+
         }
     }
 }
