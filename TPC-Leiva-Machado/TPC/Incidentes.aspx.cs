@@ -24,6 +24,12 @@ namespace TPC
             Session.Add("listaIncidentes", negocio.listarIncidente());
             dgvIncidencias.DataSource = Session["listaIncidentes"];
             dgvIncidencias.DataBind();
+
+            if (Session["Perfil"].Equals(1))
+            {
+                dgvIncidencias.Columns[9].Visible = false;
+
+            }
         }
 
         protected void dgvIncidencias_PageIndexChanging(object sender, GridViewPageEventArgs e)
