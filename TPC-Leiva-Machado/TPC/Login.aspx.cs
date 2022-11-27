@@ -47,7 +47,7 @@ namespace TPC
                         //va a mostrar o no dependiendo del perfil que se
                         //encuentra en session
 
-                    }else if (!empleado.Activo)
+                    }else if (empleado.Id != 0 && !empleado.Activo)
                     {
                         Session.Add("error", "El usuario se encuentra desactivado, contacte a un supervisor.");
                         Response.Redirect("Errores.aspx", false);

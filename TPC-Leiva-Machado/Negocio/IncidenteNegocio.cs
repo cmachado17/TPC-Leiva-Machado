@@ -330,5 +330,32 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public bool buscarIncidenciaEmpleado(int id)
+        {
+            try
+            {
+                datos.limpiarParametros();
+                datos.setearConsulta("SELECT * FROM Incidentes WHERE idEmpleado = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

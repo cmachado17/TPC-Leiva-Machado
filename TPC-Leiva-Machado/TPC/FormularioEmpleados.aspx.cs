@@ -33,7 +33,7 @@ namespace TPC
                 lbClave.Visible = true;
                 txbClave.Visible = true;
             }
-                
+
 
             lbError.Visible = false;
             try
@@ -101,7 +101,7 @@ namespace TPC
                     {
                         nuevo.Clave = int.Parse(txbClave.Text);
                     }
-                       
+
                     nuevo.Perfil = new Perfil();
                     nuevo.Perfil.Id = int.Parse(ddlPerfil.SelectedValue);
 
@@ -133,7 +133,7 @@ namespace TPC
                     lbError.Visible = true;
                 }
 
-            
+
             }
             catch (Exception ex)
             {
@@ -155,9 +155,25 @@ namespace TPC
                 {
                     string id = Request.QueryString["id"].ToString();
                     EmpleadoNegocio negocio = new EmpleadoNegocio();
-                    negocio.EliminarEmpleado(id);
+                    IncidenteNegocio negocioIncidente = new IncidenteNegocio();
 
-                    Response.Redirect("Empleados.aspx", false);
+                    if (!negocioIncidente.buscarIncidenciaEmpleado(int.Parse(id)) && Request.QueryString["id"] != ((Empleado)Session["empleadoLogueado"]).Id.ToString())
+                    {
+                        negocio.EliminarEmpleado(id);
+                        Response.Redirect("Empleados.aspx", false);
+                    }
+
+                    if (Request.QueryString["id"] == ((Empleado)Session["empleadoLogueado"]).Id.ToString())
+                    {
+                        Session.Add("error", "El usuario no puede eliminarse a si mismo.");
+                        Response.Redirect("Errores.aspx");
+                    }
+                    else if (negocioIncidente.buscarIncidenciaEmpleado(int.Parse(id)))
+                    {
+                        Session.Add("error", "No se puede eliminar el empleado ya que tiene incidencias asignadas.");
+                        Response.Redirect("Errores.aspx");
+                    }
+
                 }
                 else
                 {

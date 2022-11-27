@@ -124,8 +124,9 @@ namespace TPC
 
                         Response.Redirect("Clientes.aspx", false);
                     }
-                    string msg = "No se puede eliminar el cliente porque posee incidencias en el sistema.";
-                    Response.Write("<script>alert('" + msg + "')</script>");
+
+                    Session.Add("error", "No se puede eliminar el cliente ya que cuenta con incidencias en el sistema.");
+                    Response.Redirect("Errores.aspx");
                 }
                 else
                 {
