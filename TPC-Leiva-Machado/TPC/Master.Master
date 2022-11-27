@@ -14,27 +14,37 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <link href="./styles.css" rel="stylesheet" />
 </head>
-<body style= "background-color:transparent">
+<body style="background-color: transparent">
     <form id="form1" runat="server">
         <div>
-            <!-- <nav class="navbar navbar-expand-lg bg-dark text-light sticky-top">
-                <div class="container">
-                    <div id="navbarNav" class="d-flex">
-                        <a class="nav-link text-light" href="Home.aspx" >Home</a>
-                        <a class="nav-link text-light" href="Login.aspx" >Login</a>
-                        <a class="nav-link text-light" href="PreguntasFrecuentes.aspx" >Preguntas Frecuentes</a>
-                        <a class="nav-link text-light" href="Contacto.aspx">Contacto</a>
-                        <a ID="linkClientes" class="nav-link text-light" href="Clientes.aspx" Visible="false">Clientes </a>
-                        <a ID="linkIncidentes" class="nav-link text-light" href="Incidentes.aspx" Visible="false">Incidencias</a>
-                   
-                    </div>
-                </div>
-            </nav> !-->
+            <div id="navbarNav" class="bg-dark text-light py-3 d-flex justify-content-center">
 
+                <asp:Menu runat="server" ID="Menu1" Orientation="Horizontal" StaticDisplayLevels="2">
+                    <StaticMenuItemStyle
+                        HorizontalPadding="15"
+                        VerticalPadding="5"
+                        CssClass="nav-link text-light" />
+                    <Items>
+                        <asp:MenuItem NavigateUrl="Home.aspx" Text="Home" ToolTip="Home"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="PreguntasFrecuentes.aspx" Text="Preguntas Frecuentes" ToolTip="PreguntasFrecuentes"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Login.aspx" Text="Login" ToolTip="Login"></asp:MenuItem>
+                        <%--             <asp:MenuItem NavigateUrl="Contacto.aspx" Text="Contacto" ToolTip="Contacto"></asp:MenuItem>--%>
+                    </Items>
+                </asp:Menu>
 
-            <div id="navbarNav" class="bg-dark text-light py-2 navbar">
+                <asp:Menu runat="server" ID="Menu2" Orientation="Horizontal" StaticDisplayLevels="2">
+                    <StaticMenuItemStyle
+                        HorizontalPadding="15"
+                        VerticalPadding="5"
+                        CssClass="nav-link text-light" />
+                    <Items>
+                        <asp:MenuItem NavigateUrl="Home.aspx" Text="Home" ToolTip="Home"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="PreguntasFrecuentes.aspx" Text="Preguntas Frecuentes" ToolTip="PreguntasFrecuentes"></asp:MenuItem>
+                        <%-- <asp:MenuItem NavigateUrl="Contacto.aspx" Text="Contacto" ToolTip="Contacto"></asp:MenuItem>--%>
+                    </Items>
+                </asp:Menu>
 
-                <asp:Menu runat="server" ID="MenuAdmin" CssClass="navbar navbar-expand-lg bg-dark text-light sticky-top" Orientation="Horizontal">
+                <asp:Menu runat="server" ID="MenuAdmin" Orientation="Horizontal">
                     <StaticMenuItemStyle
                         HorizontalPadding="15"
                         VerticalPadding="5"
@@ -43,12 +53,12 @@
                         <asp:MenuItem NavigateUrl="Clientes.aspx" Text="Clientes" ToolTip="Clientes"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="Incidentes.aspx" Text="Incidentes" ToolTip="Incidentes"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="Empleados.aspx" Text="Empleados" ToolTip="Empleados"></asp:MenuItem>
-                         <asp:MenuItem NavigateUrl="Administracion.aspx" Text="Administracion" ToolTip="Administracion"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="Administracion.aspx" Text="Administracion" ToolTip="Administracion"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="AreaPersonal.aspx" Text="Area personal" ToolTip="Area personal"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
 
-                <asp:Menu runat="server" ID="MenuTel" CssClass="navbar navbar-expand-lg bg-dark text-light sticky-top" Orientation="Horizontal">
+                <asp:Menu runat="server" ID="MenuTel" Orientation="Horizontal">
                     <StaticMenuItemStyle
                         HorizontalPadding="15"
                         VerticalPadding="5"
@@ -59,7 +69,7 @@
                     </Items>
                 </asp:Menu>
 
-                 <asp:Menu runat="server" ID="MenuSup" CssClass="navbar navbar-expand-lg bg-dark text-light sticky-top" Orientation="Horizontal">
+                <asp:Menu runat="server" ID="MenuSup" Orientation="Horizontal">
                     <StaticMenuItemStyle
                         HorizontalPadding="15"
                         VerticalPadding="5"
@@ -67,46 +77,13 @@
                     <Items>
                         <asp:MenuItem NavigateUrl="Clientes.aspx" Text="Clientes" ToolTip="Clientes"></asp:MenuItem>
                         <asp:MenuItem NavigateUrl="Incidentes.aspx" Text="Incidentes" ToolTip="Incidentes"></asp:MenuItem>
-                          <asp:MenuItem NavigateUrl="AreaPersonal.aspx" Text="Area personal" ToolTip="Area personal"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="AreaPersonal.aspx" Text="Area personal" ToolTip="Area personal"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
 
-                <asp:Menu runat="server" ID="Menu" CssClass="bg-dark text-light py-2 navbar" Orientation="Horizontal" StaticDisplayLevels="2">
-                    <StaticMenuItemStyle
-                        HorizontalPadding="80"
-                        VerticalPadding="5"
-                        CssClass="nav-link text-light" />
-                    <Items>
-                        <asp:MenuItem></asp:MenuItem>
-                    </Items>
-                </asp:Menu>
 
-                <asp:Menu runat="server" ID="Menu1" CssClass="bg-dark text-light py-2 navbar" Orientation="Horizontal" StaticDisplayLevels="2">
-                    <StaticMenuItemStyle
-                        HorizontalPadding="15"
-                        VerticalPadding="5"
-                        CssClass="nav-link text-light" />
-                    <Items>
-                        <asp:MenuItem NavigateUrl="Home.aspx" Text="Home" ToolTip="Home"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="Login.aspx" Text="Login" ToolTip="Login"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="PreguntasFrecuentes.aspx" Text="Preguntas Frecuentes" ToolTip="PreguntasFrecuentes"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="Contacto.aspx" Text="Contacto" ToolTip="Contacto"></asp:MenuItem>
-                    </Items>
-                </asp:Menu>
 
-                <asp:Menu runat="server" ID="Menu2" CssClass="bg-dark text-light py-2 navbar" Orientation="Horizontal" StaticDisplayLevels="2">
-                    <StaticMenuItemStyle
-                        HorizontalPadding="15"
-                        VerticalPadding="5"
-                        CssClass="nav-link text-light" />
-                    <Items>
-                        <asp:MenuItem NavigateUrl="Home.aspx" Text="Home" ToolTip="Home"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="PreguntasFrecuentes.aspx" Text="Preguntas Frecuentes" ToolTip="PreguntasFrecuentes"></asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="Contacto.aspx" Text="Contacto" ToolTip="Contacto"></asp:MenuItem>
-                    </Items>
-                </asp:Menu>
-                <asp:Button type="button" cssclass="btn btn-outline-primary" Text="Logout" ID="Logout" runat="server" onclick="Logout_Click"/>
-
+                <asp:Button type="button" CssClass="btn btn-outline-danger" Text="Logout" ID="Logout" runat="server" OnClick="Logout_Click" />
             </div>
 
 

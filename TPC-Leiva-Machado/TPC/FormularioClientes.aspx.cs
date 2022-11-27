@@ -116,9 +116,16 @@ namespace TPC
                 {
                     string id = Request.QueryString["id"].ToString();
                     ClienteNegocio negocio = new ClienteNegocio();
-                    negocio.EliminarCliente(id);
+                    IncidenteNegocio incidenteNegocio = new IncidenteNegocio();
 
-                    Response.Redirect("Clientes.aspx", false);
+                    if (!incidenteNegocio.buscarIncidenciaCliente(int.Parse(id)))
+                    {
+                        negocio.EliminarCliente(id);
+
+                        Response.Redirect("Clientes.aspx", false);
+                    }
+                    string msg = "No se puede eliminar el cliente porque posee incidencias en el sistema.";
+                    Response.Write("<script>alert('" + msg + "')</script>");
                 }
                 else
                 {

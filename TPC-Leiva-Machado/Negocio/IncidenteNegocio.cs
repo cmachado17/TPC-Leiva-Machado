@@ -305,5 +305,30 @@ namespace Negocio
             }
         }
 
+        public bool buscarIncidenciaCliente(int id)
+        {
+            try
+            {
+                datos.setearConsulta("SELECT * FROM Incidentes WHERE IdCliente = @id");
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
