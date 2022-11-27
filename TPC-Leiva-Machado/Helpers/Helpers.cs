@@ -69,5 +69,12 @@ namespace Helpers
 
             return negocio.listarIncidentePorId(int.Parse(key)).Estado.Id;
         }
+
+        public bool cantidadCaracteres(string cadena)
+        {
+            if (!(cadena.Length >= 3)) return false;
+         
+            return true;
+        }
     }
 }

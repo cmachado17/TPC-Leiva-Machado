@@ -70,6 +70,18 @@ namespace TPC
             bool bandera = true;
             MetodosCompartidos helper = new MetodosCompartidos();
 
+            if (!helper.cantidadCaracteres(txtClave.Text))
+                 {
+                     txtClave.BorderColor = System.Drawing.Color.Red;
+
+                     txtErrorClave.Text = "Debe contener 3 o mas caracteres";
+                     txtErrorClave.Enabled = false;
+                     txtErrorClave.Visible = true;
+
+                     bandera = false;
+                 }
+
+
             //los helpers devuelven FALSE si no validan
             if (!helper.soloNumeros(txtClave.Text) || string.IsNullOrEmpty(txtClave.Text))
             {
@@ -80,7 +92,9 @@ namespace TPC
                 txtErrorClave.Visible = true;
                
                 bandera = false;
+
             }
+
             if (!helper.formatoEmail(txtUser.Text) || string.IsNullOrEmpty(txtUser.Text))
             {
                 txtUser.BorderColor = System.Drawing.Color.Red;
@@ -90,6 +104,8 @@ namespace TPC
                 txtErrorEmail.Visible = true;
                 bandera = false;
             }
+
+
 
             return bandera;
         }
