@@ -63,6 +63,7 @@ namespace TPC
             {
                 Button b = (Button)sender;
                 GridViewRow row = (GridViewRow)b.NamingContainer;
+                ClienteNegocio negocio = new ClienteNegocio();
                 if (row != null)
                 {
                     //Obtenemos el indice de la fila
@@ -71,7 +72,18 @@ namespace TPC
                     
                     //obtenemos el Datakey de la row, que es el ID Cliente
                     string key = dgvClientes.DataKeys[rowIndex].Value.ToString();
-                    Response.Redirect("FormularioIncidencia.aspx?id=" + key);
+                    Cliente cliente = new Cliente();
+                    cliente = negocio.listarClientePorId(Int32.Parse(key));
+                    if(cliente.Activo == false)
+                    {
+                        Session.Add("error", "El cliente debe econtrarse activo para cargar un incidente");
+                        Response.Redirect("Errores.aspx", false);
+                    }
+                    else
+                    {
+                        Response.Redirect("FormularioIncidencia.aspx?id=" + key);
+                    }
+                    
                 }
             }
         }
