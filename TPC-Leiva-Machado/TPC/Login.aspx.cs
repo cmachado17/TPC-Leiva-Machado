@@ -38,7 +38,7 @@ namespace TPC
 
                     empleado = negocio.Loguear(datosLogin);
 
-                    if (empleado.Id != 0)
+                    if (empleado.Id != 0 && empleado.Activo)
                     {
 
                         Session.Add("empleadoLogueado", empleado);
@@ -47,6 +47,10 @@ namespace TPC
                         //va a mostrar o no dependiendo del perfil que se
                         //encuentra en session
 
+                    }else if (!empleado.Activo)
+                    {
+                        Session.Add("error", "El usuario se encuentra desactivado, contacte a un supervisor.");
+                        Response.Redirect("Errores.aspx", false);
                     }
                     else
                     {
