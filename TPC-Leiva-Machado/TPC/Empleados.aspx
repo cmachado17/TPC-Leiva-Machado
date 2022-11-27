@@ -7,12 +7,15 @@
         <h1>Empleados</h1>
     </div>
 
-    <div class="form-label mb-3" style= "padding-top:30px; font-size:20px; font-weight:bold">
-        <asp:Label Text="Busqueda:" runat="server"  cssclass="form-label"/>
-    </div>
-    <div class="mb-3" style= "padding-bottom:3px">      
+     <div class="mb-3 pb-3 d-flex align-items-center" >  
+         <div style="font-size: 20px; font-weight: bold; margin-right: 5px;" >
+                <asp:Label Text="Busqueda:" runat="server" />
+            </div>     
         <asp:TextBox runat="server" ID="FiltroEmpleados" AutoPostBack="true" OnTextChanged="FiltroEmpleados_TextChanged" CssClass="form-control" placeholder="Ingrese el nombre del empleado.." />
     </div>
+
+
+
     <asp:GridView AutoGenerateColumns="false"
         CssClass="table table-striped w-100"
         ID="dgvEmpleados" runat="server"
