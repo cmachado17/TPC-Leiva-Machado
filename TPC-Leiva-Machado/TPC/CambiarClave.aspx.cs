@@ -34,12 +34,19 @@ namespace TPC
                     {
                         if(empleado.Clave == (int.Parse(txtClaveActual.Text)))
                         {
+                            empleado.Clave = int.Parse(txtClaveActual.Text);
                             negocio.cambiarClave(empleado);
                             Response.Redirect("AreaPersonal.aspx", false);
                         }
-
+                        else
+                        {
+                            Session.Add("error", "Error al querer cambiar la clave");
+                            Response.Redirect("Errores.aspx", false);
+                        }
                     }
+
                 }
+               
 
             }
             catch (Exception ex)
@@ -76,7 +83,19 @@ namespace TPC
                     bandera = false;
                 }
 
-            if (txtClaveNueva.Text == txtConfirmarNuevaClave.Text)
+
+            if (txtClaveActual.Text == txtClaveNueva.Text)
+            {
+                txtClaveNueva.BorderColor = System.Drawing.Color.Red;
+
+                txtErrorClaveNueva.Text = "La nueva clave no puede ser igual a la anterior";
+                txtErrorClaveNueva.Enabled = false;
+                txtErrorClaveNueva.Visible = true;
+
+                bandera = false;
+            }
+
+            if (txtClaveNueva.Text != txtConfirmarNuevaClave.Text)
             {
                 txtConfirmarNuevaClave.BorderColor = System.Drawing.Color.Red;
 
@@ -86,6 +105,8 @@ namespace TPC
 
                 bandera = false;
             }
+
+
 
 
             //los helpers devuelven FALSE si no validan
@@ -124,6 +145,7 @@ namespace TPC
                 bandera = false;
 
             }
+
 
 
             return bandera;

@@ -3,16 +3,16 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <div class="text-center mb-5">
-         <h1>Ingresar al sistema</h1>
+         <h1>Modificar clave</h1>
     </div>
 
     <div class="mb-3">
-      <asp:Label ID="lbClaveActual" runat="server" Text="Clave Actual" for="exampleInputPassword1" cssclass="form-label">Clave Actual</asp:Label>
+      <asp:Label ID="lbClaveActual" runat="server" Text="Clave Actual" for="exampleInputPassword1" cssclass="form-label">Clave actual</asp:Label>
       <asp:TextBox type="Password" placeholder="Ingrese su clave actual" ID="txtClaveActual" runat="server" cssclass="form-control"></asp:TextBox>
         <asp:TextBox style= "background:none; color:crimson; border-style:none" ID="txtErrorClaveActual" runat="server" cssclass="form-control"></asp:TextBox>
       </div>
      <div class="mb-3">
-      <asp:Label ID="lbNuevaClave" runat="server" Text="Clave Nueva" for="exampleInputPassword1" cssclass="form-label">Clave Nueva</asp:Label>
+      <asp:Label ID="lbNuevaClave" runat="server" Text="Clave Nueva" for="exampleInputPassword1" cssclass="form-label">Clave nueva</asp:Label>
       <asp:TextBox type="Password" placeholder="Ingrese la nueva clave" ID="txtClaveNueva" runat="server" cssclass="form-control"></asp:TextBox>
         <asp:TextBox style= "background:none; color:crimson; border-style:none" ID="txtErrorClaveNueva" runat="server" cssclass="form-control"></asp:TextBox>
       </div>
