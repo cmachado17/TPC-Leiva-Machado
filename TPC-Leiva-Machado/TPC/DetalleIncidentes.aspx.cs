@@ -73,6 +73,10 @@ namespace TPC
                     txProblematicaI.Text = seleccionado.Problematica;
                     dwEstadoI.SelectedValue = seleccionado.Estado.Id.ToString();
                     dwMotivoI.SelectedValue = seleccionado.Motivo.Id.ToString() != null ? seleccionado.Motivo.Id.ToString() : " ";
+                    if(seleccionado.Motivo.Id.ToString() == null)
+                    {
+                        dwMotivoI.Visible = false;
+                    }
                     txComentarioI.Text = seleccionado.Comentario;
                     txFechaAltaI.Text = seleccionado.FechaDeAlta;
                     txFechaBajaI.Text = seleccionado.FechaDeBaja;

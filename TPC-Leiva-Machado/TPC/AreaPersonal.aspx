@@ -24,6 +24,14 @@
 
         </div>
 
+            <div class="mb-3">
+               
+                <div class="text-center">
+                   <asp:Button Text="Cambiar Clave" ID="btnCambiarClave" runat="server" OnClick="btnCambiarClave_Click" cssclass="btn btn-primary"/>
+                </div>
+         
+            </div>
+
         <div class="col-4">
         
             <div>

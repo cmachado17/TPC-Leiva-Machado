@@ -169,7 +169,7 @@ namespace TPC
             try
             {
                 List<Cliente> lista = (List<Cliente>)Session["listaClientes"];
-                List<Cliente> listaFiltrada = lista.FindAll(x => x.Nombres.ToUpper().Contains(FiltroClientesI.Text.ToUpper()));
+                List<Cliente> listaFiltrada = lista.FindAll(x => x.Apellidos.ToUpper().Contains(FiltroClientesI.Text.ToUpper()));
                 dgvIncidenciasAsignadas.DataSource = listaFiltrada;
                 dgvIncidenciasAsignadas.DataBind();
                 
@@ -179,6 +179,11 @@ namespace TPC
                 Session.Add("error", "No se encontraron datos");
                 Response.Redirect("Errores.aspx", false);
             }
+        }
+
+        protected void btnCambiarClave_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CambiarClave.aspx", false);
         }
     }
 }

@@ -9,3 +9,8 @@
 .area-personal-text{
     font-style:italic;
 }
+
+#btnDetalle{
+    align-items: center;
+    text-align: center;
+}

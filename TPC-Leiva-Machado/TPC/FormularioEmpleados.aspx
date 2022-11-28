@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="text-center">
+    <div class="text-center" style="padding-bottom:30px">
         <% if (Request.QueryString["id"] != null)
             { %>
         <h2>Modificar empleado</h2>

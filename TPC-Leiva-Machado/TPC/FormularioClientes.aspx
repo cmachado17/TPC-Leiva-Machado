@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
-      <div class="text-center">
+      <div class="text-center" style="padding-bottom:30px">
         <% if (Request.QueryString["id"] != null)
             { %>
        <h1>Modificar cliente</h1>

@@ -11,133 +11,97 @@ namespace TPC
 {
 
 
-    public partial class AreaPersonal
+    public partial class CambiarClave
     {
 
         /// <summary>
-        /// Control lbEmpleado.
+        /// Control lbClaveActual.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbEmpleado;
+        protected global::System.Web.UI.WebControls.Label lbClaveActual;
 
         /// <summary>
-        /// Control lbNombreEmpleado.
+        /// Control txtClaveActual.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbNombreEmpleado;
+        protected global::System.Web.UI.WebControls.TextBox txtClaveActual;
 
         /// <summary>
-        /// Control lbEmail.
+        /// Control txtErrorClaveActual.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbEmail;
+        protected global::System.Web.UI.WebControls.TextBox txtErrorClaveActual;
 
         /// <summary>
-        /// Control lbEmailEmpleado.
+        /// Control lbNuevaClave.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbEmailEmpleado;
+        protected global::System.Web.UI.WebControls.Label lbNuevaClave;
 
         /// <summary>
-        /// Control lbPerfil.
+        /// Control txtClaveNueva.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPerfil;
+        protected global::System.Web.UI.WebControls.TextBox txtClaveNueva;
 
         /// <summary>
-        /// Control lbPerfilEmpleado.
+        /// Control txtErrorClaveNueva.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPerfilEmpleado;
+        protected global::System.Web.UI.WebControls.TextBox txtErrorClaveNueva;
 
         /// <summary>
-        /// Control btnCambiarClave.
+        /// Control lbConfirmarClave.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCambiarClave;
+        protected global::System.Web.UI.WebControls.Label lbConfirmarClave;
 
         /// <summary>
-        /// Control ImagenPerfil.
+        /// Control TextBox1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImagenPerfil;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
-        /// Control txtImagen.
+        /// Control txtErrorConfirmarNuevaClave.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile txtImagen;
+        protected global::System.Web.UI.WebControls.TextBox txtErrorConfirmarNuevaClave;
 
         /// <summary>
-        /// Control btnImagen.
+        /// Control btnConfirmarClave.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnImagen;
-
-        /// <summary>
-        /// Control dwEstados.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dwEstados;
-
-        /// <summary>
-        /// Control btnBuscar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBuscar;
-
-        /// <summary>
-        /// Control FiltroClientesI.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FiltroClientesI;
-
-        /// <summary>
-        /// Control dgvIncidenciasAsignadas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvIncidenciasAsignadas;
+        protected global::System.Web.UI.WebControls.Button btnConfirmarClave;
     }
 }

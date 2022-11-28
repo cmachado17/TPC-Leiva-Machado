@@ -27,8 +27,8 @@
     </asp:GridView>
        
         <div class="row mb-3 d-flex align-items-center">
-        <div class="col-12">
-            <a class="btn btn-primary btn-block" href="Empleados.aspx">Volver</a>
+        <div class="col-12 text-center">
+            <a id="btnDetalle" class="btn btn-primary btn-block text-center" href="Empleados.aspx">Volver</a>
         </div>
 
     </div>

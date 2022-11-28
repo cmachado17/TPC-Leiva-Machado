@@ -27,7 +27,7 @@ namespace TPC
 
             if (Session["Perfil"].Equals(1))
             {
-                dgvIncidencias.Columns[9].Visible = false;
+                dgvIncidencias.Columns[8].Visible = false;
 
             }
         }
