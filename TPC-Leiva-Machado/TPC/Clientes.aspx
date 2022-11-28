@@ -4,15 +4,21 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="text-center">
+    <div class="text-center" style="margin-bottom: 30px" >
         <h1>Clientes</h1>
     </div>
 
     <div class="mb-3 pb-3 d-flex align-items-center" >  
-            <div style="font-size: 20px; font-weight: bold; margin-right: 5px;" >
-                <asp:Label Text="Busqueda:" runat="server" />
+            <div style="font-size: 15px; font-weight: bold" >
+                <asp:Label Text="Busqueda por Nombre:" runat="server" />
             </div>
         <asp:TextBox runat="server" ID="FiltroClientes" AutoPostBack="true" OnTextChanged="FiltroClientes_TextChanged" CssClass="form-control" placeholder="Ingrese el nombre del cliente.." />
+    </div>
+        <div class="mb-3 pb-3 d-flex align-items-center" >  
+            <div style="font-size: 15px; font-weight: bold; margin-right: 25px;" >
+                <asp:Label Text="Busqueda por DNI:" runat="server" />
+            </div>
+        <asp:TextBox runat="server" ID="FiltroClientesDNI" AutoPostBack="true" OnTextChanged="FiltroClientesDNI_TextChanged" CssClass="form-control" placeholder="Ingrese el DNI del cliente.." />
     </div>
 
       <asp:GridView AutoGenerateColumns="false"

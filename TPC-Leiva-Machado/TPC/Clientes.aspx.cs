@@ -122,5 +122,13 @@ namespace TPC
 
             }
         }
+
+        protected void FiltroClientesDNI_TextChanged(object sender, EventArgs e)
+        {
+            List<Cliente> lista = (List<Cliente>)Session["listaClientes"];
+            List<Cliente> listaFiltrada = lista.FindAll(x => x.DNI.Contains(FiltroClientesDNI.Text));
+            dgvClientes.DataSource = listaFiltrada;
+            dgvClientes.DataBind();
+        }
     }
 }
