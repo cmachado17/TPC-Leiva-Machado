@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
- <div class="text-center">
+ <div class="text-center" style="margin-bottom: 30px" >
         <h2>Detalle incidencia</h2>
     </div>
 
@@ -44,7 +44,7 @@
         <asp:textbox id="txComentarioI" TextMode="multiline" Height="100" runat="server" CssClass="form-control" />
     </div>
     
-      <asp:Button ID="btnCancelar" runat="server" Text="Volver" type="submit" CssClass="btn btn-danger btn-block my-1 mx-5" onclick="btnCancelar_Click"/>
+      <asp:Button ID="btnCancelar" runat="server" Text="Volver" type="submit" CssClass="btn btn-danger btn-block" onclick="btnCancelar_Click"/>
 
 
 </asp:Content>

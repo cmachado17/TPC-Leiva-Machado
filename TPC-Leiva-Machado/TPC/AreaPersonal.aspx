@@ -45,7 +45,7 @@
         <% if (Session["Perfil"].Equals(2))
             { %>
 
-        <h2>Mis incidencias asignadas</h2>
+        <h2 style="padding-bottom: 30px; padding-top:30px">Mis incidencias asignadas</h2>
 
         <div class="my-3 d-flex align-items-center " style="padding-bottom: 3px">
             <div style="font-size: 20px; font-weight: bold; margin-right: 5px;" >
@@ -54,6 +54,12 @@
             <asp:DropDownList ID="dwEstados" AutoPostBack="false" CssClass="form-control" runat="server"></asp:DropDownList>
             <asp:Button ID="btnBuscar" Text="Buscar" runat="server" OnClick="btnBuscar_Click" CssClass="btn btn-success ml-3" />
         </div>
+        <div class="mb-3 pb-3 d-flex align-items-center" >  
+            <div style="font-size: 20px; font-weight: bold; margin-right: 5px;" >
+                <asp:Label Text="Cliente:" runat="server" />
+            </div>
+        <asp:TextBox runat="server" ID="FiltroClientesI" AutoPostBack="true" OnTextChanged="FiltroClientesI_TextChanged" CssClass="form-control" placeholder="Ingrese el nombre del cliente.." />
+    </div>
         <%} %>
 
 
@@ -86,6 +92,7 @@
                             Text="Resolver"
                             runat="server"
                             CssClass="btn btn-link"
+                            style="color: green"
                             OnClick="BtnResolver_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -95,6 +102,7 @@
                             Text="Cerrar"
                             runat="server"
                             CssClass="btn btn-link"
+                            style="color: red"
                             OnClick="BtnCerrar_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>

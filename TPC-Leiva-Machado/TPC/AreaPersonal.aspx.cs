@@ -21,13 +21,17 @@ namespace TPC
                 Session.Add("error", "Se necesita estar logueado para ingresar en esta seccion");
                 Response.Redirect("Errores.aspx", false);
             }
-        
-            IncidenteNegocio negocio = new IncidenteNegocio();
-            Session.Add("IncidenciasLogueado", negocio.listarIncidenciasPorUsuario(((Empleado)Session["empleadoLogueado"]).Id));
-            dgvIncidenciasAsignadas.DataSource = Session["IncidenciasLogueado"];
-            dgvIncidenciasAsignadas.DataBind();
 
-            if (!IsPostBack)
+            if (Seguridad.sesionActiva(Session["empleadoLogueado"]))
+            {
+                IncidenteNegocio negocio = new IncidenteNegocio();
+                Session.Add("IncidenciasLogueado", negocio.listarIncidenciasPorUsuario(((Empleado)Session["empleadoLogueado"]).Id));
+                dgvIncidenciasAsignadas.DataSource = Session["IncidenciasLogueado"];
+                dgvIncidenciasAsignadas.DataBind();
+            }
+
+
+            if (!IsPostBack && Seguridad.sesionActiva(Session["empleadoLogueado"]))
             {
                 Empleado empleado = (Empleado)Session["empleadoLogueado"];
                 EstadoNegocio estadoNegocio = new EstadoNegocio();
@@ -64,7 +68,7 @@ namespace TPC
 
                 int estadoIncidencidencia = helper.buscarEstadoIncidencia(key);
 
-                if (estadoIncidencidencia != 1 && estadoIncidencidencia != 2 && estadoIncidencidencia!= 5)
+                if (estadoIncidencidencia != 1 && estadoIncidencidencia != 2 && estadoIncidencidencia != 5)
                 {
                     Session.Add("error", "Solo se pueden modificar incidencias en estado: abierto, en analisis o asignado");
                     Response.Redirect("Errores.aspx", false);
@@ -158,6 +162,23 @@ namespace TPC
             }
 
 
+        }
+
+        protected void FiltroClientesI_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Cliente> lista = (List<Cliente>)Session["listaClientes"];
+                List<Cliente> listaFiltrada = lista.FindAll(x => x.Nombres.ToUpper().Contains(FiltroClientesI.Text.ToUpper()));
+                dgvIncidenciasAsignadas.DataSource = listaFiltrada;
+                dgvIncidenciasAsignadas.DataBind();
+                
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", "No se encontraron datos");
+                Response.Redirect("Errores.aspx", false);
+            }
         }
     }
 }

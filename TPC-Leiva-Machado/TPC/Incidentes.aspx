@@ -3,8 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="text-center">
-        <h1>Incidencias</h1>
+    <div class="text-center" style="margin-bottom: 30px" >
+        <h1 >Incidencias</h1>
     </div>
 
     <%--<asp:Button Text="Cargar incidencia" runat="server" cssclass="btn btn-primary" href="Incidentes.aspx"/>--%>
@@ -24,7 +24,6 @@
             <asp:BoundField HeaderText="Tipo" DataField="Tipo.Descripcion" />
             <asp:BoundField HeaderText="Prioridad" DataField="Prioridad.Descripcion" />
             <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
-            <asp:BoundField HeaderText="FechaDeAlta" DataField="FechaDeAlta" />
             <asp:BoundField HeaderText="Empleado Asignado" DataField="EmpleadoAsignado.Nombres" />
 
             <asp:TemplateField HeaderText="Re-asignar">

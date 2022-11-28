@@ -57,6 +57,14 @@ namespace TPC
             dgvClientes.DataBind();
         }
 
+        protected void FiltroClientesDNI_TextChanged(object sender, EventArgs e)
+        {
+            List<Cliente> lista = (List<Cliente>)Session["listaClientes"];
+            List<Cliente> listaFiltrada = lista.FindAll(x => x.DNI.Contains(FiltroClientesDNI.Text));
+            dgvClientes.DataSource = listaFiltrada;
+            dgvClientes.DataBind();
+        }
+
         protected void BtnIncidencia_Click(object sender, EventArgs e)
         {
             if (Session["Perfil"].Equals(2))
@@ -123,12 +131,6 @@ namespace TPC
             }
         }
 
-        protected void FiltroClientesDNI_TextChanged(object sender, EventArgs e)
-        {
-            List<Cliente> lista = (List<Cliente>)Session["listaClientes"];
-            List<Cliente> listaFiltrada = lista.FindAll(x => x.DNI.Contains(FiltroClientesDNI.Text));
-            dgvClientes.DataSource = listaFiltrada;
-            dgvClientes.DataBind();
-        }
+   
     }
 }
