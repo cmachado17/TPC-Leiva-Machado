@@ -18,7 +18,7 @@
       </div>
        <div class="mb-3">
       <asp:Label ID="lbConfirmarClave" runat="server" Text="Confirmar nueva clave" for="exampleInputPassword1" cssclass="form-label">Confirmar nueva clave</asp:Label>
-      <asp:TextBox type="Password" placeholder="Confirme la nueva clave" ID="TextBox1" runat="server" cssclass="form-control"></asp:TextBox>
+      <asp:TextBox type="Password" placeholder="Confirme la nueva clave" ID="txtConfirmarNuevaClave" runat="server" cssclass="form-control"></asp:TextBox>
         <asp:TextBox style= "background:none; color:crimson; border-style:none" ID="txtErrorConfirmarNuevaClave" runat="server" cssclass="form-control"></asp:TextBox>
       </div>
 

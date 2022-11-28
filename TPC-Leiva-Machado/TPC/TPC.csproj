@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Administracion.aspx" />
     <Content Include="AreaPersonal.aspx" />
+    <Content Include="CambiarClave.aspx" />
     <Content Include="Contacto.aspx" />
     <Content Include="Clientes.aspx" />
     <Content Include="DetalleCliente.aspx" />
@@ -102,6 +103,13 @@
     </Compile>
     <Compile Include="AreaPersonal.aspx.designer.cs">
       <DependentUpon>AreaPersonal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CambiarClave.aspx.cs">
+      <DependentUpon>CambiarClave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CambiarClave.aspx.designer.cs">
+      <DependentUpon>CambiarClave.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contacto.aspx.cs">
       <DependentUpon>Contacto.aspx</DependentUpon>

@@ -294,5 +294,25 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void cambiarClave(Empleado empleado)
+        {
+            try
+            {
+                datos.setearConsulta("UPDATE Empleados SET Clave = @clave WHERE Id = @id");
+                datos.setearParametro("@id", empleado.Id);
+                datos.setearParametro("@clave", empleado.Clave);
+                datos.ejecutarLectura();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

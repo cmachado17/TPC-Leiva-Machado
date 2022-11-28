@@ -21,16 +21,12 @@
                 <asp:Label ID="lbPerfil" Text="Perfil:" runat="server" CssClass="area-personal-label"/>
                 <asp:Label ID="lbPerfilEmpleado" Text="" runat="server" CssClass="area-personal-text"/>
             </div>
-
-        </div>
-
-            <div class="mb-3">
-               
-                <div class="text-center">
+             <div class="text-center">
                    <asp:Button Text="Cambiar Clave" ID="btnCambiarClave" runat="server" OnClick="btnCambiarClave_Click" cssclass="btn btn-primary"/>
                 </div>
-         
             </div>
+
+        
 
         <div class="col-4">
         

@@ -168,11 +168,11 @@ namespace TPC
         {
             try
             {
-                List<Cliente> lista = (List<Cliente>)Session["listaClientes"];
-                List<Cliente> listaFiltrada = lista.FindAll(x => x.Apellidos.ToUpper().Contains(FiltroClientesI.Text.ToUpper()));
+                List<Incidente> listaIncidentes = (List<Incidente>)Session["IncidenciasLogueado"];
+                List<Incidente> listaFiltrada = listaIncidentes.FindAll(x => x.Cliente.Nombres.ToUpper().Contains(FiltroClientesI.Text.ToUpper()));
                 dgvIncidenciasAsignadas.DataSource = listaFiltrada;
                 dgvIncidenciasAsignadas.DataBind();
-                
+
             }
             catch (Exception ex)
             {
