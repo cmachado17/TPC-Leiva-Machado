@@ -44,7 +44,8 @@ namespace TPC
                             
                             empleado.Clave = int.Parse(txtClaveNueva.Text);
                             negocio.cambiarClave(empleado);
-                            Response.Redirect("AreaPersonal.aspx", false);
+                            Session.Remove("empleadoLogueado");
+                            Response.Redirect("Home.aspx", false);
                         }
                         else
                         {
