@@ -10,7 +10,8 @@
     font-style:italic;
 }
 
-#btnDetalle{
+#btnDetalle {
     align-items: center;
     text-align: center;
+    width: auto;
 }

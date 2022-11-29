@@ -28,8 +28,11 @@
        
         <div class="row mb-3 d-flex align-items-center">
         <div class="col-12 text-center">
-            <a id="btnDetalle" class="btn btn-primary btn-block text-center" href="Empleados.aspx">Volver</a>
+             <asp:Button ID="btnDetalle" runat="server" Text="Volver" type="submit" CssClass="btn btn-primary btn-block" onclick="btnDetalle_Click"/>
+           
         </div>
 
     </div>
 </asp:Content>
+
+

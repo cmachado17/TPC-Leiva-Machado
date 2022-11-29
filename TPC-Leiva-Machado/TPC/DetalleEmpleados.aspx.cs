@@ -32,5 +32,10 @@ namespace TPC
                 dgvDetalleEmpleados.DataBind();
             }
         }
+
+        protected void btnDetalle_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Empleados.aspx", false);
+        }
     }
 }

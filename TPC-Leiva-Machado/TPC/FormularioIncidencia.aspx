@@ -23,10 +23,14 @@
     <div class="mb-3">
         <asp:Label ID="lbMotivo" runat="server" Text="Motivo" CssClass="form-label">Motivo</asp:Label>
          <asp:DropDownList ID="dwMotivo" runat="server" CssClass="form-control"></asp:DropDownList>
-         <asp:Label ID="lbComentario" runat="server" Text="Comentario" CssClass="form-label">Comentario</asp:Label>
+    </div>
+    <div class="mb-3">
+        <asp:Label  ID="lbComentario" runat="server" Text="Comentario" CssClass="form-label">Comentario</asp:Label>
         <asp:textbox id="txComentario" TextMode="multiline" Height="100" runat="server" CssClass="form-control" />
-          <asp:Label ID="lbEmpleado" runat="server" Text="Empleado asignado" CssClass="form-label">Empleado asignado</asp:Label>
-         <asp:DropDownList ID="dwEmpleados" runat="server" CssClass="form-control"></asp:DropDownList>
+     </div>
+     <div class="mb-3"> 
+        <asp:Label ID="lbEmpleado" runat="server" Text="Empleado asignado" CssClass="form-label">Empleado asignado</asp:Label>
+        <asp:DropDownList ID="dwEmpleados" runat="server" CssClass="form-control"></asp:DropDownList>
     </div>
         <div class="mb-3">
         <asp:Label ID="lbError" runat="server" Text="Revisar los campos marcados" CssClass="form-label">Revisar los campos marcados</asp:Label>

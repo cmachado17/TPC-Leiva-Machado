@@ -171,14 +171,25 @@ namespace TPC
                 }
                 else if (Request.QueryString["accion"] == "cerrar")
                 {
-                    nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
-                    nuevo.Motivo = new Motivo();
-                    nuevo.Motivo.Id = int.Parse(dwMotivo.SelectedValue);
-                    nuevo.Comentario = txComentario.Text;
-                    negocio.cerrarIncidente(nuevo);
-                    emailService.armarCorreo(nuevo.Cliente.Email, "Cierre de Incidente #" + nuevo.Id, "fue cerrado");
-                    emailService.enviarEmail();
-                    Response.Redirect("AreaPersonal.aspx", false);
+                    if (validarResolverAccidente())
+                    {
+                        nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
+                        nuevo.Motivo = new Motivo();
+                        nuevo.Motivo.Id = int.Parse(dwMotivo.SelectedValue);
+                        nuevo.Comentario = txComentario.Text;
+                        negocio.cerrarIncidente(nuevo);
+                        emailService.armarCorreo(nuevo.Cliente.Email, "Cierre de Incidente #" + nuevo.Id, "fue cerrado");
+                        emailService.enviarEmail();
+                        Response.Redirect("AreaPersonal.aspx", false);
+                    }
+                    else
+                    {
+                        lbComentario.Visible = true;
+                        txComentario.Visible = true;
+                        lbMotivo.Visible = true;
+                        dwMotivo.Visible = true;
+                        lbError.Visible = true;
+                    }
                 }
                 else if (Request.QueryString["accion"] == "reasignar")
                 {
