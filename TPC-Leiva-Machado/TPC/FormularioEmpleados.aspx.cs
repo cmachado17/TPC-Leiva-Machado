@@ -224,9 +224,18 @@ namespace TPC
                 txbApellido.BorderColor = System.Drawing.Color.Red;
                 bandera = false;
             }
+
+            if (!helper.cantidadCaracteresDNI(txbDNI.Text))
+            {
+                txbDNI.BorderColor = System.Drawing.Color.Red;
+
+                lbError.Text = "El DNI debe contener 6 o mas caracteres";
+                bandera = false;
+            }
             if (!helper.soloNumeros(txbDNI.Text) || string.IsNullOrEmpty(txbDNI.Text))
             {
                 txbDNI.BorderColor = System.Drawing.Color.Red;
+                lbError.Text = "Revisar los campos marcados";
                 bandera = false;
             }
             if (!helper.formatoEmail(txbEmail.Text) || string.IsNullOrEmpty(txbEmail.Text))

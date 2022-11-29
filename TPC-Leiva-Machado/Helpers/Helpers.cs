@@ -76,5 +76,12 @@ namespace Helpers
          
             return true;
         }
+
+        public bool cantidadCaracteresDNI(string cadena)
+        {
+            if (!(cadena.Length >= 6)) return false;
+
+            return true;
+        }
     }
 }
