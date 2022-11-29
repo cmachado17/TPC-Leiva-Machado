@@ -22,7 +22,7 @@
     </div>
 
       <asp:GridView AutoGenerateColumns="false"
-        CssClass="table table-striped w-100"
+        CssClass="table table-hover w-100 border-dark"
         ID="dgvClientes" runat="server"
         DataKeyNames="Id"
         OnPageIndexChanging="dgvClientes_PageIndexChanging"
@@ -58,7 +58,7 @@
                         Text="Modificar"
                         OnClick="BtnModificar_Click"
                         runat="server" 
-                        ImageUrl="lapiz.png" width="20" />
+                        ImageUrl="lapiz.png" width="20" AlternateText="Modificar" ToolTip="Modificar"/>
                 </ItemTemplate>
             </asp:TemplateField>
 
@@ -68,7 +68,7 @@
                         Text="Detalle"
                         OnClick="BtnDetalle_Click"
                         runat="server" 
-                        ImageUrl="lupa.png" width="20" />
+                        ImageUrl="lupa.png" width="20"  AlternateText="Ver detalle" ToolTip="Ver detalle"/>
                 </ItemTemplate>
             </asp:TemplateField>
             
