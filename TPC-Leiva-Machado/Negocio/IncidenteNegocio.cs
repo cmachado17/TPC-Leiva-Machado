@@ -204,6 +204,7 @@ namespace Negocio
                 datos.setearSP("sp_Cerrar_Incidencia");
                 datos.setearParametro("@Id", nuevo.Id);
                 datos.setearParametro("@Motivo", nuevo.Motivo.Id);
+                datos.setearParametro("@Comentario", nuevo.Comentario);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

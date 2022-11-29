@@ -299,12 +299,13 @@ end
 
 GO
 CREATE PROCEDURE sp_Cerrar_Incidencia
-(@Id INT, @Motivo INT)
+(@Id INT, @Motivo INT, @Comentario VARCHAR(100))
 as begin
 UPDATE Incidentes 
 SET 
 IdEstado = 3,
-IdMotivo = @Motivo
+IdMotivo = @Motivo,
+Comentario = @Comentario
 WHERE ID = @ID
 end
 

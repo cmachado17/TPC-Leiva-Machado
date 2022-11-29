@@ -115,6 +115,8 @@ namespace TPC
                         btnAceptar.Text = "Cerrar";
                         lbMotivo.Visible = true;
                         dwMotivo.Visible = true;
+                        lbComentario.Visible = true;
+                        txComentario.Visible = true;
                     }
                 }
             }
@@ -172,6 +174,7 @@ namespace TPC
                     nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
                     nuevo.Motivo = new Motivo();
                     nuevo.Motivo.Id = int.Parse(dwMotivo.SelectedValue);
+                    nuevo.Comentario = txComentario.Text;
                     negocio.cerrarIncidente(nuevo);
                     emailService.armarCorreo(nuevo.Cliente.Email, "Cierre de Incidente #" + nuevo.Id, "fue cerrado");
                     emailService.enviarEmail();
