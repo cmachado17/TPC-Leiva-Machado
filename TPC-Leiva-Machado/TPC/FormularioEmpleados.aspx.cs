@@ -236,7 +236,20 @@ namespace TPC
             }
             if (!helper.soloNumeros(txbTelefono.Text) || string.IsNullOrEmpty(txbTelefono.Text))
             {
-                txbDNI.BorderColor = System.Drawing.Color.Red;
+                txbTelefono.BorderColor = System.Drawing.Color.Red;
+                bandera = false;
+            }
+            if (!helper.cantidadCaracteres(txbClave.Text))
+                 {
+                txbClave.BorderColor = System.Drawing.Color.Red;
+
+                lbError.Text = "La clave debe contener 3 o mas caracteres";
+                bandera = false;
+            }
+            if (!helper.soloNumeros(txbClave.Text) || string.IsNullOrEmpty(txbClave.Text))
+            {
+                txbClave.BorderColor = System.Drawing.Color.Red;
+                lbError.Text = "Revisar los campos marcados";
                 bandera = false;
             }
 
