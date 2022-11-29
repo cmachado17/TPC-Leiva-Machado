@@ -83,5 +83,25 @@ namespace Helpers
 
             return true;
         }
+
+        public string getFormatEmail(string accion, Incidente incidente)
+        {
+            string html = "";
+
+            switch (accion)
+            {
+                case "resolver":
+                    html = "<html><body><h2>" + incidente.Cliente.Nombres + "</h2><p> Tu incidencia #"+ incidente.Id + " fue resuelta satisfactoriamente. Esta es la respuesta del operador:</p> <div style=\"border: 1px solid gray; background-color: rgb(211, 209, 209); margin: 20px 0px; padding: 10px 20px;\"><p>" + incidente.Comentario + "</p></div><p>Gracias por utilizar nuestros servicios.</p></body></html>";
+                    break;
+                case "cerrar":
+                    html = "<html><body><h2>" + incidente.Cliente.Nombres + "</h2><p> Tu incidencia #" + incidente.Id + " fue cerrada. Esta es la respuesta del operador:</p> <div style=\"border: 1px solid gray; background-color: rgb(211, 209, 209); margin: 20px 0px; padding: 10px 20px;\"><p>" + incidente.Comentario + "</p></div><p>Gracias por utilizar nuestros servicios.</p></body></html>";
+                    break;
+                case "alta":
+                    html = "<html><body><h2>" + incidente.Cliente.Apellidos +", " + incidente.Cliente.Nombres + "</h2><p> Se dio de alta la incidencia #" + incidente.Id + "</p> <p>Esta es la problematica detallada: </p> <div style=\"border: 1px solid gray; background-color: rgb(211, 209, 209); margin: 20px 0px; padding: 10px 20px;\"><p>" + incidente.Problematica + "</p></div> <p>Gracias por utilizar nuestros servicios.</p></body></html>";
+                    break;
+            }
+
+            return html;
+        }
     }
 }

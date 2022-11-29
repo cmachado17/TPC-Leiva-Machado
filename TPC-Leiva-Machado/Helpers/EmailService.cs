@@ -29,7 +29,7 @@ namespace Helpers
             email.To.Add(emailDestino);
             email.Subject = asunto;
             email.IsBodyHtml = true;
-            email.Body = "<h1> hola </h1>";
+            email.Body = cuerpo;
         }
 
         public void enviarEmail()

@@ -17,7 +17,7 @@
 <body style="background-color: transparent">
     <form id="form1" runat="server">
         <div>
-            <div id="navbarNav" class="bg-dark text-light py-3 d-flex justify-content-center">
+            <div id="navbarNav" class="bg-dark text-light py-3 d-flex justify-content-center sticky-top">
 
                 <asp:Menu runat="server" ID="Menu1" Orientation="Horizontal" StaticDisplayLevels="2">
                     <StaticMenuItemStyle

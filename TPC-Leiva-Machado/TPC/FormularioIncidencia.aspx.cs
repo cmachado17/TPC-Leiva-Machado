@@ -135,6 +135,8 @@ namespace TPC
                 ClienteNegocio negocioCliente = new ClienteNegocio();
                 EmpleadoNegocio negocioEmpleado = new EmpleadoNegocio();
                 EmailService emailService = new EmailService();
+                MetodosCompartidos helper = new MetodosCompartidos();
+                string cuerpo;
 
                 if (Request.QueryString["incidencia"] != null && Request.QueryString["accion"] == null)
                 {
@@ -157,7 +159,8 @@ namespace TPC
                         nuevo = negocio.listarIncidentePorId(Int32.Parse(Request.QueryString["incidencia"]));
                         nuevo.Comentario = txComentario.Text;
                         negocio.resolverIncidente(nuevo);
-                        emailService.armarCorreo(nuevo.Cliente.Email, "Resolucion de Incidente #" + nuevo.Id, "fue resuelto");
+                        cuerpo = helper.getFormatEmail(Request.QueryString["accion"].ToString(), nuevo);
+                        emailService.armarCorreo(nuevo.Cliente.Email, "Resolucion de Incidente #" + nuevo.Id, cuerpo);
                         emailService.enviarEmail();
                         Response.Redirect("AreaPersonal.aspx", false);
                     }
@@ -178,7 +181,8 @@ namespace TPC
                         nuevo.Motivo.Id = int.Parse(dwMotivo.SelectedValue);
                         nuevo.Comentario = txComentario.Text;
                         negocio.cerrarIncidente(nuevo);
-                        emailService.armarCorreo(nuevo.Cliente.Email, "Cierre de Incidente #" + nuevo.Id, "fue cerrado");
+                        cuerpo = helper.getFormatEmail(Request.QueryString["accion"].ToString(), nuevo);
+                        emailService.armarCorreo(nuevo.Cliente.Email, "Cierre de Incidente #" + nuevo.Id, cuerpo);
                         emailService.enviarEmail();
                         Response.Redirect("AreaPersonal.aspx", false);
                     }
@@ -210,8 +214,9 @@ namespace TPC
                         //estado?
                         nuevo.Cliente = negocioCliente.listarClientePorId(int.Parse(Request.QueryString["id"]));
                         nuevo.EmpleadoAsignado = negocioEmpleado.listarEmpleadoPorId(((Empleado)Session["empleadoLogueado"]).Id);
-                        string nuevoId = negocio.agregarIncidencia(nuevo).ToString();
-                        emailService.armarCorreo(nuevo.Cliente.Email, "Alta de incidente #" + nuevoId, "hola");
+                        nuevo.Id = negocio.agregarIncidencia(nuevo);
+                        cuerpo = helper.getFormatEmail("alta", nuevo);
+                        emailService.armarCorreo(nuevo.Cliente.Email, "Alta de incidente #" + nuevo.Id.ToString(), cuerpo);
                         emailService.enviarEmail();
                         Response.Redirect("Clientes.aspx", false);
                     }
