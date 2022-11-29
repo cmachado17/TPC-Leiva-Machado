@@ -17,7 +17,6 @@ namespace TPC
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            MetodosCompartidos helpers = new MetodosCompartidos();
             EmailService emailService = new EmailService();
 
             string cuerpo = "<html><h1>Aviso de contacto</h1><p>Hola, hemos recibido tu contacto y te responderemos a la brevedad.</p><p>Gracias por utilizar nuestros servicios.</p></html>";

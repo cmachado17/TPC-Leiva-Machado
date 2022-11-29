@@ -97,7 +97,7 @@ namespace Helpers
                     html = "<html><body><h2>" + incidente.Cliente.Nombres + "</h2><p> Tu incidencia #" + incidente.Id + " fue cerrada. Esta es la respuesta del operador:</p> <div style=\"border: 1px solid gray; background-color: rgb(211, 209, 209); margin: 20px 0px; padding: 10px 20px;\"><p>" + incidente.Comentario + "</p></div><p>Gracias por utilizar nuestros servicios.</p></body></html>";
                     break;
                 case "alta":
-                    html = "<html><body><h2>" + incidente.Cliente.Apellidos +", " + incidente.Cliente.Nombres + "</h2><p> Se dio de alta la incidencia #" + incidente.Id + "</p> <p>Esta es la problematica detallada: </p> <div style=\"border: 1px solid gray; background-color: rgb(211, 209, 209); margin: 20px 0px; padding: 10px 20px;\"><p>" + incidente.Problematica + "</p></div> <p>Gracias por utilizar nuestros servicios.</p></body></html>";
+                    html = "<html><body><h2>" + incidente.Cliente.Apellidos +", " + incidente.Cliente.Nombres + "</h2><p> Se dio de alta la incidencia #" + incidente.Id + "</p> <p>Esta es la problematica detallada: </p> <div style=\"border: 1px solid gray; background-color: rgb(211, 209, 209); margin: 20px 0px; padding: 10px 20px;\"><p>Tipo: "+ incidente.Tipo.Descripcion + "</p><p>Prioridad: "+ incidente.Prioridad.Descripcion +"</p><p>" + incidente.Problematica + "</p></div> <p>Gracias por utilizar nuestros servicios.</p></body></html>";
                     break;
             }
 

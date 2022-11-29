@@ -208,8 +208,10 @@ namespace TPC
                     {
                         nuevo.Tipo = new TipoIncidencia();
                         nuevo.Tipo.Id = int.Parse(dwTipo.SelectedValue);
+                        nuevo.Tipo.Descripcion = dwTipo.SelectedItem.Text;
                         nuevo.Prioridad = new Prioridad();
                         nuevo.Prioridad.Id = int.Parse(dwPrioridad.SelectedValue);
+                        nuevo.Prioridad.Descripcion = dwPrioridad.SelectedItem.Text;
                         nuevo.Problematica = txProblematica.Text;
                         //estado?
                         nuevo.Cliente = negocioCliente.listarClientePorId(int.Parse(Request.QueryString["id"]));
