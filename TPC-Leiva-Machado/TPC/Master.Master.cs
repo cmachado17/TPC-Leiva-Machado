@@ -48,7 +48,7 @@ namespace TPC
             }
 
 
-            if (!(Page is Login || Page is Home || Page is PreguntasFrecuentes || Page is Contacto || Page is Errores))
+            if (!(Page is Login || Page is Home || Page is Errores))
             {
                 if (!Seguridad.sesionActiva(Session["empleadoLogueado"]))
                 {

@@ -3,10 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   <div style="padding-bottom:30px; text-align:center">
-    <h1>Bienvenidos al Call Center CriSan</h1>
-   </div>
-    <div style="padding-top:30px" id="carouselExampleIndicators" class="carousel slide my-3" data-bs-ride="true">
+    <div style="padding-bottom: 30px; text-align: center">
+        <h1>Bienvenidos al Call Center CriSan</h1>
+    </div>
+    <div style="padding-top: 30px" id="carouselExampleIndicators" class="carousel slide my-3" data-bs-ride="true">
         <div class="carousel-inner text-center">
             <div class="carousel-item active">
                 <img src="https://www.freeiconspng.com/thumbs/help-desk-icon/help-desk-icon-8.png" class="img" alt="...">
@@ -26,34 +26,59 @@
     </div>
 
     <div class="my-5">
-        <div class="text-center"  style="padding-bottom:5px" >
-    <p class="text-primary">¿Cómo ver un incidente?</p>
-    <p class="text-secondary">De acuerdo al perfil se habilitará el menú Incidentes.</p>
-  </div>
+        <div class="text-center" style="padding-bottom: 5px">
+            <p class="text-primary">¿Cómo ver un incidente?</p>
+            <p class="text-secondary">De acuerdo al perfil se habilitará el menú Incidentes.</p>
+        </div>
 
-   <div class="text-center"  style="padding-bottom:5px" >
-    <p class="text-primary">¿Cómo cargar un incidente?</p>
-    <p class="text-secondary">Ingresar a la opción del menú Incidentes, 
-        presionar el botón cargar incidencia, completar el formulario y por último el botón Ingresar.</p>
-  </div>
+        <div class="text-center" style="padding-bottom: 5px">
+            <p class="text-primary">¿Cómo cargar un incidente?</p>
+            <p class="text-secondary">
+                Ingresar a la opción del menú Incidentes, 
+        presionar el botón cargar incidencia, completar el formulario y por último el botón Ingresar.
+            </p>
+        </div>
 
-   <div class="text-center"  style="padding-bottom:5px" >
-    <p class="text-primary">¿´Qué opciones hay en clientes?</p>
-    <p class="text-secondary">Ingresar a la opción del menú Clientes, que se habilitará de acuerdo al perfil. 
+        <div class="text-center" style="padding-bottom: 5px">
+            <p class="text-primary">¿Qué opciones hay en clientes?</p>
+            <p class="text-secondary">
+                Ingresar a la opción del menú Clientes, que se habilitará de acuerdo al perfil. 
         Se puede cargar una incidencia presionando cargar incidencia en el listado; se puede modificar el cliente
         haciendo click en el lapiz y se puede ver mas informacion haciendo click en la lupa del detalle.
-    </p>
-  </div>
+            </p>
+        </div>
 
-       <div class="text-center"  style="padding-bottom:5px" >
-    <p class="text-primary">¿Como agregar y/o eliminar un usuario?</p>
-    <p class="text-secondary">Ingresar a la opción del menú Usuarios, que se habilitará de acuerdo al perfil. 
+        <div class="text-center" style="padding-bottom: 5px">
+            <p class="text-primary">¿Como agregar y/o eliminar un usuario?</p>
+            <p class="text-secondary">
+                Ingresar a la opción del menú Usuarios, que se habilitará de acuerdo al perfil. 
         Para agregar hacer click en el boton agregar usuario debajo del listado, completar el formulario y luego 
         el botón confirmar. Para eliminar el usuario se debera hacer click
         en el lapiz, se podra modificar desde el formulario y presionando confirmar o para eliminar
         simplemente presionar el boton eliminar o deshabilitar.
         También se puede ver mas informacion del usuario haciendo click en la lupa del detalle.
-    </p>
-  </div>
+            </p>
+        </div>
+    </div>
+
+    <div class="my-5">
+        <div class="text-center">
+            <h2>Contacto</h2>
+        </div>
+        <div>
+            <div class="mb-3">
+                <asp:Label ID="lbCorreoContacto" runat="server" Text="EmailContacto" for="exampleInputEmail1" CssClass="form-label">Dirección de correo electrónico</asp:Label>
+                <asp:TextBox placeholder="Ingrese su correo electrónico" ID="txtCorreoContacto" runat="server" type="email" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="mb-3">
+                <asp:Label ID="lbComentario" runat="server" Text="Comentario" for="exampleFormControlTextarea1" class="form-label">Comentarios</asp:Label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="text-right">
+                    <asp:Button ID="btnEnviar" runat="server" Text="Enviar" type="submit" CssClass="btn btn-primary" OnClick="btnEnviar_Click" />
+
+            </div>
+        
+        </div>
     </div>
 </asp:Content>
