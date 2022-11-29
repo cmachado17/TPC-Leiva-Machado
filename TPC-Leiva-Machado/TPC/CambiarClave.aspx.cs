@@ -4,6 +4,7 @@ using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -24,17 +25,24 @@ namespace TPC
             try
             {
                 EmpleadoNegocio negocio = new EmpleadoNegocio();
-                Empleado empleado = new Empleado();
-
+                
                 if (Session["empleadoLogueado"] != null)
                 {
+                    Empleado empleado = new Empleado();
                     empleado = (Empleado)Session["empleadoLogueado"];
 
                     if (validarClave())
                     {
-                        if(empleado.Clave == (int.Parse(txtClaveActual.Text)))
+                        int clave = int.Parse(txtClaveActual.Text);
+                        Empleado nuevaClave = new Empleado(clave);
+                     
+                        int idEmpleado = empleado.Id;
+                        nuevaClave.Id = idEmpleado;
+
+                        if (negocio.VerificarClave(nuevaClave))
                         {
-                            empleado.Clave = int.Parse(txtClaveActual.Text);
+                            
+                            empleado.Clave = int.Parse(txtClaveNueva.Text);
                             negocio.cambiarClave(empleado);
                             Response.Redirect("AreaPersonal.aspx", false);
                         }

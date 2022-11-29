@@ -29,6 +29,12 @@ namespace Dominio
 
         }
 
+        public Empleado(int pass)
+        {
+             Clave = pass;
+
+        }
+
         public Empleado()
         {
             

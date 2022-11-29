@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Collections.Specialized.BitVector32;
@@ -289,6 +290,41 @@ namespace Negocio
 
                 throw ex;
             }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public bool VerificarClave(Empleado empleado)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("Select Clave from Empleados where Id = @id and Clave = @pass");
+                datos.setearParametro("@id", empleado.Id);
+                datos.setearParametro("@pass", empleado.Clave);
+                datos.ejecutarLectura();
+
+
+                 if (datos.Lector.Read())
+                {
+
+                   return true;
+
+                }
+
+                   return false;
+
+            }
+            catch (Exception ex)
+            {
+                //retorna false para que regrese al metodo y asi poder tomar el error en session
+                return false;
+
+            }
+
             finally
             {
                 datos.cerrarConexion();
