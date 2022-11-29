@@ -19,7 +19,10 @@ namespace TPC
                 Response.Redirect("Errores.aspx", false);
             }
 
-            
+                dwMotivoI.Visible = false;
+                txComentarioI.Visible = false;
+                lbMotivoI.Visible = false;
+                lbComentarioI.Visible = false;
 
             try
             {
@@ -73,11 +76,18 @@ namespace TPC
                     txProblematicaI.Text = seleccionado.Problematica;
                     dwEstadoI.SelectedValue = seleccionado.Estado.Id.ToString();
                     dwMotivoI.SelectedValue = seleccionado.Motivo.Id.ToString() != null ? seleccionado.Motivo.Id.ToString() : " ";
-                    if(seleccionado.Motivo.Id.ToString() == null)
+                    if(seleccionado.Estado.Descripcion == "Cerrado")
                     {
-                        dwMotivoI.Visible = false;
+                        dwMotivoI.Visible = true;
+                        lbMotivoI.Visible = true;
+                    
                     }
                     txComentarioI.Text = seleccionado.Comentario;
+                    if (seleccionado.Estado.Descripcion == "Resuelto" || seleccionado.Estado.Descripcion == "Cerrado")
+                    {
+                        txComentarioI.Visible = true;
+                        lbComentarioI.Visible = true;
+                    }
                     txFechaAltaI.Text = seleccionado.FechaDeAlta;
                     txFechaBajaI.Text = seleccionado.FechaDeBaja;
 
