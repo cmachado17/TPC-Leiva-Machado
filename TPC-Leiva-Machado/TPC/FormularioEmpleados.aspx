@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="text-center" style="padding-bottom:30px">
+    <div class="text-center bg-light " style="padding-bottom:30px">
         <% if (Request.QueryString["id"] != null)
             { %>
         <h2>Modificar empleado</h2>
@@ -19,27 +19,33 @@
     <div class="mb-3">
         <asp:Label ID="lbNombre" runat="server" Text="Nombre" CssClass="form-label">Nombre</asp:Label>
         <asp:TextBox ID="txbNombre" runat="server" CssClass="form-control"></asp:TextBox>
-    </div>
+       <asp:TextBox Style="background: none; color: crimson; border-style: none" ID="txtErrorNombreE" runat="server" CssClass="form-control"></asp:TextBox>
+     </div>
     <div class="mb-3">
         <asp:Label ID="lbApellido" runat="server" Text="Apellido" CssClass="form-label">Apellido</asp:Label>
         <asp:TextBox ID="txbApellido" runat="server" CssClass="form-control"></asp:TextBox>
+     <asp:TextBox Style="background: none; color: crimson; border-style: none" ID="txtErrorApellidoE" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
     <div class="mb-3">
         <asp:Label ID="lbDNI" runat="server" Text="DNI" CssClass="form-label">DNI</asp:Label>
         <asp:TextBox ID="txbDNI" runat="server" CssClass="form-control"></asp:TextBox>
+     <asp:TextBox Style="background: none; color: crimson; border-style: none" ID="txtErrorDNIE" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
     <div class="mb-3">
         <asp:Label ID="lbEmail" runat="server" Text="Email" CssClass="form-label">Email</asp:Label>
         <asp:TextBox type="Email"  ID="txbEmail" runat="server" CssClass="form-control"></asp:TextBox>
+     <asp:TextBox Style="background: none; color: crimson; border-style: none" ID="txtErrorEmailE" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
     <div class="mb-3">
         <asp:Label ID="lbTelefono" runat="server" Text="Telefono" CssClass="form-label">Telefono</asp:Label>
         <asp:TextBox ID="txbTelefono" runat="server" CssClass="form-control"></asp:TextBox>
+     <asp:TextBox Style="background: none; color: crimson; border-style: none" ID="txtErrorTelefonoE" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
         <div class="mb-3">
         <asp:Label ID="lbClave" runat="server" Text="Clave" CssClass="form-label">Clave</asp:Label>
         <asp:TextBox type="Password" ID="txbClave" runat="server" CssClass="form-control"></asp:TextBox>
-    </div>
+        <asp:TextBox Style="background: none; color: crimson; border-style: none" ID="txtErrorClaveE" runat="server" CssClass="form-control"></asp:TextBox>
+     </div>
     <div class="mb-3">
         <asp:Label ID="lbPerfil" runat="server" Text="Perfil" CssClass="form-label">Perfil</asp:Label>
         <asp:DropDownList ID="ddlPerfil" CssClass="form-control" runat="server"></asp:DropDownList>

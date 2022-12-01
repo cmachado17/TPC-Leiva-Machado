@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Dominio;
 using Negocio;
 using Helpers;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TPC
 {
@@ -36,6 +37,13 @@ namespace TPC
 
 
             lbError.Visible = false;
+            txtErrorNombreE.Visible = false;
+            txtErrorApellidoE.Visible = false;
+            txtErrorDNIE.Visible = false;
+            txtErrorEmailE.Visible = false;
+            txtErrorTelefonoE.Visible = false;
+            txtErrorClaveE.Visible = false;
+
             try
             {
                 if (!IsPostBack)
@@ -79,7 +87,8 @@ namespace TPC
             catch (Exception ex)
             {
 
-                throw ex;
+                Session.Add("error", "Error al listar los empleados");
+                Response.Redirect("Errores.aspx", false);
             }
         }
 
@@ -128,17 +137,13 @@ namespace TPC
                         }
                     }
                 }
-                else
-                {
-                    lbError.Visible = true;
-                }
-
-
+              
             }
             catch (Exception ex)
             {
 
-                throw ex;
+                Session.Add("error", "Error al intentar agregar un empleado");
+                Response.Redirect("Errores.aspx", false);
             }
         }
 
@@ -184,7 +189,8 @@ namespace TPC
             catch (Exception ex)
             {
 
-                throw ex;
+                Session.Add("error", "Error al querer eliminar un empleado.");
+                Response.Redirect("Errores.aspx");
             }
 
         }
@@ -212,19 +218,24 @@ namespace TPC
             reiniciarFormato();
             bool bandera = true;
             MetodosCompartidos helper = new MetodosCompartidos();
-            lbError.Text = "Revisar los campos marcados";
+            
 
             //los helpers devuelven FALSE si no validan
             if (!helper.soloLetras(txbNombre.Text) || string.IsNullOrEmpty(txbNombre.Text))
             {
                 txbNombre.BorderColor = System.Drawing.Color.Red;
-                lbError.Text = "Revisar los campos marcados";
+                txtErrorNombreE.Text = "Campo nombre vacío o formato incorrecto";
+                txtErrorNombreE.Enabled = false;
+                txtErrorNombreE.Visible = true;
                 bandera = false;
+
             }
             if (!helper.soloLetras(txbApellido.Text) || string.IsNullOrEmpty(txbApellido.Text))
             {
                 txbApellido.BorderColor = System.Drawing.Color.Red;
-                lbError.Text = "Revisar los campos marcados";
+                txtErrorApellidoE.Text = "Campo apellido vacío o formato incorrecto";
+                txtErrorApellidoE.Enabled = false;
+                txtErrorApellidoE.Visible = true;
                 bandera = false;
             }
 
@@ -232,26 +243,33 @@ namespace TPC
             if (!helper.formatoEmail(txbEmail.Text) || string.IsNullOrEmpty(txbEmail.Text))
             {
                 txbEmail.BorderColor = System.Drawing.Color.Red;
-                lbError.Text = "Revisar los campos marcados";
+                txtErrorEmailE.Text = "Campo email vacío o formato incorrecto";
+                txtErrorEmailE.Enabled = false;
+                txtErrorEmailE.Visible = true;
                 bandera = false;
             }
             if (!helper.soloNumeros(txbTelefono.Text) || string.IsNullOrEmpty(txbTelefono.Text))
             {
                 txbTelefono.BorderColor = System.Drawing.Color.Red;
-                lbError.Text = "Revisar los campos marcados";
+                txtErrorTelefonoE.Text = "Campo teléfono vacío o formato incorrecto";
+                txtErrorTelefonoE.Enabled = false;
+                txtErrorTelefonoE.Visible = true;
                 bandera = false;
             }
             if (!helper.cantidadCaracteresDNI(txbDNI.Text))
             {
                 txbDNI.BorderColor = System.Drawing.Color.Red;
-
-                lbError.Text = "El DNI debe contener 6 o mas caracteres";
+                txtErrorDNIE.Text = "El DNI debe contener 6 o mas caracteres";
+                txtErrorDNIE.Enabled = false;
+                txtErrorDNIE.Visible = true;
                 bandera = false;
             }
             if (!helper.soloNumeros(txbDNI.Text) || string.IsNullOrEmpty(txbDNI.Text))
             {
                 txbDNI.BorderColor = System.Drawing.Color.Red;
-                lbError.Text = "Revisar los campos marcados";
+                txtErrorDNIE.Text = "Campo DNI vacío o formato incorrecto. Sólo números.";
+                txtErrorDNIE.Enabled = false;
+                txtErrorDNIE.Visible = true;
                 bandera = false;
             }
             if (Request.QueryString["id"] == null)
@@ -259,20 +277,25 @@ namespace TPC
                 if (!helper.cantidadCaracteres(txbClave.Text))
                 {
                     txbClave.BorderColor = System.Drawing.Color.Red;
-
-                    lbError.Text = "La clave debe contener 3 o mas caracteres";
+                    txtErrorClaveE.Text = "La clave debe contener 3 o mas caracteres";
+                    txtErrorClaveE.Enabled = false;
+                    txtErrorClaveE.Visible = true;
                     bandera = false;
                 }
                 if (!helper.soloNumeros(txbClave.Text))
                 {
                     txbClave.BorderColor = System.Drawing.Color.Red;
-                    lbError.Text = "Clave incorrecta.Solo se aceptan números.";
+                    txtErrorClaveE.Text = "Clave incorrecta.Solo se aceptan números.";
+                    txtErrorClaveE.Enabled = false;
+                    txtErrorClaveE.Visible = true;
                     bandera = false;
                 }
                 if (string.IsNullOrEmpty(txbClave.Text))
                 {
                     txbClave.BorderColor = System.Drawing.Color.Red;
-                    lbError.Text = "Revisar los campos marcados";
+                    txtErrorClaveE.Text = "Campo clave no puede estar vacío";
+                    txtErrorClaveE.Enabled = false;
+                    txtErrorClaveE.Visible = true;
                     bandera = false;
                 }
            
