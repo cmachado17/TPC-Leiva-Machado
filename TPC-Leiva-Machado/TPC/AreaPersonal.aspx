@@ -68,7 +68,7 @@
 
 
         <asp:GridView AutoGenerateColumns="false"
-            CssClass="table table-striped w-100"
+            CssClass="table table-hover w-100 border-dark"
             ID="dgvIncidenciasAsignadas" runat="server"
             DataKeyNames="Id"
             Style="text-align: center">

@@ -46,7 +46,7 @@
                         OnClick="BtnIncidencia_Click"
                         runat="server" 
                         type="button" 
-                        cssclass="btn btn-outline-primary"
+                        cssclass="btn btn-success"
                      />
                 </ItemTemplate>
             </asp:TemplateField>
@@ -58,7 +58,7 @@
                         Text="Modificar"
                         OnClick="BtnModificar_Click"
                         runat="server" 
-                        ImageUrl="lapiz.png" width="20" AlternateText="Modificar" ToolTip="Modificar"/>
+                        ImageUrl="./Images/lapiz.png" width="20" AlternateText="Modificar" ToolTip="Modificar"/>
                 </ItemTemplate>
             </asp:TemplateField>
 
@@ -68,7 +68,7 @@
                         Text="Detalle"
                         OnClick="BtnDetalle_Click"
                         runat="server" 
-                        ImageUrl="lupa.png" width="20"  AlternateText="Ver detalle" ToolTip="Ver detalle"/>
+                        ImageUrl="./Images/lupa.png" width="20"  AlternateText="Ver detalle" ToolTip="Ver detalle"/>
                 </ItemTemplate>
             </asp:TemplateField>
             

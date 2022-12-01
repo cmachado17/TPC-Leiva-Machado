@@ -75,7 +75,7 @@
     <Content Include="DetalleEmpleados.aspx" />
     <Content Include="DetalleIncidentes.aspx" />
     <Content Include="Errores.aspx" />
-    <Content Include="estilos.css" />
+    <Content Include="estilos\estilos.css" />
     <Content Include="FormularioAdministracion.aspx" />
     <Content Include="FormularioEmpleados.aspx" />
     <Content Include="FormularioClientes.aspx" />

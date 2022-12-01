@@ -58,16 +58,11 @@ namespace TPC
                     if (Session["error"] != null)
                     {
                         Response.Redirect("Errores.aspx", false);
-                       
+
                     }
-       
+
                 }
-                    
-                      
             }
-
-     
-
         }
 
         protected void Logout_Click(object sender, EventArgs e)

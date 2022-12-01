@@ -39,7 +39,7 @@
                         Text="Modificar"
                         OnClick="BtnModificarE_Click"
                         runat="server" 
-                        ImageUrl="lapiz.png" width="20" AlternateText="Modificar" ToolTip="Modificar"/>
+                        ImageUrl="./Images/lapiz.png" width="20" AlternateText="Modificar" ToolTip="Modificar"/>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="">
@@ -48,7 +48,7 @@
                         Text="Detalle"
                         OnClick="BtnDetalleE_Click"
                         runat="server" 
-                        ImageUrl="lupa.png" width="20" AlternateText="Ver detalle" ToolTip="Ver detalle"/>
+                        ImageUrl="./Images/lupa.png" width="20" AlternateText="Ver detalle" ToolTip="Ver detalle"/>
                 </ItemTemplate>
             </asp:TemplateField>    
         </Columns>

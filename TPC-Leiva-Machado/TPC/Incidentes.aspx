@@ -49,7 +49,7 @@
                         Text="Detalle"
                         OnClick="BtnReAsignar_Click"
                         runat="server"
-                        ImageUrl="lupa.png" Width="20" AlternateText="Reasignar" ToolTip="Reasignar"/>
+                        ImageUrl="./Images/lupa.png" Width="20" AlternateText="Reasignar" ToolTip="Reasignar"/>
                 </ItemTemplate>
             </asp:TemplateField>
 
@@ -59,7 +59,7 @@
                         Text="Detalle"
                         OnClick="BtnDetalleI_Click"
                         runat="server"
-                        ImageUrl="lupa.png" Width="20" AlternateText="Ver detalle" ToolTip="Ver detalle"/>
+                        ImageUrl="./Images/lupa.png" Width="20" AlternateText="Ver detalle" ToolTip="Ver detalle"/>
                 </ItemTemplate>
             </asp:TemplateField>
 

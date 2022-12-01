@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
     <div style="padding-bottom: 30px; text-align: center">
-        <h1   class="card text-white bg-dark mb-3">Bienvenidos al Call Center CriSan</h1>
+        <h1 class="card text-white bg-dark mb-3 py-3">Callcenter</h1>
     </div>
     <div style="padding-top: 30px" id="carouselExampleIndicators" class="carousel slide my-3" data-bs-ride="true">
         <div class="carousel-inner text-center">
@@ -26,7 +26,7 @@
         </button>
     </div>
 
-    <div class="my-5 card bg-light mb-3" >
+    <div class="my-5 card bg-light mb-3 p-3" >
         <div class="text-center" style="padding-bottom: 5px">
             <p class="text-primary">¿Cómo ver un incidente?</p>
             <p class="text-secondary">Para el perfil administrador y supervisor se habilitará el menú Incidentes; ingresando a la lupa de detalle se podrán ver más datos.
@@ -78,10 +78,12 @@
         </div>
     </div>
 
-    <div class="my-5 card bg-light mb-3" >
-        <div class="text-center">
-            <h2>Contacto</h2>
+      <div class="text-center">
+           <h2>Contacto</h2>
         </div>
+     
+
+    <div class="mt-3 mb-5 card bg-light mb-3 p-3" >
         <div>
             <div class="mb-3">
                 <asp:Label ID="lbCorreoContacto" runat="server" Text="EmailContacto" for="exampleInputEmail1" CssClass="form-label">Dirección de correo electrónico</asp:Label>
@@ -93,7 +95,6 @@
             </div>
             <div class="text-right">
                     <asp:Button ID="btnEnviar" runat="server" Text="Enviar" type="submit" CssClass="btn btn-primary" OnClick="btnEnviar_Click" />
-
             </div>
         
         </div>
