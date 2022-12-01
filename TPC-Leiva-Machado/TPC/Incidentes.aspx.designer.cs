@@ -15,6 +15,33 @@ namespace TPC
     {
 
         /// <summary>
+        /// Control dwEstadosI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dwEstadosI;
+
+        /// <summary>
+        /// Control btnBuscarI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscarI;
+
+        /// <summary>
+        /// Control FiltroClientesIn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FiltroClientesIn;
+
+        /// <summary>
         /// Control dgvIncidencias.
         /// </summary>
         /// <remarks>

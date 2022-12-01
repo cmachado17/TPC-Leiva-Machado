@@ -27,8 +27,8 @@
     </asp:GridView>
        
         <div class="row mb-3 d-flex align-items-center">
-        <div class="col-12 text-center">
-             <asp:Button ID="btnDetalle" runat="server" Text="Volver" type="submit" CssClass="btn btn-primary btn-block" onclick="btnDetalle_Click"/>
+        <div class="col-12 text-center" width="200%">
+             <asp:Button ID="btnDetalle" runat="server" Text="Volver" type="submit" CssClass="btn btn-primary centrado" onclick="btnDetalle_Click"/>
            
         </div>
 

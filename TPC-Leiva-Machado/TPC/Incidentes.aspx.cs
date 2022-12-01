@@ -14,7 +14,7 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ( !Seguridad.esAdmin(Session["empleadoLogueado"]) && !Seguridad.esSupervisor(Session["empleadoLogueado"]))
+            if (!Seguridad.esAdmin(Session["empleadoLogueado"]) && !Seguridad.esSupervisor(Session["empleadoLogueado"]))
             {
                 Session.Add("error", "Se necesita perfil de administrador o Supervisor para ingresar en esta seccion");
                 Response.Redirect("Errores.aspx");
@@ -29,6 +29,16 @@ namespace TPC
             {
                 dgvIncidencias.Columns[8].Visible = false;
 
+            }
+            if (!IsPostBack && Seguridad.sesionActiva(Session["empleadoLogueado"]))
+            {
+                EstadoNegocio estadoNegocio = new EstadoNegocio();
+                List<Estado> listEstado = estadoNegocio.listarEstado();
+
+                dwEstadosI.DataSource = listEstado;
+                dwEstadosI.DataValueField = "Id";
+                dwEstadosI.DataTextField = "Descripcion";
+                dwEstadosI.DataBind();
             }
         }
 
@@ -79,6 +89,32 @@ namespace TPC
                 Response.Redirect("FormularioIncidencia.aspx?accion=reasignar&incidencia=" + key);
 
             }
+        }
+
+        protected void btnBuscarI_Click(object sender, EventArgs e)
+        {
+            List<Incidente> listaIncidentes = (List<Incidente>)Session["listaIncidentes"];
+            List<Incidente> listaFiltrada = listaIncidentes.FindAll(x => x.Estado.Id == int.Parse(dwEstadosI.SelectedValue));
+            dgvIncidencias.DataSource = listaFiltrada;
+            dgvIncidencias.DataBind();
+        }
+
+        protected void FiltroClientesIn_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Incidente> listaIncidentes = (List<Incidente>)Session["listaIncidentes"];
+                List<Incidente> listaFiltrada = listaIncidentes.FindAll(x => x.Cliente.Nombres.ToUpper().Contains(FiltroClientesIn.Text.ToUpper()));
+                dgvIncidencias.DataSource = listaFiltrada;
+                dgvIncidencias.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", "No se encontraron datos");
+                Response.Redirect("Errores.aspx", false);
+            }
+
         }
     }
 }

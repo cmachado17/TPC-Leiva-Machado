@@ -212,19 +212,35 @@ namespace TPC
             reiniciarFormato();
             bool bandera = true;
             MetodosCompartidos helper = new MetodosCompartidos();
+            lbError.Text = "Revisar los campos marcados";
 
             //los helpers devuelven FALSE si no validan
             if (!helper.soloLetras(txbNombre.Text) || string.IsNullOrEmpty(txbNombre.Text))
             {
                 txbNombre.BorderColor = System.Drawing.Color.Red;
+                lbError.Text = "Revisar los campos marcados";
                 bandera = false;
             }
             if (!helper.soloLetras(txbApellido.Text) || string.IsNullOrEmpty(txbApellido.Text))
             {
                 txbApellido.BorderColor = System.Drawing.Color.Red;
+                lbError.Text = "Revisar los campos marcados";
                 bandera = false;
             }
 
+           
+            if (!helper.formatoEmail(txbEmail.Text) || string.IsNullOrEmpty(txbEmail.Text))
+            {
+                txbEmail.BorderColor = System.Drawing.Color.Red;
+                lbError.Text = "Revisar los campos marcados";
+                bandera = false;
+            }
+            if (!helper.soloNumeros(txbTelefono.Text) || string.IsNullOrEmpty(txbTelefono.Text))
+            {
+                txbTelefono.BorderColor = System.Drawing.Color.Red;
+                lbError.Text = "Revisar los campos marcados";
+                bandera = false;
+            }
             if (!helper.cantidadCaracteresDNI(txbDNI.Text))
             {
                 txbDNI.BorderColor = System.Drawing.Color.Red;
@@ -238,28 +254,28 @@ namespace TPC
                 lbError.Text = "Revisar los campos marcados";
                 bandera = false;
             }
-            if (!helper.formatoEmail(txbEmail.Text) || string.IsNullOrEmpty(txbEmail.Text))
+            if (Request.QueryString["id"] == null)
             {
-                txbEmail.BorderColor = System.Drawing.Color.Red;
-                bandera = false;
-            }
-            if (!helper.soloNumeros(txbTelefono.Text) || string.IsNullOrEmpty(txbTelefono.Text))
-            {
-                txbTelefono.BorderColor = System.Drawing.Color.Red;
-                bandera = false;
-            }
-            if (!helper.cantidadCaracteres(txbClave.Text))
-                 {
-                txbClave.BorderColor = System.Drawing.Color.Red;
+                if (!helper.cantidadCaracteres(txbClave.Text))
+                {
+                    txbClave.BorderColor = System.Drawing.Color.Red;
 
-                lbError.Text = "La clave debe contener 3 o mas caracteres";
-                bandera = false;
-            }
-            if (!helper.soloNumeros(txbClave.Text) || string.IsNullOrEmpty(txbClave.Text))
-            {
-                txbClave.BorderColor = System.Drawing.Color.Red;
-                lbError.Text = "Revisar los campos marcados";
-                bandera = false;
+                    lbError.Text = "La clave debe contener 3 o mas caracteres";
+                    bandera = false;
+                }
+                if (!helper.soloNumeros(txbClave.Text))
+                {
+                    txbClave.BorderColor = System.Drawing.Color.Red;
+                    lbError.Text = "Clave incorrecta.Solo se aceptan números.";
+                    bandera = false;
+                }
+                if (string.IsNullOrEmpty(txbClave.Text))
+                {
+                    txbClave.BorderColor = System.Drawing.Color.Red;
+                    lbError.Text = "Revisar los campos marcados";
+                    bandera = false;
+                }
+           
             }
 
             return bandera;
@@ -272,7 +288,7 @@ namespace TPC
             txbDNI.BorderColor = System.Drawing.Color.Black;
             txbEmail.BorderColor = System.Drawing.Color.Black;
             txbTelefono.BorderColor = System.Drawing.Color.Black;
-
+            txbClave.BorderColor = System.Drawing.Color.Black;
         }
     }
 }

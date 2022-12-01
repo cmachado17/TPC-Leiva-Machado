@@ -7,6 +7,23 @@
         <h1 >Incidencias</h1>
     </div>
 
+       <div class="text-center">
+      
+         <div class="my-3 d-flex align-items-center " style="padding-bottom: 3px">
+            <div style="font-size: 20px; font-weight: bold; margin-right: 5px;" >
+                <asp:Label Text="Estado:" runat="server" />
+            </div>
+            <asp:DropDownList ID="dwEstadosI" AutoPostBack="false" CssClass="form-control" runat="server"></asp:DropDownList>
+            <asp:Button ID="btnBuscarI" Text="Buscar" runat="server" OnClick="btnBuscarI_Click" CssClass="btn btn-success ml-3" />
+        </div>
+        <div class="mb-3 pb-3 d-flex align-items-center" >  
+            <div style="font-size: 20px; font-weight: bold; margin-right: 5px;" >
+                <asp:Label Text="Cliente:" runat="server" />
+            </div>
+        <asp:TextBox runat="server" ID="FiltroClientesIn" AutoPostBack="true" OnTextChanged="FiltroClientesIn_TextChanged" CssClass="form-control" placeholder="Ingrese el nombre del cliente.." />
+    </div>
+       
+
     <%--<asp:Button Text="Cargar incidencia" runat="server" cssclass="btn btn-primary" href="Incidentes.aspx"/>--%>
     <asp:GridView CssClass="table table-striped w-100 my-3"
         ID="dgvIncidencias" runat="server"
