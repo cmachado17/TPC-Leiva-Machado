@@ -148,6 +148,12 @@ namespace TPC
                 EmpleadoNegocio negocio = new EmpleadoNegocio();
                 Empleado empleado = (Empleado)Session["empleadoLogueado"];
                 string ruta = Server.MapPath("./Images/");
+                if(txtImagen.PostedFile.ContentLength == 0)
+                {
+                    string msg = "Debe cargar el archivo";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                    return;
+                }
                 txtImagen.PostedFile.SaveAs(ruta + "empleado-" + empleado.Id + ".jpg");
 
                 empleado.URLImagen = "empleado-" + empleado.Id + ".jpg";
