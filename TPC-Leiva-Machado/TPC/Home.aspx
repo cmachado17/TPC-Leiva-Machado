@@ -3,8 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   
     <div style="padding-bottom: 30px; text-align: center">
-        <h1>Bienvenidos al Call Center CriSan</h1>
+        <h1   class="card text-white bg-dark mb-3">Bienvenidos al Call Center CriSan</h1>
     </div>
     <div style="padding-top: 30px" id="carouselExampleIndicators" class="carousel slide my-3" data-bs-ride="true">
         <div class="carousel-inner text-center">
@@ -25,25 +26,41 @@
         </button>
     </div>
 
-    <div class="my-5">
+    <div class="my-5 card bg-light mb-3" >
         <div class="text-center" style="padding-bottom: 5px">
             <p class="text-primary">¿Cómo ver un incidente?</p>
-            <p class="text-secondary">De acuerdo al perfil se habilitará el menú Incidentes.</p>
+            <p class="text-secondary">Para el perfil administrador y supervisor se habilitará el menú Incidentes; ingresando a la lupa de detalle se podrán ver más datos.
+                El perfil telefonista deberá ingresar en Area Personal  y verá las incidencias asignadas.
+            </p>
         </div>
 
         <div class="text-center" style="padding-bottom: 5px">
             <p class="text-primary">¿Cómo cargar un incidente?</p>
             <p class="text-secondary">
-                Ingresar a la opción del menú Incidentes, 
-        presionar el botón cargar incidencia, completar el formulario y por último el botón Ingresar.
+                Solo podrá cargar el Telefonista ingresando a la opción del menú Clientes, 
+        ahí debe presionar el botón cargar incidencia, completar el formulario y por último el botón Ingresar.
+            </p>
+        </div>
+         <div class="text-center" style="padding-bottom: 5px">
+            <p class="text-primary">¿Que cambios se pueden hacer en el incidente?</p>
+            <p class="text-secondary">
+  El perfil Telefonista podrá modificar, resolver o cerrar ingresando al Area Personal, a mis incidencias asignadas.
+                El perfil Supervisor podrá ingresar al menú Incidentes, en la lupa reasignar y gestionará el cambio de empleado asignado.
+            </p>
+        </div>
+               <div class="text-center" style="padding-bottom: 5px">
+            <p class="text-primary">¿Qué es el Area Personal?</p>
+            <p class="text-secondary">
+  Es donde se podrán ver los datos personales, cambiar la imagen, cambiar la clave asignada por el Administrador.
+                Además en el caso de los Telefonistas, es donde gestionarán las incidencias.
             </p>
         </div>
 
         <div class="text-center" style="padding-bottom: 5px">
             <p class="text-primary">¿Qué opciones hay en clientes?</p>
             <p class="text-secondary">
-                Ingresar a la opción del menú Clientes, que se habilitará de acuerdo al perfil. 
-        Se puede cargar una incidencia presionando cargar incidencia en el listado; se puede modificar el cliente
+            Las opciones se habilitarán de acuerdo al perfil. 
+        Se puede cargar un cliente haciendo click en el botón agregar Cliente, se puede cargar una incidencia presionando cargar incidencia en el listado; se puede modificar el cliente
         haciendo click en el lapiz y se puede ver mas informacion haciendo click en la lupa del detalle.
             </p>
         </div>
@@ -51,17 +68,17 @@
         <div class="text-center" style="padding-bottom: 5px">
             <p class="text-primary">¿Como agregar y/o eliminar un usuario?</p>
             <p class="text-secondary">
-                Ingresar a la opción del menú Usuarios, que se habilitará de acuerdo al perfil. 
-        Para agregar hacer click en el boton agregar usuario debajo del listado, completar el formulario y luego 
-        el botón confirmar. Para eliminar el usuario se debera hacer click
-        en el lapiz, se podra modificar desde el formulario y presionando confirmar o para eliminar
+                Ingresar a la opción del menú Empleados, que se habilitará de acuerdo al perfil. 
+        Para agregar hacer click en el boton agregar empleado debajo del listado, completar el formulario y luego 
+        el botón confirmar. Para eliminar el empleado se deberá hacer click
+        en el lapiz, se podrá modificar desde el formulario y presionando confirmar o para eliminar
         simplemente presionar el boton eliminar o deshabilitar.
-        También se puede ver mas informacion del usuario haciendo click en la lupa del detalle.
+        También se puede ver mas informacion del empleado haciendo click en la lupa del detalle.
             </p>
         </div>
     </div>
 
-    <div class="my-5">
+    <div class="my-5 card bg-light mb-3" >
         <div class="text-center">
             <h2>Contacto</h2>
         </div>
@@ -81,4 +98,6 @@
         
         </div>
     </div>
+
+        
 </asp:Content>
