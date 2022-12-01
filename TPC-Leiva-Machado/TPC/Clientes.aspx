@@ -25,11 +25,11 @@
     </div>
           </div>
       <asp:GridView AutoGenerateColumns="false"
-        CssClass="table table-hover w-100 border-dark"
+        CssClass="table table-hover w-100 border-dark bg-light"
         ID="dgvClientes" runat="server"
         DataKeyNames="Id"
         OnPageIndexChanging="dgvClientes_PageIndexChanging"
-        AllowPaging="true" PageSize="10"
+        AllowPaging="true" PageSize="5"
         style= "text-align:center">
    
                 

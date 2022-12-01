@@ -56,7 +56,7 @@ namespace TPC
 
         protected void BtnModificar_Click(object sender, EventArgs e)
         {
-            Button b = (Button)sender;
+            ImageButton b = (ImageButton)sender;
             GridViewRow row = (GridViewRow)b.NamingContainer;
             MetodosCompartidos helper = new MetodosCompartidos();
             if (row != null)
@@ -82,7 +82,7 @@ namespace TPC
         protected void BtnResolver_Click(object sender, EventArgs e)
         {
 
-            Button b = (Button)sender;
+            ImageButton b = (ImageButton)sender;
             GridViewRow row = (GridViewRow)b.NamingContainer;
             MetodosCompartidos helper = new MetodosCompartidos();
             if (row != null)
@@ -109,7 +109,7 @@ namespace TPC
         protected void BtnCerrar_Click(object sender, EventArgs e)
         {
 
-            Button b = (Button)sender;
+            ImageButton b = (ImageButton)sender;
             GridViewRow row = (GridViewRow)b.NamingContainer;
             MetodosCompartidos helper = new MetodosCompartidos();
             if (row != null)

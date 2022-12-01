@@ -4,16 +4,25 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
-    <div style="padding-bottom: 30px; text-align: center">
-        <h1 class="card text-white bg-dark mb-3 py-3">Callcenter</h1>
+    <div style="text-align: center">
+        <h1 class="card text-white bg-dark mb-0 py-3">Callcenter</h1>
     </div>
-    <div style="padding-top: 30px" id="carouselExampleIndicators" class="carousel slide my-3" data-bs-ride="true">
+    <div id="carouselExampleIndicators" class="carousel slide my-3" data-bs-ride="true">
         <div class="carousel-inner text-center">
             <div class="carousel-item active">
-                <img src="https://www.freeiconspng.com/thumbs/help-desk-icon/help-desk-icon-8.png" class="img" alt="...">
+                <img src="./Images/call1.jpg" class="img img-fluid w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/4961/4961759.png" class="img" alt="...">
+                <img src="./Images/call2.jpg" class="img img-fluid w-100" alt="...">
+            </div>
+                 <div class="carousel-item">
+                <img src="./Images/call3.jpg" class="img img-fluid w-100" alt="...">
+            </div>
+                 <div class="carousel-item">
+                <img src="./Images/call4.png" class="img img-fluid w-100" alt="...">
+            </div>
+               <div class="carousel-item">
+                <img src="./Images/call5.jpg" class="img img-fluid w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev control-carousel" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

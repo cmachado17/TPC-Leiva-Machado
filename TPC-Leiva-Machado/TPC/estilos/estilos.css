@@ -1,4 +1,8 @@
-﻿.datos-personales {
+﻿body{
+    background-color: rgb(206 233 254);
+}
+
+.datos-personales {
     font-size: 25px;
 }
 
@@ -24,7 +28,7 @@
 }
 
 .carousel-item img {
-    height: 200px !important;
+    height: 400px !important;
 }
 
 .table > tbody > tr > td {

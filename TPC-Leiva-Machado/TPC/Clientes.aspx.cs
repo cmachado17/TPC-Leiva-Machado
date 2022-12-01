@@ -84,7 +84,7 @@ namespace TPC
                     cliente = negocio.listarClientePorId(Int32.Parse(key));
                     if(cliente.Activo == false)
                     {
-                        Session.Add("error", "El cliente debe econtrarse activo para cargar un incidente");
+                        Session.Add("error", "El cliente debe encontrarse activo para cargar un incidente");
                         Response.Redirect("Errores.aspx", false);
                     }
                     else

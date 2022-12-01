@@ -22,7 +22,7 @@ namespace TPC
             string cuerpo = "<html><h1>Aviso de contacto</h1><p>Hola, hemos recibido tu contacto y te responderemos a la brevedad.</p><p>Gracias por utilizar nuestros servicios.</p></html>";
             emailService.armarCorreo(txtCorreoContacto.Text, "Contacto Callcenter", cuerpo);
             emailService.enviarEmail();
-            Response.Redirect("Home.aspx", false);
+            Response.Redirect("Home.aspx", true);
         }
     }
 }
