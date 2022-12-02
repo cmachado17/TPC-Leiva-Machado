@@ -96,9 +96,6 @@ namespace TPC
                     }
 
                 }
-            
-
-
             }
             catch (Exception ex)
             {
