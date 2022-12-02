@@ -63,6 +63,8 @@ namespace TPC
 
                 }
             }
+
+            Session.Remove("error");
         }
 
         protected void Logout_Click(object sender, EventArgs e)

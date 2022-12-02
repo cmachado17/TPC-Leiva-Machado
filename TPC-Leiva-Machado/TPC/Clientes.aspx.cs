@@ -77,14 +77,13 @@ namespace TPC
                     //Obtenemos el indice de la fila
                     int rowIndex = row.RowIndex;
 
-                    
                     //obtenemos el Datakey de la row, que es el ID Cliente
                     string key = dgvClientes.DataKeys[rowIndex].Value.ToString();
                     Cliente cliente = new Cliente();
                     cliente = negocio.listarClientePorId(Int32.Parse(key));
                     if(cliente.Activo == false)
                     {
-                        Session.Add("error", "El cliente debe encontrarse activo para cargar un incidente");
+                        Session.Add("error", "El cliente debe encontrarse activo para cargar un incidente, contacte a un supervisor.");
                         Response.Redirect("Errores.aspx", false);
                     }
                     else

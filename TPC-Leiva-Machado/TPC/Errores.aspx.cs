@@ -12,14 +12,15 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-         
-
+            
             if (Session["error"] != null)
             {
                 txtError.Text = (String) Session["error"];
                 txtError.Enabled = false;
+            }
+            else
+            {
+                Response.Redirect("Home.aspx", false);
             }
         }
     }
