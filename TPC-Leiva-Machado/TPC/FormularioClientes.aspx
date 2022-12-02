@@ -57,13 +57,13 @@
             <a href="Clientes.aspx" class="btn btn-danger btn-block my-1 mx-5">Cancelar</a>
         </div>
 
-        <% if (Request.QueryString["id"] != null)
+        <% if (Request.QueryString["id"] != null && Session["Perfil"].Equals(1))
             { %>
         <div class="col-12 text-center d-flex">
             <asp:Button Text="Eliminar" ID="btnEliminar" OnClick="btnEliminar_Click" CssClass="btn btn-danger btn-block my-1 mx-5" runat="server" />
             <asp:Button Text="Desactivar" ID="btnDesactivar" OnClick="btnDesactivar_Click" CssClass="btn btn-warning btn-block my-1 mx-5" runat="server" />
         </div>
-        <% if (ConfirmarEliminacion)
+        <% if (ConfirmarEliminacion && Session["Perfil"].Equals(1))
             { %>
         <div class="col-12 mt-3 d-flex align-items-center justify-content-center">
             <div class="form-check">
