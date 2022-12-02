@@ -99,8 +99,11 @@
                 <asp:TextBox placeholder="Ingrese su correo electrónico" ID="txtCorreoContacto" runat="server" type="email" CssClass="form-control"></asp:TextBox>
             </div>
             <div class="mb-3">
-                <asp:Label ID="lbComentario" runat="server" Text="Comentario" for="exampleFormControlTextarea1" class="form-label">Comentarios</asp:Label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <asp:Label ID="lbComentario" runat="server" Text="Comentario" for="areaContacto" class="form-label">Comentarios</asp:Label>
+                <asp:textbox id="txComentario" TextMode="multiline" Height="100" runat="server" CssClass="form-control" />
+            </div>
+              <div class="mb-3">
+                  <asp:Label Text="Verificar campos marcados." runat="server" id="lbError"/>
             </div>
             <div class="text-right">
                     <asp:Button ID="btnEnviar" runat="server" Text="Enviar" type="submit" CssClass="btn btn-primary" OnClick="btnEnviar_Click" />

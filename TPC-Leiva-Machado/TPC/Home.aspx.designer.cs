@@ -42,6 +42,24 @@ namespace TPC
         protected global::System.Web.UI.WebControls.Label lbComentario;
 
         /// <summary>
+        /// Control txComentario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txComentario;
+
+        /// <summary>
+        /// Control lbError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbError;
+
+        /// <summary>
         /// Control btnEnviar.
         /// </summary>
         /// <remarks>
