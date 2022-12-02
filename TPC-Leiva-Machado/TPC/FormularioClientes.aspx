@@ -20,22 +20,28 @@
     <div class="mb-3">
         <asp:Label ID="lbNombre" runat="server" Text="Nombre" CssClass="form-label">Nombre</asp:Label>
         <asp:TextBox ID="txbNombre" runat="server" CssClass="form-control"></asp:TextBox>
+     <asp:TextBox Style="background: none; color: crimson; border-style: none" ID="txtErrorNombreC" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
     <div class="mb-3">
         <asp:Label ID="lbApellido" runat="server" Text="Apellido" CssClass="form-label">Apellido</asp:Label>
         <asp:TextBox ID="txbApellido" runat="server" CssClass="form-control"></asp:TextBox>
+     <asp:TextBox Style="background: none; color: crimson; border-style: none" ID="txtErrorApellidoC" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
     <div class="mb-3">
         <asp:Label ID="lbDNI" runat="server" Text="DNI" CssClass="form-label">DNI</asp:Label>
         <asp:TextBox ID="txbDNI" runat="server" CssClass="form-control"></asp:TextBox>
+ <asp:TextBox Style="background: none; color: crimson; border-style: none" ID="txtErrorDNIC" runat="server" CssClass="form-control"></asp:TextBox>
+
     </div>
     <div class="mb-3">
         <asp:Label ID="lbEmail" runat="server" Text="Email" CssClass="form-label">Email</asp:Label>
         <asp:TextBox type="Email"  ID="txbEmail" runat="server" CssClass="form-control"></asp:TextBox>
+     <asp:TextBox Style="background: none; color: crimson; border-style: none" ID="txtErrorEmailC" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
     <div class="mb-3">
         <asp:Label ID="lbTelefono" runat="server" Text="Telefono" CssClass="form-label">Telefono</asp:Label>
         <asp:TextBox ID="txbTelefono" runat="server" CssClass="form-control"></asp:TextBox>
+         <asp:TextBox Style="background: none; color: crimson; border-style: none" ID="txtErrorTelefonoC" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
     <div class="mb-3">
         <asp:Label ID="lbError" runat="server" Text="Revisar los campos marcados" CssClass="form-label">Revisar los campos marcados</asp:Label>

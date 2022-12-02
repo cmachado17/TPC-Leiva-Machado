@@ -24,6 +24,13 @@ namespace TPC
             ConfirmarEliminacion = false;
             txtId.Visible = false;
             lbError.Visible = false;
+            lbError.Visible = false;
+            txtErrorNombreC.Visible = false;
+            txtErrorApellidoC.Visible = false;
+            txtErrorDNIC.Visible = false;
+            txtErrorEmailC.Visible = false;
+            txtErrorTelefonoC.Visible = false;
+           
 
             if (Request.QueryString["id"] != null && !IsPostBack)
             {
@@ -89,10 +96,7 @@ namespace TPC
                     }
 
                 }
-                else
-                {
-                    lbError.Visible = true;
-                }
+            
 
 
             }
@@ -169,26 +173,49 @@ namespace TPC
             if (!helper.soloLetras(txbNombre.Text) || string.IsNullOrEmpty(txbNombre.Text))
             {
                 txbNombre.BorderColor = System.Drawing.Color.Red;
+                txtErrorNombreC.Text = "Campo nombre vacío o formato incorrecto";
+                txtErrorNombreC.Enabled = false;
+                txtErrorNombreC.Visible = true;
                 bandera = false;
             }
             if (!helper.soloLetras(txbApellido.Text) || string.IsNullOrEmpty(txbApellido.Text))
             {
                 txbApellido.BorderColor = System.Drawing.Color.Red;
+                txtErrorApellidoC.Text = "Campo apellido vacío o formato incorrecto";
+                txtErrorApellidoC.Enabled = false;
+                txtErrorApellidoC.Visible = true;
+                bandera = false;
+            }
+            if (!helper.cantidadCaracteresDNI(txbDNI.Text))
+            {
+                txbDNI.BorderColor = System.Drawing.Color.Red;
+                txtErrorDNIC.Text = "El DNI debe contener 6 o mas caracteres";
+                txtErrorDNIC.Enabled = false;
+                txtErrorDNIC.Visible = true;
                 bandera = false;
             }
             if (!helper.soloNumeros(txbDNI.Text) || string.IsNullOrEmpty(txbDNI.Text))
             {
                 txbDNI.BorderColor = System.Drawing.Color.Red;
+                txtErrorDNIC.Text = "Campo DNI vacío o formato incorrecto. Sólo números.";
+                txtErrorDNIC.Enabled = false;
+                txtErrorDNIC.Visible = true;
                 bandera = false;
             }
             if (!helper.soloNumeros(txbTelefono.Text) || string.IsNullOrEmpty(txbTelefono.Text))
             {
                 txbTelefono.BorderColor = System.Drawing.Color.Red;
+                txtErrorTelefonoC.Text = "Campo teléfono vacío o formato incorrecto";
+                txtErrorTelefonoC.Enabled = false;
+                txtErrorTelefonoC.Visible = true;
                 bandera = false;
             }
             if (!helper.formatoEmail(txbEmail.Text) || string.IsNullOrEmpty(txbEmail.Text))
             {
                 txbEmail.BorderColor = System.Drawing.Color.Red;
+                txtErrorEmailC.Text = "Campo email vacío o formato incorrecto";
+                txtErrorEmailC.Enabled = false;
+                txtErrorEmailC.Visible = true;
                 bandera = false;
             }
 

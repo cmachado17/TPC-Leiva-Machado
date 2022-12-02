@@ -42,6 +42,15 @@ namespace TPC
         protected global::System.Web.UI.WebControls.TextBox txbNombre;
 
         /// <summary>
+        /// Control txtErrorNombreC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtErrorNombreC;
+
+        /// <summary>
         /// Control lbApellido.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace TPC
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbApellido;
+
+        /// <summary>
+        /// Control txtErrorApellidoC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtErrorApellidoC;
 
         /// <summary>
         /// Control lbDNI.
@@ -78,6 +96,15 @@ namespace TPC
         protected global::System.Web.UI.WebControls.TextBox txbDNI;
 
         /// <summary>
+        /// Control txtErrorDNIC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtErrorDNIC;
+
+        /// <summary>
         /// Control lbEmail.
         /// </summary>
         /// <remarks>
@@ -96,6 +123,15 @@ namespace TPC
         protected global::System.Web.UI.WebControls.TextBox txbEmail;
 
         /// <summary>
+        /// Control txtErrorEmailC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtErrorEmailC;
+
+        /// <summary>
         /// Control lbTelefono.
         /// </summary>
         /// <remarks>
@@ -112,6 +148,15 @@ namespace TPC
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbTelefono;
+
+        /// <summary>
+        /// Control txtErrorTelefonoC.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtErrorTelefonoC;
 
         /// <summary>
         /// Control lbError.
