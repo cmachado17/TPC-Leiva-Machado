@@ -81,7 +81,6 @@
                 <asp:BoundField HeaderText="Prioridad" DataField="Prioridad.Descripcion" />
                 <asp:BoundField HeaderText="Estado" DataField="Estado.Descripcion" />
                 <asp:BoundField HeaderText="FechaDeAlta" DataField="FechaDeAlta" />
-                <asp:BoundField HeaderText="Problematica" DataField="Problematica" />
 
                 <asp:TemplateField HeaderText="">
                     <ItemTemplate>
@@ -114,6 +113,15 @@
                             ImageUrl="./Images/cancel.png" Width="20" AlternateText="Cerrar" ToolTip="Cerrar" />
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="Detalle">
+                <ItemTemplate>
+                    <asp:ImageButton ID="BtnDetalleI"
+                        Text="Detalle"
+                        OnClick="BtnDetalleI_Click"
+                        runat="server"
+                        ImageUrl="./Images/lupa.png" Width="20" AlternateText="Ver detalle" ToolTip="Ver detalle"/>
+                </ItemTemplate>
+            </asp:TemplateField>
             </Columns>
         </asp:GridView>
 

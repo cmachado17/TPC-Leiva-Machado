@@ -13,12 +13,6 @@ namespace TPC
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Seguridad.esTelefonista(Session["empleadoLogueado"]))
-            {
-                Session.Add("error", "Se necesita perfil de administrador o supervisor para ingresar en esta seccion");
-                Response.Redirect("Errores.aspx", false);
-            }
-
                 dwMotivoI.Visible = false;
                 txComentarioI.Visible = false;
                 lbMotivoI.Visible = false;
@@ -112,6 +106,11 @@ namespace TPC
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
+            if(((Empleado)Session["empleadoLogueado"]).Perfil.Id == 2)
+            {
+                Response.Redirect("AreaPersonal.aspx", false);
+                return;
+            }
             Response.Redirect("Incidentes.aspx", false);
         }
     }
