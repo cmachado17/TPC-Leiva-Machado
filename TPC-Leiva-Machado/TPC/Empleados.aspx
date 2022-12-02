@@ -17,12 +17,12 @@
 
 
     <asp:GridView AutoGenerateColumns="false"
-        CssClass="table table-striped w-100"
+        CssClass="table table-striped w-100 bg-light"
         ID="dgvEmpleados" runat="server"
         DataKeyNames="Id" OnSelectedIndexChanged="dgvEmpleados_SelectedIndexChanged"
         OnPageIndexChanging="dgvEmpleados_PageIndexChanging"
         AllowPaging="true" PageSize="10"
-        style= "text-align:center">
+        style= "text-align:center; border-top-color: black;">
         <Columns>
             <asp:BoundField HeaderText="Nombres" DataField="Nombres" />
             <asp:BoundField HeaderText="Apellidos" DataField="Apellidos" />

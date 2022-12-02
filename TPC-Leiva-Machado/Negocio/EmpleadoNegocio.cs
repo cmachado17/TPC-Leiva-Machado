@@ -350,5 +350,39 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public bool VerificarEmail(Empleado empleado)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            bool bandera = false;
+
+            try
+            {
+                datos.setearConsulta("Select * from Empleados where Email = @email");
+                datos.setearParametro("@email", empleado.Email);
+                datos.ejecutarLectura();
+
+
+                if (datos.Lector.Read())
+                {
+                    bandera = true;
+                    return bandera;
+
+                }
+
+                return bandera;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

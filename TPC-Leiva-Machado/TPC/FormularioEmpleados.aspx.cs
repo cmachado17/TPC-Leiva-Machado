@@ -124,18 +124,54 @@ namespace TPC
                     }
                     else
                     {
+                        bool banderaEmail = false;
+                        bool banderaDNI = false;
                         //Si estoy agregando, tengo que validar que no agreguen el mismo DNI
-                        if (!negocio.listarEmpleadoPorDNI(nuevo.DNI))
+                        if (negocio.listarEmpleadoPorDNI(nuevo.DNI))
                         {
-                            negocio.AgregarEmpleado(nuevo);
-                            Response.Redirect("Empleados.aspx", false);
+                            //negocio.AgregarEmpleado(nuevo);
+                            //Response.Redirect("Empleados.aspx", false);
+                            banderaDNI = true;
                         }
-                        else
+                        /*else
+                        {
+                            string msg = "Ya existe un empleado con ese DNI.";
+                            Response.Write("<script>alert('" + msg + "')</script>");
+                        }*/
+                        if (negocio.VerificarEmail(nuevo))
+                        {
+                            //negocio.AgregarEmpleado(nuevo);
+                            //Response.Redirect("Empleados.aspx", false);
+                            banderaEmail = true;
+                        }
+
+                       /* else
+                        {
+                            string msg = "Ya existe un empleado con ese Email.";
+                            Response.Write("<script>alert('" + msg + "')</script>");
+                        }*/
+                       if(banderaDNI == true)
                         {
                             string msg = "Ya existe un empleado con ese DNI.";
                             Response.Write("<script>alert('" + msg + "')</script>");
                         }
+
+                        if (banderaEmail == true)
+                        {
+                            string msg = "Ya existe un empleado con ese Email.";
+                            Response.Write("<script>alert('" + msg + "')</script>");
+                        }
+
+                        if(banderaDNI == false && banderaEmail == false)
+                        {
+                            negocio.AgregarEmpleado(nuevo);
+                            Response.Redirect("Empleados.aspx", false);
+                        }
+
+                  
+
                     }
+                 
                 }
               
             }
