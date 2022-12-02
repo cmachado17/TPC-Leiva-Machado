@@ -108,9 +108,6 @@ namespace TPC
                 txtErrorEmail.Visible = true;
                 bandera = false;
             }
-
-
-
             return bandera;
         }
 
@@ -119,6 +116,48 @@ namespace TPC
             txtUser.BorderColor = System.Drawing.Color.Black;
             txtClave.BorderColor = System.Drawing.Color.Black;
 
+        }
+
+        protected void btnOlvideMiPass_Click(object sender, EventArgs e)
+        {
+            EmpleadoNegocio negocio = new EmpleadoNegocio();
+            EmailService emailService = new EmailService();
+            try
+            {
+                if (validarOlvideMiPass())
+                {
+                    Empleado aux = negocio.buscarEmpleadoPorEmail(txtUser.Text);
+                    string cuerpo = "<html><h1>" + aux.Nombres + "</h1><p>Hola, hemos recibido la solicitud de reestablecer tu contraseña. La misma es <span style=\"font-weight: bold;\">" + aux.Clave.ToString() +"</span></p><p>Gracias por utilizar nuestros servicios.</p></html>";
+                    emailService.armarCorreo(aux.Email, "Restablecer contraseña", cuerpo);
+                    emailService.enviarEmail();
+
+                    string msg = "Se te enviaran las credenciales via email.";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                Session.Add("error", "Error al reiniciar contraseña");
+                Response.Redirect("Errores.aspx", false);
+            }
+        }
+
+        private bool validarOlvideMiPass()
+        {
+            reiniciarFormato();
+            bool bandera = true;
+            MetodosCompartidos helper = new MetodosCompartidos();
+
+            if (!helper.formatoEmail(txtUser.Text) || string.IsNullOrEmpty(txtUser.Text))
+            {
+                txtUser.BorderColor = System.Drawing.Color.Red;
+
+                txtErrorEmail.Text = "Debe completar el campo Email para resetear su contraseña.";
+                txtErrorEmail.Enabled = false;
+                txtErrorEmail.Visible = true;
+                bandera = false;
+            }
+            return bandera;
         }
     }
 }

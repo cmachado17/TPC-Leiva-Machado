@@ -21,7 +21,7 @@
         <asp:TextBox Style="background: none; color: crimson; border-style: none" ID="txtErrorClave" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
         <div class="text-right">
-            <asp:Button AutoPostBack="true" ID="btnOlvideMiPass" runat="server" Text="Olvide mi contraseña" type="submit" CssClass="btn btn-warning mx-2"/>
+            <asp:Button AutoPostBack="true" ID="btnOlvideMiPass" runat="server" Text="Olvide mi contraseña" type="submit" CssClass="btn btn-warning mx-2" OnClick="btnOlvideMiPass_Click"/>
             <asp:Button AutoPostBack="true" ID="btnIngresar" runat="server" Text="Ingresar" type="submit" CssClass="btn btn-primary" OnClick="btnIngresar_Click" />
         </div>
   </div>

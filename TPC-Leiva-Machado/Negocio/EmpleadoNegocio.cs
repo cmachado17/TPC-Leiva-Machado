@@ -384,5 +384,31 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+        public Empleado buscarEmpleadoPorEmail(string email)
+        {
+            Empleado aux = new Empleado();
+            try
+            {
+                datos.setearConsulta("Select * from Empleados where Email = @email");
+                datos.setearParametro("@email", email);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    aux.Email = (string)datos.Lector["Email"];
+                    aux.Clave = (int)datos.Lector["Clave"];
+                    aux.Nombres = (string)datos.Lector["Apellidos"] + ", " +(string)datos.Lector["Nombres"];
+                }
+                return aux;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
