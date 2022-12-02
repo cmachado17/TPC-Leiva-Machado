@@ -3,17 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="text-center bg-light " style="padding-bottom:30px">
+    <div class="text-center mb-3">
         <% if (Request.QueryString["id"] != null)
             { %>
-        <h2>Modificar empleado</h2>
+        <h1>Modificar empleado</h1>
         <%}
             else
             {%>
-        <h2>Agregar empleado</h2>
+        <h1>Agregar empleado</h1>
         <%}%>
     </div>
-    <div class="mb-3">
+    <div class="card bg-light px-5 py-2 mb-3">
+<div class="mb-3">
         <asp:TextBox runat="server" ID="txtId" CssClass="form-control" />
     </div>
     <div class="mb-3">
@@ -53,6 +54,8 @@
     <div class="mb-3">
         <asp:Label ID="lbError" runat="server" Text="Revisar los campos marcados" CssClass="form-label">Revisar los campos marcados</asp:Label>
     </div>
+    </div>
+    
     <div class="row">
         <div class="col-12 text-center mb-2 d-flex">
             <asp:Button AutoPostBack="false" OnClick="btnConfirmar_Click" ID="btnConfirmar" runat="server" Text="Confirmar" CssClass="btn btn-primary btn-block my-1 mx-5" />

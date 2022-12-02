@@ -4,11 +4,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
  <div class="text-center" style="margin-bottom: 30px" >
-        <h2>Detalle incidencia</h2>
+        <h1>Detalle incidencia</h1>
     </div>
 
-
-    <div class="mb-3">
+    <div class="card bg-light px-5 py-2 mb-3">
+        <div class="mb-3">
         <asp:Label ID="lbTipoI" runat="server" Text="TipoIncidencia" CssClass="form-label">Tipo</asp:Label>
         <asp:DropDownList ID="dwTipoI" runat="server" CssClass="form-control"></asp:DropDownList>
     </div>
@@ -43,6 +43,8 @@
         <asp:Label ID="lbComentarioI" runat="server" Text="Comentario" CssClass="form-label">Comentario</asp:Label>
         <asp:textbox id="txComentarioI" TextMode="multiline" Height="100" runat="server" CssClass="form-control" />
     </div>
+    </div>
+    
     
       <asp:Button ID="btnCancelar" runat="server" Text="Volver" type="submit" CssClass="btn btn-danger btn-block" onclick="btnCancelar_Click"/>
 
