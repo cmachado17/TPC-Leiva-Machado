@@ -7,7 +7,7 @@
         <h1 >Incidencias</h1>
     </div>
 
-       <div class="text-center">
+        <div class="card px-5 pt-3  pb-2  bg-light mb-3">
       
          <div class="my-3 d-flex align-items-center " style="padding-bottom: 3px">
             <div style="font-size: 20px; font-weight: bold; margin-right: 5px;" >
@@ -22,10 +22,11 @@
             </div>
         <asp:TextBox runat="server" ID="FiltroClientesIn" AutoPostBack="true" OnTextChanged="FiltroClientesIn_TextChanged" CssClass="form-control" placeholder="Ingrese el nombre del cliente.." />
     </div>
+            </div>
        
 
     <%--<asp:Button Text="Cargar incidencia" runat="server" cssclass="btn btn-primary" href="Incidentes.aspx"/>--%>
-    <asp:GridView CssClass="table table-striped w-100 my-3"
+    <asp:GridView CssClass="table table-hover w-100 border-dark bg-light"
         ID="dgvIncidencias" runat="server"
         AutoGenerateColumns="false"
         DataKeyNames="Id"

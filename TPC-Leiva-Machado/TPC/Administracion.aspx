@@ -13,7 +13,7 @@
                  </div>
           <%--  <a class="btn btn-primary btn-block" href="FormularioAdministracion?categoria=prioridad.aspx">Agregar prioridad</a>--%>
             <asp:GridView AutoGenerateColumns="false"
-                CssClass="table table-striped w-100"
+                CssClass="table table-hover w-100 border-dark bg-light"
                 ID="dgvPrioridades" runat="server"
                 DataKeyNames="Id"
                 Style="text-align: center">
@@ -40,7 +40,7 @@
          
            <%-- <a class="btn btn-primary btn-block" href="FormularioAdministracion?categoria=tipo.aspx">Agregar tipo</a>--%>
               <asp:GridView AutoGenerateColumns="false"
-                CssClass="table table-striped w-100"
+                CssClass="table table-hover w-100 border-dark bg-light"
                 ID="dgvTipoIncidencias" runat="server"
                 DataKeyNames="Id"
                 Style="text-align: center">

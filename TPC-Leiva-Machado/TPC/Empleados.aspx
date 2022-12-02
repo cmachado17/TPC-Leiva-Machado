@@ -6,18 +6,19 @@
     <div class="text-center" style="padding-bottom:30px">
         <h1>Empleados</h1>
     </div>
-
+    <div class="card px-5 pt-3  pb-2  bg-light mb-2">
      <div class="mb-3 pb-3 d-flex align-items-center" >  
-         <div style="font-size: 20px; font-weight: bold; margin-right: 5px;" >
+         <div style="font-size: 15px; font-weight: bold; margin-right: 5px;" >
                 <asp:Label Text="Busqueda:" runat="server" />
             </div>     
         <asp:TextBox runat="server" ID="FiltroEmpleados" AutoPostBack="true" OnTextChanged="FiltroEmpleados_TextChanged" CssClass="form-control" placeholder="Ingrese el nombre del empleado.." />
     </div>
+        </div>
 
 
 
     <asp:GridView AutoGenerateColumns="false"
-        CssClass="table table-striped w-100 bg-light"
+        CssClass="table table-hover w-100 border-dark bg-light"
         ID="dgvEmpleados" runat="server"
         DataKeyNames="Id" OnSelectedIndexChanged="dgvEmpleados_SelectedIndexChanged"
         OnPageIndexChanging="dgvEmpleados_PageIndexChanging"
