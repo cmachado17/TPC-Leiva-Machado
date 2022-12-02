@@ -14,18 +14,25 @@
         <%}%>
     </div>
 
+   <div class="card bg-light px-5 py-2 mb-3" >
     <div class="mb-3">
+       
+          
         <asp:Label ID="lbDescripcion" runat="server" Text="Nombre" CssClass="form-label">Descripcion</asp:Label>
-        <div class="row">
-            <div class="col-6">
+          <div class="row"> 
+        <div class="col-6">
                 <asp:TextBox ID="txbDescripcion" runat="server" CssClass="form-control"></asp:TextBox>
             </div>
-            <div class="col-3">
+
+
+            <div class="col-3 text-center">
                 <asp:Button AutoPostBack="false" OnClick="btnConfirmar_Click" ID="btnConfirmar" runat="server" Text="Confirmar" CssClass="btn btn-primary btn-block my-1 mx-5" />
             </div>
-            <div class="col-3">
-                <a href="Administracion.aspx" class="btn btn-danger btn-block my-1 mx-5">Cancelar</a>
+            <div class="col-3 text-center" style="padding-right:30px">
+               <asp:Button AutoPostBack="false" OnClick="btnCancelar_Click" ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-danger btn-block my-1 mx-5" />
             </div>
+        
+      </div>
         </div>
-    </div>
+       </div>
 </asp:Content>

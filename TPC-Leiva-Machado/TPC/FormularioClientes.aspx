@@ -14,6 +14,8 @@
       <h1>Agregar cliente</h1>
         <%}%>
     </div>
+
+  <div class="card bg-light px-5 py-2 mb-3">
     <div class="mb-3">
         <asp:TextBox runat="server" ID="txtId" CssClass="form-control" />
     </div>
@@ -43,6 +45,9 @@
         <asp:TextBox ID="txbTelefono" runat="server" CssClass="form-control"></asp:TextBox>
          <asp:TextBox Style="background: none; color: crimson; border-style: none" ID="txtErrorTelefonoC" runat="server" CssClass="form-control"></asp:TextBox>
     </div>
+ </div>
+
+
     <div class="mb-3">
         <asp:Label ID="lbError" runat="server" Text="Revisar los campos marcados" CssClass="form-label">Revisar los campos marcados</asp:Label>
     </div>

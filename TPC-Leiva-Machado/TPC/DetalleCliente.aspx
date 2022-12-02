@@ -7,7 +7,7 @@
     </div>
 
     <asp:GridView AutoGenerateColumns="false"
-        CssClass="table table-striped w-100"
+        CssClass="table table-hover w-100 border-dark bg-light"
         ID="dgvDetalleCliente" runat="server"
         DataKeyNames="Id"
         AllowPaging="true" PageSize="10"

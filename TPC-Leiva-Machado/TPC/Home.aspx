@@ -37,38 +37,38 @@
 
     <div class="mt-5 card bg-light mb-3 p-3">
         <div class="text-center" style="padding-bottom: 5px">
-            <p class="text-primary">¿Cómo ver un incidente?</p>
-            <p>
+            <p class="text-primary" style="font-weight: bold; font-size: 20px">¿Cómo ver un incidente?</p>
+            <p style="color:black; font-weight: bold">
                 Para el perfil administrador y supervisor se habilitará el menú Incidentes; ingresando a la lupa de detalle se podrán ver más datos.
                 El perfil telefonista deberá ingresar en Area Personal  y verá las incidencias asignadas.
             </p>
         </div>
 
         <div class="text-center" style="padding-bottom: 5px">
-            <p class="text-primary">¿Cómo cargar un incidente?</p>
-            <p>
+            <p class="text-primary" style="font-weight: bold; font-size: 20px">¿Cómo cargar un incidente?</p>
+            <p style="color:black; font-weight: bold">
                 Solo podrá cargar el Telefonista ingresando a la opción del menú Clientes, 
         ahí debe presionar el botón cargar incidencia, completar el formulario y por último el botón Ingresar.
             </p>
         </div>
         <div class="text-center" style="padding-bottom: 5px">
-            <p class="text-primary">¿Que cambios se pueden hacer en el incidente?</p>
-            <p>
+            <p class="text-primary" style="font-weight: bold; font-size: 20px">¿Que cambios se pueden hacer en el incidente?</p>
+            <p style="color:black; font-weight: bold">
                 El perfil Telefonista podrá modificar, resolver o cerrar ingresando al Area Personal, a mis incidencias asignadas.
                 El perfil Supervisor podrá ingresar al menú Incidentes, en la lupa reasignar y gestionará el cambio de empleado asignado.
             </p>
         </div>
         <div class="text-center" style="padding-bottom: 5px">
-            <p class="text-primary">¿Qué es el Area Personal?</p>
-            <p>
+            <p class="text-primary" style="font-weight: bold; font-size: 20px">¿Qué es el Area Personal?</p>
+            <p style="color:black; font-weight: bold">
                 Es donde se podrán ver los datos personales, cambiar la imagen, cambiar la clave asignada por el Administrador.
                 Además en el caso de los Telefonistas, es donde gestionarán las incidencias.
             </p>
         </div>
 
         <div class="text-center" style="padding-bottom: 5px">
-            <p class="text-primary">¿Qué opciones hay en clientes?</p>
-            <p>
+            <p class="text-primary" style="font-weight: bold; font-size: 20px">¿Qué opciones hay en clientes?</p>
+            <p style="color:black; font-weight: bold">
                 Las opciones se habilitarán de acuerdo al perfil. 
         Se puede cargar un cliente haciendo click en el botón agregar Cliente, se puede cargar una incidencia presionando cargar incidencia en el listado; se puede modificar el cliente
         haciendo click en el lapiz y se puede ver mas informacion haciendo click en la lupa del detalle.
@@ -76,8 +76,8 @@
         </div>
 
         <div class="text-center" style="padding-bottom: 5px">
-            <p class="text-primary">¿Como agregar y/o eliminar un usuario?</p>
-            <p>
+            <p class="text-primary" style="font-weight: bold; font-size: 20px">¿Como agregar y/o eliminar un usuario?</p>
+            <p style="color:black; font-weight: bold">
                 Ingresar a la opción del menú Empleados, que se habilitará de acuerdo al perfil. 
         Para agregar hacer click en el boton agregar empleado debajo del listado, completar el formulario y luego 
         el botón confirmar. Para eliminar el empleado se deberá hacer click
@@ -89,7 +89,7 @@
     </div>
 
     <div class="text-center">
-        <h2>Contacto</h2>
+        <h2 style="font-weight: bold; font-size: 40px">Contacto</h2>
     </div>
 
 
